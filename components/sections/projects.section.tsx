@@ -42,8 +42,11 @@ export const ProjectsSection = ({ projects }: { projects: Project[] }) => {
 	}, [projects.length]);
 
 	return (
-		<section id="projects" className="w-full py-12">
-			<div className="px-4 md:px-6 relative">
+		<section
+			id="projects"
+			className="flex justify-center w-full dark:bg-grid-small-white/[0.2]"
+		>
+			<div className="w-full px-4 md:px-6 relative container">
 				<div className="flex items-center justify-between mb-8">
 					<div className="space-y-1">
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
