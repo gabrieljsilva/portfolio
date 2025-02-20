@@ -8,12 +8,10 @@ import { SiGithub, SiInstagram, SiLinkedin } from "react-icons/si";
 export default function LinkTree() {
 	return (
 		<div className="h-dvh w-full bg-gradient-to-b from-muted to-background p-4">
-			{/* Theme Switcher */}
 			<div className="fixed right-4 top-4">
 				<ThemeToggle />
 			</div>
 
-			{/* Main Content - Centered */}
 			<div className="flex min-h-dvh items-center justify-center">
 				<div className="mx-auto max-w-md space-y-8">
 					<div className="flex flex-col items-center space-y-4">
