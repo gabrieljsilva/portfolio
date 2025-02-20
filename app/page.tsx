@@ -87,13 +87,13 @@ export default function Page() {
 	];
 
 	return (
-		<div className="w-full">
+		<div id={"home"} className="w-full">
 			<div className="relative min-h-screen w-full overflow-hidden bg-background">
 				<div className="absolute inset-0 z-0">
 					<div className="relative h-full w-full bg-grid-small-black/[0.2] dark:bg-grid-small-white/[0.2]">
 						<div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
 						<div className="absolute left-[-20%] top-[-20%] h-[800px] w-[800px] animate-pulse rounded-full bg-primary/20 blur-3xl filter dark:bg-primary/10" />
-						<div className="absolute right-[-20%] bottom-[10%] h-[400px] w-[400px] animate-pulse rounded-full bg-primary/20 blur-3xl filter dark:bg-primary/10" />
+						<div className="absolute right-[-20%] top-[50%] translate-y-[-50%] h-[600px] w-[600px] animate-pulse rounded-full bg-primary/20 blur-3xl filter dark:bg-primary/10" />
 					</div>
 				</div>
 
@@ -150,7 +150,11 @@ export default function Page() {
 					</div>
 				</div>
 			</div>
-			<div className={"flex justify-center dark:bg-grid-small-white/[0.2]"}>
+
+			<div
+				id={"about"}
+				className={"flex justify-center dark:bg-grid-small-white/[0.2]"}
+			>
 				<div className={"container dark:bg-grid-small-white/[0.2]"}>
 					<section className="w-full relative overflow-hidden dark:bg-grid-small-white/[0.2] py-24">
 						<div className="absolute inset-0 -z-10 opacity-5">
@@ -216,8 +220,9 @@ export default function Page() {
 							</div>
 						</div>
 					</section>
-					<section className="w-full py-12 bg-gradient-to-b from-background to-muted/20">
-						<div className="container px-4 md:px-6 relative">
+
+					<section id={"projects"} className="w-full py-12 to-muted/20">
+						<div className="px-4 md:px-6 relative">
 							<div className="flex items-center justify-between mb-8">
 								<div className="space-y-1">
 									<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -257,7 +262,7 @@ export default function Page() {
 
 								<div
 									id="projects-container"
-									className="flex overflow-x-auto gap-4 pb-4 -mx-4 px-4 snap-x snap-mandatory scroll-smooth hide-scrollbar"
+									className="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory scroll-smooth hide-scrollbar"
 								>
 									{projects.map((project) => (
 										<Card

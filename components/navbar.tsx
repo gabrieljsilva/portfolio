@@ -15,6 +15,7 @@ import Link from "next/link";
 import * as React from "react";
 
 const navigationItems = [
+	{ title: "Home", href: "#home" },
 	{ title: "About", href: "#about" },
 	{ title: "Projects", href: "#projects" },
 	{ title: "Experiences", href: "#experiences" },
