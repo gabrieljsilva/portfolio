@@ -1,18 +1,13 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-	ChevronLeft,
-	ChevronRight,
-	Github,
-	Linkedin,
-	Mail,
-	MapPin,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import {
 	SiFirebase,
+	SiGithub,
+	SiLinkedin,
 	SiMongodb,
 	SiNextdotjs,
 	SiNodedotjs,
@@ -30,7 +25,7 @@ const techIcons = {
 	TypeScript: SiTypescript,
 	"Node.js": SiNodedotjs,
 	MongoDB: SiMongodb,
-	PostgreSQL: SiPostgresql,
+	Postgresql: SiPostgresql,
 	Prisma: SiPrisma,
 	Firebase: SiFirebase,
 };
@@ -59,7 +54,7 @@ export default function Page() {
 			description:
 				"Full-stack e-commerce solution with real-time inventory management",
 			image: "/placeholder.svg",
-			technologies: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
+			technologies: ["Next.js", "TypeScript", "Postgresql", "Prisma"],
 		},
 		{
 			id: 2,
@@ -133,7 +128,7 @@ export default function Page() {
 								className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
 							>
 								<span className="sr-only">GitHub Profile</span>
-								<Github className="h-6 w-6" />
+								<SiGithub className="h-6 w-6" />
 							</Link>
 							<Link
 								href="https://linkedin.com"
@@ -142,7 +137,7 @@ export default function Page() {
 								className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
 							>
 								<span className="sr-only">LinkedIn Profile</span>
-								<Linkedin className="h-6 w-6" />
+								<SiLinkedin className="h-6 w-6" />
 							</Link>
 							<Link
 								href="mailto:contact@example.com"
