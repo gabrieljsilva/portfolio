@@ -122,29 +122,26 @@ export default function Page() {
 
 						<div className="flex items-center justify-center gap-4">
 							<Link
-								href="https://github.com"
+								href="https://github.com/gabrieljsilva"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+								className="text-foreground hover:text-primary transition-colors"
 							>
-								<span className="sr-only">GitHub Profile</span>
-								<SiGithub className="h-6 w-6" />
+								<SiGithub className="w-6 h-6" />
 							</Link>
 							<Link
-								href="https://linkedin.com"
+								href="https://www.linkedin.com/in/gabrieldjs21/"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+								className="text-foreground hover:text-primary transition-colors"
 							>
-								<span className="sr-only">LinkedIn Profile</span>
-								<SiLinkedin className="h-6 w-6" />
+								<SiLinkedin className="w-6 h-6" />
 							</Link>
 							<Link
-								href="mailto:contact@example.com"
-								className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+								href="mailto:contato@gabrieljs.dev"
+								className="text-foreground hover:text-primary transition-colors"
 							>
-								<span className="sr-only">Email Contact</span>
-								<Mail className="h-6 w-6" />
+								<Mail className="w-6 h-6" />
 							</Link>
 						</div>
 					</div>

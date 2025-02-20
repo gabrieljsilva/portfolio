@@ -24,29 +24,39 @@ const navigationItems = [
 ];
 
 export default function Navbar() {
-	const [active, setActive] = React.useState("");
+	const [active, setActive] = React.useState("home");
 
-	// Handle scroll to update active section
 	React.useEffect(() => {
-		const handleScroll = () => {
-			const sections = navigationItems.map((item) => item.href.substring(1));
-			const scrollPosition = window.scrollY + 100;
+		const hash = window.location.hash.substring(1);
+		setActive(hash || "home");
 
-			const currentSection = sections.find((section) => {
-				const element = document.getElementById(section);
-				if (element) {
-					const offsetTop = element.offsetTop;
-					const offsetBottom = offsetTop + element.offsetHeight;
-					return scrollPosition >= offsetTop && scrollPosition < offsetBottom;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+				if (visibleEntries.length > 0) {
+					const topEntry = visibleEntries.reduce((prev, curr) =>
+						prev.boundingClientRect.top < curr.boundingClientRect.top
+							? prev
+							: curr,
+					);
+					setActive(topEntry.target.id);
 				}
-				return false;
-			});
+			},
+			{
+				root: null,
+				rootMargin: "-100px 0px 0px 0px",
+				threshold: [0, 0.25, 0.5, 0.75, 1],
+			},
+		);
 
-			setActive(currentSection || "");
-		};
+		for (const item of navigationItems) {
+			const element = document.getElementById(item.href.substring(1));
+			if (element) {
+				observer.observe(element);
+			}
+		}
 
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
+		return () => observer.disconnect();
 	}, []);
 
 	return (
@@ -54,10 +64,9 @@ export default function Navbar() {
 			<div className="flex h-16 items-center justify-between px-8">
 				<Link
 					href="/"
-					className="text-2xl font-bold tracking-tighter transition-colors hover:text-primary relative group"
+					className="text-2xl font-bold tracking-tighter transition-colors hover:text-primary"
 				>
 					Gabriel Silva
-					<span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
 				</Link>
 
 				{/* Desktop Navigation */}
@@ -68,18 +77,12 @@ export default function Navbar() {
 								<Link href={item.href} legacyBehavior passHref>
 									<NavigationMenuLink
 										className={cn(
-											"group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 relative",
+											"group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
 											active === item.href.substring(1) &&
-												"text-primary font-semibold",
+												"bg-accent text-primary font-semibold",
 										)}
 									>
 										{item.title}
-										<span
-											className={cn(
-												"absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 ease-out group-hover:w-full",
-												active === item.href.substring(1) && "w-full",
-											)}
-										/>
 									</NavigationMenuLink>
 								</Link>
 							</NavigationMenuItem>
@@ -111,18 +114,12 @@ export default function Navbar() {
 									key={item.title}
 									href={item.href}
 									className={cn(
-										"text-lg font-medium transition-colors hover:text-primary relative group px-2 py-1",
+										"text-lg font-medium transition-colors hover:text-primary px-2 py-1 rounded-md",
 										active === item.href.substring(1) &&
-											"text-primary font-semibold",
+											"bg-accent text-primary font-semibold",
 									)}
 								>
 									{item.title}
-									<span
-										className={cn(
-											"absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 ease-out group-hover:w-full",
-											active === item.href.substring(1) && "w-full",
-										)}
-									/>
 								</Link>
 							))}
 						</nav>
