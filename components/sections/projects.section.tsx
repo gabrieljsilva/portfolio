@@ -26,15 +26,24 @@ export const ProjectsSection = ({ projects }: { projects: Project[] }) => {
 	};
 
 	useEffect(() => {
-		setMounted(true); // Indicate client-side mounting
+		setMounted(true);
 		const container = document.getElementById("projects-container");
 		if (!container) return;
 
 		const handleScroll = () => {
 			const scrollPosition = container.scrollLeft;
-			const itemWidth = container.clientWidth;
-			const newIndex = Math.round(scrollPosition / itemWidth);
-			setActiveIndex(Math.min(newIndex, projects.length - 1));
+			const containerWidth = container.clientWidth;
+			const scrollWidth = container.scrollWidth;
+			const maxScroll = scrollWidth - containerWidth;
+
+			if (maxScroll <= 0) {
+				setActiveIndex(0);
+				return;
+			}
+
+			const scrollFraction = scrollPosition / maxScroll;
+			const newIndex = Math.round(scrollFraction * (projects.length - 1));
+			setActiveIndex(newIndex);
 		};
 
 		container.addEventListener("scroll", handleScroll);
