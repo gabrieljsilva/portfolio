@@ -12,7 +12,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import Link from "next/link";
-import * as React from "react";
+import { useEffect, useState } from "react";
 
 const navigationItems = [
 	{ title: "Home", href: "#home" },
@@ -24,15 +24,16 @@ const navigationItems = [
 ];
 
 export default function Navbar() {
-	const [active, setActive] = React.useState("home");
+	const [active, setActive] = useState("home");
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const hash = window.location.hash.substring(1);
 		setActive(hash || "home");
 
 		const observer = new IntersectionObserver(
 			(entries) => {
 				const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+
 				if (visibleEntries.length > 0) {
 					const topEntry = visibleEntries.reduce((prev, curr) =>
 						prev.boundingClientRect.top < curr.boundingClientRect.top
@@ -44,19 +45,29 @@ export default function Navbar() {
 			},
 			{
 				root: null,
-				rootMargin: "-100px 0px 0px 0px",
+				rootMargin: "-64px 0px 0px 0px", // Adjusted for navbar height
 				threshold: [0, 0.25, 0.5, 0.75, 1],
 			},
 		);
 
 		for (const item of navigationItems) {
 			const element = document.getElementById(item.href.substring(1));
-			if (element) {
-				observer.observe(element);
-			}
+			if (element) observer.observe(element);
 		}
 
-		return () => observer.disconnect();
+		// Ensure "home" is active when at the top
+		const handleScroll = () => {
+			if (window.scrollY === 0) {
+				setActive("home");
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			observer.disconnect();
+			window.removeEventListener("scroll", handleScroll);
+		};
 	}, []);
 
 	return (
@@ -87,7 +98,6 @@ export default function Navbar() {
 								</Link>
 							</NavigationMenuItem>
 						))}
-
 						<ThemeToggle />
 					</NavigationMenuList>
 				</NavigationMenu>
