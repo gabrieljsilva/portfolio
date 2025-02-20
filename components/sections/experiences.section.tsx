@@ -133,7 +133,7 @@ export default function ExperienceSection() {
 
 	return (
 		<section
-			id={"experiencies"}
+			id={"experiences"}
 			className="flex justify-center dark:bg-grid-small-white/[0.2] mt-24"
 		>
 			<div className="container px-4 mt-8 md:px-6">
