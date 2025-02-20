@@ -44,7 +44,6 @@ interface Experience {
 	detailedDescription?: string;
 	achievements?: string[];
 	technologies: Technology[];
-	projectTypes: string[];
 }
 
 const experiences: Experience[] = [
@@ -70,7 +69,6 @@ const experiences: Experience[] = [
 			{ name: "Tailwind CSS", icon: SiTailwindcss },
 			{ name: "GraphQL", icon: SiGraphql },
 		],
-		projectTypes: ["Healthcare", "Enterprise", "SaaS"],
 	},
 	{
 		id: 2,
@@ -94,7 +92,6 @@ const experiences: Experience[] = [
 			{ name: "Express", icon: SiExpress },
 			{ name: "AWS", icon: SiAmazonwebservices },
 		],
-		projectTypes: ["FinTech", "E-commerce"],
 	},
 	{
 		id: 3,
@@ -118,7 +115,6 @@ const experiences: Experience[] = [
 			{ name: "HTML5", icon: SiHtml5 },
 			{ name: "Redux", icon: SiRedux },
 		],
-		projectTypes: ["HR", "Marketing"],
 	},
 ];
 
@@ -161,17 +157,6 @@ export default function ExperienceSection() {
 								transition={{ duration: 0.5, delay: index * 0.1 }}
 							>
 								<Card className="relative overflow-hidden">
-									<div className="absolute right-4 top-4 flex gap-2">
-										{experience.projectTypes.map((type) => (
-											<Badge
-												key={type}
-												variant="secondary"
-												className="bg-primary/10 text-primary"
-											>
-												{type}
-											</Badge>
-										))}
-									</div>
 									<CardHeader className="pb-4">
 										<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 											<div className="space-y-1">
