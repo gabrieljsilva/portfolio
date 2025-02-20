@@ -8,7 +8,7 @@ export function AboutMeSection() {
 				<div className="absolute left-20 bottom-20 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
 			</div>
 
-			<div className="px-4 md:px-6">
+			<div className="container mx-auto px-4 md:px-6">
 				<div className="flex flex-col items-start gap-8">
 					<h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
 						About Me
@@ -51,7 +51,7 @@ export function AboutMeSection() {
 							</div>
 						</div>
 
-						<div className="relative aspect-square overflow-hidden rounded-full border bg-muted lg:h-[400px]">
+						<div className="hidden xl:block relative aspect-square overflow-hidden rounded-full border bg-muted lg:h-[400px]">
 							<img
 								src="/placeholder.svg?height=400&width=400"
 								alt="Profile"
