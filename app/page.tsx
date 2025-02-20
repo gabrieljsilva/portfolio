@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import {
 	SiFirebase,
 	SiGithub,
@@ -31,6 +32,10 @@ const techIcons = {
 };
 
 export default function Page() {
+	const [activeIndex, setActiveIndex] = useState(0);
+	// mounted flag to defer client-only rendering
+	const [mounted, setMounted] = useState(false);
+
 	const scrollLeft = () => {
 		const container = document.getElementById("projects-container");
 		if (container) {
@@ -86,8 +91,24 @@ export default function Page() {
 		},
 	];
 
+	useEffect(() => {
+		setMounted(true); // indicate client-side mounting
+		const container = document.getElementById("projects-container");
+		if (!container) return;
+
+		const handleScroll = () => {
+			const scrollPosition = container.scrollLeft;
+			const itemWidth = container.clientWidth;
+			const newIndex = Math.round(scrollPosition / itemWidth);
+			setActiveIndex(Math.min(newIndex, projects.length - 1));
+		};
+
+		container.addEventListener("scroll", handleScroll);
+		return () => container.removeEventListener("scroll", handleScroll);
+	}, []);
+
 	return (
-		<div id={"home"} className="w-full">
+		<div id="home" className="w-full">
 			<div className="relative min-h-screen w-full overflow-hidden bg-background">
 				<div className="absolute inset-0 z-0">
 					<div className="relative h-full w-full bg-grid-small-black/[0.2] dark:bg-grid-small-white/[0.2]">
@@ -112,15 +133,19 @@ export default function Page() {
 						</p>
 
 						<div className="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-							<Button size="lg" className="min-w-[160px]">
-								View Projects
-							</Button>
+							<Link href={"#projects"}>
+								<Button size="lg" className="min-w-[160px]">
+									View Projects
+								</Button>
+							</Link>
+
 							<Button size="lg" variant="outline" className="min-w-[160px]">
 								Get in Touch
 							</Button>
 						</div>
 
 						<div className="flex items-center justify-center gap-4">
+							{/* Social links – ensure these aren’t wrapped by another link */}
 							<Link
 								href="https://github.com/gabrieljsilva"
 								target="_blank"
@@ -149,10 +174,10 @@ export default function Page() {
 			</div>
 
 			<div
-				id={"about"}
-				className={"flex justify-center dark:bg-grid-small-white/[0.2]"}
+				id="about"
+				className="flex justify-center dark:bg-grid-small-white/[0.2]"
 			>
-				<div className={"container dark:bg-grid-small-white/[0.2]"}>
+				<div className="container dark:bg-grid-small-white/[0.2]">
 					<section className="w-full relative overflow-hidden dark:bg-grid-small-white/[0.2] py-24">
 						<div className="absolute inset-0 -z-10 opacity-5">
 							<div className="absolute right-20 top-20 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
@@ -218,7 +243,7 @@ export default function Page() {
 						</div>
 					</section>
 
-					<section id={"projects"} className="w-full py-12 to-muted/20">
+					<section id="projects" className="w-full py-12">
 						<div className="px-4 md:px-6 relative">
 							<div className="flex items-center justify-between mb-8">
 								<div className="space-y-1">
@@ -252,7 +277,6 @@ export default function Page() {
 								</div>
 							</div>
 
-							{/* Scroll container with fade effects */}
 							<div className="relative">
 								<div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none" />
 								<div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none" />
@@ -262,57 +286,68 @@ export default function Page() {
 									className="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory scroll-smooth hide-scrollbar"
 								>
 									{projects.map((project) => (
-										<Card
+										<div
 											key={project.id}
-											className="flex-shrink-0 w-[280px] sm:w-[320px] lg:w-[380px] snap-center group hover:shadow-lg transition-all duration-300 overflow-hidden"
+											className="flex-shrink-0 w-[280px] sm:w-[320px] lg:w-[380px] snap-center"
 										>
-											<CardContent className="p-0">
-												<div className="relative h-48 w-full overflow-hidden">
-													<Image
-														src={project.image || "/placeholder.svg"}
-														alt={project.title}
-														fill
-														className="object-cover transition-transform duration-500 group-hover:scale-105"
-													/>
-													<div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-background/5" />
-												</div>
-												<div className="p-6 space-y-4">
-													<h3 className="text-xl font-bold group-hover:text-primary transition-colors">
-														{project.title}
-													</h3>
-													<p className="text-sm text-muted-foreground line-clamp-2">
-														{project.description}
-													</p>
-													<div className="flex flex-wrap gap-2">
-														{project.technologies.map((tech) => {
-															const Icon =
-																techIcons[tech as keyof typeof techIcons];
-															return (
-																<div
-																	key={tech}
-																	className="flex items-center gap-1.5 text-sm bg-muted px-2.5 py-1 rounded-full"
-																>
-																	<Icon className="h-4 w-4" />
-																	<span className="text-xs font-medium">
-																		{tech}
-																	</span>
-																</div>
-															);
-														})}
+											<Card className="h-full group hover:shadow-lg transition-all duration-300 overflow-hidden">
+												<CardContent className="p-0">
+													<div className="relative h-48 w-full overflow-hidden">
+														<Image
+															src={project.image || "/placeholder.svg"}
+															alt={project.title}
+															fill
+															className="object-cover transition-transform duration-500 group-hover:scale-105"
+														/>
+														<div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-background/5" />
 													</div>
-												</div>
-											</CardContent>
-										</Card>
+													<div className="p-6 space-y-4">
+														<h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+															{project.title}
+														</h3>
+														<p className="text-sm text-muted-foreground line-clamp-2">
+															{project.description}
+														</p>
+														<div className="flex flex-wrap gap-2">
+															{project.technologies.map((tech) => {
+																const Icon =
+																	techIcons[tech as keyof typeof techIcons];
+																return (
+																	<div
+																		key={tech}
+																		className="flex items-center gap-1.5 text-sm bg-muted px-2.5 py-1 rounded-full"
+																	>
+																		<Icon className="h-4 w-4" />
+																		<span className="text-xs font-medium">
+																			{tech}
+																		</span>
+																	</div>
+																);
+															})}
+														</div>
+													</div>
+												</CardContent>
+											</Card>
+										</div>
 									))}
 								</div>
 							</div>
 
-							{/* Mobile scroll indicators */}
-							<div className="mt-4 flex justify-center gap-1 md:hidden">
-								<div className="h-1.5 w-10 rounded-full bg-primary" />
-								<div className="h-1.5 w-1.5 rounded-full bg-muted" />
-								<div className="h-1.5 w-1.5 rounded-full bg-muted" />
-							</div>
+							{/* Render mobile dots only after mounting to prevent hydration mismatches */}
+							{mounted && (
+								<div className="mt-4 flex justify-center gap-1 md:hidden">
+									{projects.map((project, index) => (
+										<div
+											key={project.id}
+											className={`h-1.5 rounded-full transition-all duration-300 ${
+												index === activeIndex
+													? "w-10 bg-primary"
+													: "w-1.5 bg-muted"
+											}`}
+										/>
+									))}
+								</div>
+							)}
 						</div>
 					</section>
 				</div>
