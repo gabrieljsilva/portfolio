@@ -1,30 +1,20 @@
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
 import { MapPin } from "lucide-react";
 
 export function AboutMeSection() {
 	return (
-		<section className="relative overflow-hidden bg-background py-24">
-			{/* Decorative Elements */}
+		<section className="w-full relative overflow-hidden dark:bg-grid-small-white/[0.2] py-24">
 			<div className="absolute inset-0 -z-10 opacity-5">
-				<div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
-				<div className="absolute left-0 bottom-0 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
+				<div className="absolute right-20 top-20 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
+				<div className="absolute left-20 bottom-20 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
 			</div>
 
-			<div className="container px-4 md:px-6">
+			<div className="px-4 md:px-6">
 				<div className="flex flex-col items-start gap-8">
-					{/* Section Title */}
 					<h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
 						About Me
 					</h2>
 
 					<div className="grid gap-8 lg:grid-cols-[2fr,1fr]">
-						{/* Main Content */}
 						<div className="space-y-6">
 							<h3 className="text-2xl font-semibold tracking-tight">
 								Gabriel de Jesus Silva
@@ -61,7 +51,6 @@ export function AboutMeSection() {
 							</div>
 						</div>
 
-						{/* Profile Image */}
 						<div className="relative aspect-square overflow-hidden rounded-full border bg-muted lg:h-[400px]">
 							<img
 								src="/placeholder.svg?height=400&width=400"

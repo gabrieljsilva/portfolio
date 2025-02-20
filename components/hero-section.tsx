@@ -5,17 +5,14 @@ import Link from "next/link";
 export default function HeroSection() {
 	return (
 		<div className="relative min-h-screen w-full overflow-hidden bg-background">
-			{/* Gradient Pattern Background */}
 			<div className="absolute inset-0 z-0">
 				<div className="relative h-full w-full bg-grid-small-black/[0.2] dark:bg-grid-small-white/[0.2]">
-					{/* Gradient Overlays */}
 					<div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
 					<div className="absolute left-[-20%] top-[-20%] h-[800px] w-[800px] animate-pulse rounded-full bg-primary/20 blur-3xl filter dark:bg-primary/10" />
-					<div className="absolute right-[-20%] bottom-[-20%] h-[800px] w-[800px] animate-pulse rounded-full bg-primary/20 blur-3xl filter dark:bg-primary/10" />
+					<div className="absolute right-[-20%] bottom-[10%] h-[400px] w-[400px] animate-pulse rounded-full bg-primary/20 blur-3xl filter dark:bg-primary/10" />
 				</div>
 			</div>
 
-			{/* Content */}
 			<div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 py-20">
 				<div className="text-center">
 					<h2 className="mb-2 inline-block rounded-full bg-muted px-4 py-1.5 text-sm font-semibold">
@@ -30,7 +27,6 @@ export default function HeroSection() {
 						exceptional user experiences.
 					</p>
 
-					{/* CTA Buttons */}
 					<div className="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
 						<Button size="lg" className="min-w-[160px]">
 							View Projects
@@ -40,7 +36,6 @@ export default function HeroSection() {
 						</Button>
 					</div>
 
-					{/* Social Links */}
 					<div className="flex items-center justify-center gap-4">
 						<Link
 							href="https://github.com"
