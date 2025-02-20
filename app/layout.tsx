@@ -3,15 +3,13 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar";
 import type { ReactNode } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Gabriel Silva - Full Stack Developer",
-	description: "Full stack developer portfolio showcasing projects and skills",
-	generator: "v0.dev",
+	description: "Full stack developer portfolio",
 };
 
 export default function RootLayout({
@@ -33,7 +31,6 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<Navbar />
 					{children}
 				</ThemeProvider>
 			</body>
