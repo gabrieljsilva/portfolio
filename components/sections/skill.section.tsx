@@ -230,81 +230,67 @@ export default function SkillsSection() {
 	];
 
 	return (
-		<TooltipProvider>
-			<section
-				id={"skills"}
-				className="flex justify-center dark:bg-grid-small-white/[0.2] mt-24"
-			>
-				<div className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-5">
-					<div className="blur-[106px] h-56 bg-gradient-to-br from-gray-300 to-gray-500" />
-					<div className="blur-[106px] h-32 bg-gradient-to-r from-gray-500 to-gray-300" />
+		<section className="flex justify-center w-full dark:bg-grid-small-white/[0.2]">
+			<div className="container w-full px-4 md:px-6 py-24 relative">
+				<div className="absolute inset-0 -z-10 opacity-5">
+					<div className="absolute right-20 top-20 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
+					<div className="absolute left-20 bottom-20 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
 				</div>
 
-				<div className="container px-4 md:px-6 relative">
-					<div className="flex flex-col space-y-4">
-						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5 }}
-						>
-							<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-								Skills & Expertise
-							</h2>
-							<p className="max-w-[700px] text-muted-foreground md:text-xl mt-4">
-								Comprehensive technical expertise across the full software
-								development stack
-							</p>
-						</motion.div>
-					</div>
+				<div className="space-y-1 mb-8">
+					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+						Skills & Expertise
+					</h2>
+					<p className="text-muted-foreground">
+						Technologies and tools I work with
+					</p>
+				</div>
 
-					<motion.div
-						variants={container}
-						initial="hidden"
-						animate="show"
-						className="grid gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3"
-					>
-						{skills.map((category) => (
-							<motion.div key={category.category} variants={item}>
-								<Card className="h-full hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-gray-50/50 to-white dark:from-gray-900/50 dark:to-gray-800/50 backdrop-blur-sm">
-									<CardContent className="p-6">
-										<div className="flex items-center space-x-4 mb-6">
-											<div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800">
-												{category.icon}
-											</div>
-											<div>
-												<h3 className="text-xl font-semibold">
-													{category.category}
-												</h3>
-												<p className="text-sm text-muted-foreground">
-													{category.description}
-												</p>
-											</div>
+				<motion.div
+					variants={container}
+					initial="hidden"
+					animate="show"
+					className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+				>
+					{skills.map((section) => (
+						<motion.div key={section.category} variants={item}>
+							<Card className="hover:bg-muted/50 transition-colors">
+								<CardContent className="p-6">
+									<div className="flex items-center gap-4 mb-4">
+										{section.icon}
+										<div>
+											<h3 className="font-semibold">{section.category}</h3>
+											<p className="text-sm text-muted-foreground">
+												{section.description}
+											</p>
 										</div>
-
-										<div className="grid grid-cols-2 gap-4">
-											{category.skills.map((skill) => (
-												<Tooltip key={skill.name}>
-													<TooltipTrigger asChild>
-														<div className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-															<div className="text-xl opacity-70 group-hover:opacity-100">
-																{skill.icon}
-															</div>
-															<span className="font-medium">{skill.name}</span>
-														</div>
+									</div>
+									<div className="flex flex-wrap gap-2">
+										{section.skills.map((skill) => (
+											<TooltipProvider key={skill.name}>
+												<Tooltip>
+													<TooltipTrigger>
+														<Badge
+															variant="secondary"
+															className="flex items-center gap-1"
+														>
+															{skill.icon}
+															{skill.name}
+														</Badge>
 													</TooltipTrigger>
 													<TooltipContent>
 														<p>{skill.description}</p>
 													</TooltipContent>
 												</Tooltip>
-											))}
-										</div>
-									</CardContent>
-								</Card>
-							</motion.div>
-						))}
-					</motion.div>
-				</div>
-			</section>
-		</TooltipProvider>
+											</TooltipProvider>
+										))}
+									</div>
+								</CardContent>
+							</Card>
+						</motion.div>
+					))}
+				</motion.div>
+			</div>
+		</section>
 	);
 }
