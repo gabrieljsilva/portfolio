@@ -15,16 +15,7 @@ import {
 	SheetContent,
 	SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-	Book,
-	Briefcase,
-	Code,
-	Code2,
-	Folder,
-	Home,
-	Info,
-	Menu,
-} from "lucide-react";
+import { Book, Briefcase, Code, Folder, Home, Info, Menu } from "lucide-react";
 import Link from "next/link";
 import { type MouseEvent, useState } from "react";
 
@@ -35,28 +26,33 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-	{ title: "Home", href: "#home", icon: Home },
-	{ title: "About", href: "#about", icon: Info },
-	{ title: "Projects", href: "#projects", icon: Folder },
-	{ title: "Experiences", href: "#experiences", icon: Briefcase },
-	{ title: "Skills", href: "#skills", icon: Code },
-	{ title: "Blog", href: "#blog", icon: Book },
+	{ title: "Home", href: "/#home", icon: Home },
+	{ title: "About", href: "/#about", icon: Info },
+	{ title: "Projects", href: "/#projects", icon: Folder },
+	{ title: "Experiences", href: "/#experiences", icon: Briefcase },
+	{ title: "Skills", href: "/#skills", icon: Code },
+	{ title: "Blog", href: "/blog", icon: Book }, // Ensure the Blog link has a leading slash.
 ];
 
 export default function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleNavigation = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
-		e.preventDefault();
-		const targetId = href.substring(1);
-		const element = document.getElementById(targetId);
-
-		if (element) {
-			element.scrollIntoView({ behavior: "smooth" });
-			window.history.pushState(null, "", href);
+		const isInPageLink = href.startsWith("/#");
+		// Only handle in-page scrolling if already on the home page.
+		if (isInPageLink && window.location.pathname === "/") {
+			e.preventDefault();
+			const targetId = href.split("#")[1];
+			const element = document.getElementById(targetId);
+			if (element) {
+				element.scrollIntoView({ behavior: "smooth" });
+				window.history.pushState(null, "", href);
+			}
+			setIsOpen(false);
+		} else {
+			// If not an in-page link or not on home page, let Next.js handle navigation.
+			setIsOpen(false);
 		}
-		// Close the mobile menu
-		setIsOpen(false);
 	};
 
 	return (
