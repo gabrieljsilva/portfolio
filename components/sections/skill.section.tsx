@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
 	CheckSquare,
 	Cloud,
@@ -35,7 +34,6 @@ import {
 } from "react-icons/si";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
 	Tooltip,
@@ -44,9 +42,6 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-// -----------------------
-// TypeScript interfaces
-// -----------------------
 interface Skill {
 	name: string;
 	icon: React.ReactNode;
@@ -60,14 +55,12 @@ interface SkillCategory {
 	skills: Skill[];
 }
 
-// -----------------------
-// Skills data
-// -----------------------
 const skillsData: SkillCategory[] = [
 	{
 		category: "Back-end Development",
 		icon: <Code2 className="h-6 w-6" />,
-		description: "Server-side development and API architecture.",
+		description:
+			"Built scalable microservices handling 10k+ RPM. My expertise in Node.js and TypeScript enabled optimized API response times while maintaining clean architecture patterns.",
 		skills: [
 			{
 				name: "JavaScript",
@@ -104,7 +97,8 @@ const skillsData: SkillCategory[] = [
 	{
 		category: "Front-end Development",
 		icon: <Layout className="h-6 w-6" />,
-		description: "Crafting interactive and responsive interfaces.",
+		description:
+			"Delivered 15+ responsive interfaces using React. Focused on performance optimization, reducing initial load times by 40% through code splitting and lazy loading.",
 		skills: [
 			{
 				name: "HTML",
@@ -136,7 +130,8 @@ const skillsData: SkillCategory[] = [
 	{
 		category: "Databases",
 		icon: <Database className="h-6 w-6" />,
-		description: "Efficient and reliable data management.",
+		description:
+			"Designed data models for 8+ production systems. Implemented Redis caching that reduced database calls by 70% in high-traffic e-commerce platforms.",
 		skills: [
 			{
 				name: "MySQL",
@@ -173,7 +168,8 @@ const skillsData: SkillCategory[] = [
 	{
 		category: "Infrastructure & DevOps",
 		icon: <Cloud className="h-6 w-6" />,
-		description: "Automated deployments and scalable systems.",
+		description:
+			"Automated deployment pipelines cutting release cycles from days to hours. Containerized 12+ services improving development environment consistency.",
 		skills: [
 			{
 				name: "Docker",
@@ -195,7 +191,8 @@ const skillsData: SkillCategory[] = [
 	{
 		category: "Architecture",
 		icon: <Network className="h-6 w-6" />,
-		description: "Robust system design and event-driven architecture.",
+		description:
+			"Designed event-driven systems processing 1M+ daily events. Kafka implementations reduced system coupling while improving fault tolerance.",
 		skills: [
 			{
 				name: "Kafka",
@@ -217,7 +214,8 @@ const skillsData: SkillCategory[] = [
 	{
 		category: "Methodologies & Quality",
 		icon: <CheckSquare className="h-6 w-6" />,
-		description: "Agile practices and robust testing strategies.",
+		description:
+			"Led Agile teams delivering 30+ sprints with 95% completion rate. Introduced Jest testing achieving 85% coverage across critical services.",
 		skills: [
 			{
 				name: "Agile",
@@ -233,9 +231,6 @@ const skillsData: SkillCategory[] = [
 	},
 ];
 
-// -----------------------
-// SkillsSection Component
-// -----------------------
 export default function SkillsSection() {
 	return (
 		<section
@@ -243,7 +238,6 @@ export default function SkillsSection() {
 			className="flex justify-center w-full dark:bg-grid-small-white/[0.2] mt-24"
 		>
 			<div className="w-full px-4 md:px-6 relative container">
-				{/* Header */}
 				<div className="mb-8">
 					<h2 className="text-4xl font-bold text-gray-800 dark:text-gray-100">
 						Skills & Expertise
@@ -256,14 +250,10 @@ export default function SkillsSection() {
 
 				<Card className="overflow-hidden ">
 					<CardContent className="p-8">
-						{/* Content */}
 						<div className="space-y-8">
 							{skillsData.map((category) => (
 								<div key={category.category} className="pb-6 last:pb-0">
 									<div className="flex items-center gap-3 mb-3">
-										<div className="text-black dark:text-white">
-											{category.icon}
-										</div>
 										<h3 className="text-2xl font-semibold text-gray-700 dark:text-gray-200">
 											{category.category}
 										</h3>
