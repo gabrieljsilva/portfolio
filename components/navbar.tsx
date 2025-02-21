@@ -1,6 +1,7 @@
 "use client";
 
 import { ThemeToggle } from "@/components/theme-toggle";
+import { TypewriterText } from "@/components/typewriter";
 import { Button } from "@/components/ui/button";
 import {
 	NavigationMenu,
@@ -14,7 +15,16 @@ import {
 	SheetContent,
 	SheetTrigger,
 } from "@/components/ui/sheet";
-import { Book, Briefcase, Code, Folder, Home, Info, Menu } from "lucide-react";
+import {
+	Book,
+	Briefcase,
+	Code,
+	Code2,
+	Folder,
+	Home,
+	Info,
+	Menu,
+} from "lucide-react";
 import Link from "next/link";
 import { type MouseEvent, useState } from "react";
 
@@ -52,12 +62,7 @@ export default function Navbar() {
 	return (
 		<header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-background/60">
 			<div className="flex h-16 items-center justify-between px-8">
-				<Link
-					href="/"
-					className="text-2xl font-bold tracking-tighter transition-colors hover:text-primary"
-				>
-					Gabriel Silva
-				</Link>
+				<TypewriterText />
 
 				{/* Desktop Navigation */}
 				<NavigationMenu className="hidden lg:flex">
