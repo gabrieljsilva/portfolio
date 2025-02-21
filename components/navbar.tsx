@@ -62,21 +62,17 @@ export default function Navbar() {
 				{/* Desktop Navigation */}
 				<NavigationMenu className="hidden lg:flex">
 					<NavigationMenuList className="gap-1 items-center">
-						{navigationItems.map((item) => {
-							const Icon = item.icon;
-							return (
-								<NavigationMenuItem asChild key={item.title}>
-									<NavigationMenuLink
-										href={item.href}
-										onClick={(e) => handleNavigation(e, item.href)}
-										className="group inline-flex h-9 items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-									>
-										<Icon className="h-4 w-4" />
-										{item.title}
-									</NavigationMenuLink>
-								</NavigationMenuItem>
-							);
-						})}
+						{navigationItems.map((item) => (
+							<NavigationMenuItem asChild key={item.title}>
+								<NavigationMenuLink
+									href={item.href}
+									onClick={(e) => handleNavigation(e, item.href)}
+									className="group inline-flex h-9 items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+								>
+									{item.title}
+								</NavigationMenuLink>
+							</NavigationMenuItem>
+						))}
 						<ThemeToggle />
 					</NavigationMenuList>
 				</NavigationMenu>
