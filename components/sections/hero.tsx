@@ -1,3 +1,4 @@
+import ContactModal from "@/components/contact-modal";
 import { SocialLinks } from "@/components/social-link";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -32,9 +33,7 @@ export const HeroSection = () => (
 								View Projects
 							</Button>
 						</Link>
-						<Button size="lg" variant="outline" className="min-w-[160px]">
-							Get in Touch
-						</Button>
+						<ContactModal />
 					</div>
 					<SocialLinks />
 				</div>
