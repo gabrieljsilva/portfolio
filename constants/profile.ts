@@ -3,6 +3,8 @@ export const profile = {
 	fullName: "Gabriel de Jesus Silva",
 	role: "Fullstack Software Developer",
 	birthdayDate: "2000-01-23",
+	resumeSummary:
+		"Full Stack Developer with 5+ years experience delivering enterprise solutions for healthcare and tech sectors. Proven track record in building high-performance systems handling 10k+ RPM. Open source contributor focused on developer tooling.",
 	resume: `I'm a passionate Full Stack Developer with over 5 years of
 experience, specializing in creating efficient technological
 solutions. My journey in technology began in 2018 as an
