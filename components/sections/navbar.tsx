@@ -27,18 +27,19 @@ interface NavigationItem {
 	icon: React.ElementType;
 }
 
-const navigationItems: NavigationItem[] = profile.navigation.map(({ title, href }) => ({
-	title,
-	href,
-	icon: iconsMaps.navigation[title as keyof typeof iconsMaps.navigation],
-}));
+const navigationItems: NavigationItem[] = profile.navigation.map(
+	({ title, href }) => ({
+		title,
+		href,
+		icon: iconsMaps.navigation[title as keyof typeof iconsMaps.navigation],
+	}),
+);
 
 export default function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleNavigation = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
 		const isInPageLink = href.startsWith("/#");
-		// Only handle in-page scrolling if already on the home page.
 		if (isInPageLink && window.location.pathname === "/") {
 			e.preventDefault();
 			const targetId = href.split("#")[1];
@@ -49,7 +50,6 @@ export default function Navbar() {
 			}
 			setIsOpen(false);
 		} else {
-			// If not an in-page link or not on home page, let Next.js handle navigation.
 			setIsOpen(false);
 		}
 	};

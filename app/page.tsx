@@ -1,5 +1,5 @@
 "use client";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/sections/navbar";
 import { AboutSection } from "@/components/sections/about.section";
 import ExperienceSection from "@/components/sections/experiences.section";
 import Footer from "@/components/sections/footer.section";
