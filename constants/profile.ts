@@ -30,6 +30,7 @@ of community-driven development and continuous learning.`,
 	social: {
 		linkedin: "https://www.linkedin.com/in/gabrieldjs21/",
 		github: "https://github.com/gabrieljsilva",
+		website: "https://gabrieljs.dev",
 	},
 	location: {
 		city: "Senhor do Bonfim",

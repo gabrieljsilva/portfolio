@@ -1,112 +1,114 @@
-// generate-resume.tsx
+import { profile } from "@/constants/profile";
 import {
 	Document,
+	Link,
 	Page,
+	StyleSheet,
 	Text,
 	View,
-	StyleSheet,
-	PDFViewer,
-	Link,
 } from "@react-pdf/renderer";
-import { profile } from "@/constants/profile";
 
 const styles = StyleSheet.create({
 	page: {
-		padding: 30,
+		padding: 40,
 		fontFamily: "Helvetica",
 		fontSize: 10,
-		lineHeight: 1.4,
+		lineHeight: 1.5,
+		color: "#000", // primary text: black
+		backgroundColor: "#FFF", // white background
 	},
 	header: {
-		marginBottom: 20,
-		borderBottomWidth: 1,
-		borderBottomColor: "#334155",
-		paddingBottom: 12,
+		marginBottom: 30,
 	},
 	name: {
-		fontSize: 24,
+		fontSize: 26,
 		fontWeight: "bold",
-		color: "#1e293b",
-		marginBottom: 4,
+		marginBottom: 14,
+		color: "#000",
 	},
 	role: {
-		fontSize: 14,
-		color: "#64748b",
-		marginBottom: 8,
+		fontSize: 16,
+		color: "#5b5b5b",
+		marginBottom: 16,
+	},
+	contactSection: {
+		flexDirection: "column",
+		marginBottom: 20,
 	},
 	contactRow: {
 		flexDirection: "row",
-		gap: 16,
-		marginBottom: 6,
-	},
-	contactItem: {
-		flexDirection: "row",
 		alignItems: "center",
-		gap: 4,
+		marginBottom: 1,
+	},
+	contactLabel: {
+		fontWeight: "bold",
+		color: "#555",
+		marginRight: 6,
+		fontSize: 10,
+	},
+	contactValue: {
+		color: "#333",
+		fontSize: 10,
+	},
+	locationSection: {
+		marginTop: 10,
+	},
+	locationText: {
+		fontSize: 10,
+		color: "#555",
 	},
 	section: {
-		marginBottom: 14,
+		marginBottom: 30,
 	},
 	sectionTitle: {
-		fontSize: 12,
-		fontWeight: "bold",
-		color: "#1e293b",
-		marginBottom: 8,
-		textTransform: "uppercase",
-		letterSpacing: 0.5,
-		borderBottomWidth: 1,
-		borderBottomColor: "#e2e8f0",
-		paddingBottom: 4,
+		fontSize: 14,
+		fontWeight: "900",
+		marginBottom: 6,
+		letterSpacing: 0.8,
+		color: "#000",
 	},
+	summaryText: {
+		fontSize: 10,
+		color: "#333",
+	},
+	// Experience styles
 	experience: {
-		marginBottom: 12,
-	},
-	companyRow: {
-		flexDirection: "row",
-		justifyContent: "space-between",
-		marginBottom: 4,
+		marginBottom: 16,
 	},
 	company: {
-		fontSize: 11,
+		fontSize: 12,
 		fontWeight: "bold",
-		color: "#1e293b",
-	},
-	date: {
-		fontSize: 10,
-		color: "#64748b",
+		color: "#000",
+		marginBottom: 2,
 	},
 	roleTitle: {
-		fontSize: 10,
-		color: "#475569",
-		marginBottom: 6,
+		fontSize: 11,
+		fontWeight: "bold",
+		color: "#333",
+		marginBottom: 2,
 	},
-	achievementList: {
-		marginLeft: 12,
+	date: {
+		fontSize: 9,
+		color: "#777",
+		marginBottom: 6,
 	},
 	achievementItem: {
-		fontSize: 10,
-		color: "#475569",
+		fontSize: 9,
+		color: "#555",
+		marginBottom: 4,
+		paddingLeft: 12,
+	},
+	// Skills styles
+	skillCategory: {
+		fontSize: 11,
+		fontWeight: "bold",
+		color: "#000",
 		marginBottom: 4,
 	},
-	skillCategory: {
-		fontSize: 10,
-		fontWeight: "bold",
-		color: "#1e293b",
-		marginBottom: 6,
-	},
 	skillItems: {
-		flexDirection: "row",
-		flexWrap: "wrap",
-		gap: 6,
-		marginBottom: 12,
-	},
-	skillItem: {
-		backgroundColor: "#f1f5f9",
-		borderRadius: 4,
-		paddingVertical: 2,
-		paddingHorizontal: 6,
 		fontSize: 9,
-		color: "#334155",
+		color: "#555",
+		marginBottom: 12,
 	},
 });
 
@@ -118,78 +120,80 @@ export const ResumePDF = () => (
 				<Text style={styles.name}>{profile.fullName}</Text>
 				<Text style={styles.role}>{profile.role}</Text>
 
-				<View style={styles.contactRow}>
-					<View style={styles.contactItem}>
-						<Text>
+				<View style={styles.contactSection}>
+					<View style={styles.contactRow}>
+						<Text style={styles.contactLabel}>Email:</Text>
+						<Link
+							style={styles.contactValue}
+							src={`mailto:${profile.contact.email}`}
+						>
+							{profile.contact.email}
+						</Link>
+					</View>
+					<View style={styles.contactRow}>
+						<Text style={styles.contactLabel}>LinkedIn:</Text>
+						<Link style={styles.contactValue} src={profile.social.linkedin}>
+							linkedin.com/in/gabrieldjs21
+						</Link>
+					</View>
+					<View style={styles.contactRow}>
+						<Text style={styles.contactLabel}>GitHub:</Text>
+						<Link style={styles.contactValue} src={profile.social.github}>
+							github.com/gabrieljsilva
+						</Link>
+					</View>
+					<View style={styles.contactRow}>
+						<Text style={styles.contactLabel}>Website:</Text>
+						<Link style={styles.contactValue} src={profile.social.website}>
+							gabrieljs.dev
+						</Link>
+					</View>
+					<View style={styles.locationSection}>
+						<Text style={styles.contactLabel}>Location:</Text>
+						<Text style={styles.locationText}>
 							{profile.location.city}, {profile.location.country}
 						</Text>
 					</View>
 				</View>
-
-				<View style={styles.contactRow}>
-					<View style={styles.contactItem}>
-						<Link src={`mailto:${profile.contact.email}`}>
-							{profile.contact.email}
-						</Link>
-					</View>
-					<View style={styles.contactItem}>
-						<Link src={profile.social.linkedin}>LinkedIn</Link>
-					</View>
-					<View style={styles.contactItem}>
-						<Link src={profile.social.github}>GitHub</Link>
-					</View>
-				</View>
 			</View>
 
-			{/* Summary */}
+			{/* Professional Summary */}
 			<View style={styles.section}>
-				<Text style={styles.sectionTitle}>Summary</Text>
-				<Text>{profile.resumeSummary}</Text>
+				<Text style={styles.sectionTitle}>PROFESSIONAL SUMMARY</Text>
+				<Text style={styles.summaryText}>{profile.resumeSummary}</Text>
 			</View>
 
 			{/* Experience */}
 			<View style={styles.section}>
-				<Text style={styles.sectionTitle}>Professional Experience</Text>
+				<Text style={styles.sectionTitle}>EXPERIENCE</Text>
 				{profile.experiences.map((exp) => (
 					<View key={exp.id} style={styles.experience}>
-						<View style={styles.companyRow}>
-							<Text style={styles.company}>{exp.company}</Text>
-							<Text style={styles.date}>
-								{exp.startDate} - {exp.endDate || "Present"}
-							</Text>
-						</View>
+						<Text style={styles.company}>{exp.company}</Text>
 						<Text style={styles.roleTitle}>{exp.role}</Text>
-						<View style={styles.achievementList}>
-							{exp.achievements.slice(0, 3).map((achievement) => (
-								<Text key={achievement} style={styles.achievementItem}>
-									• {achievement}
-								</Text>
-							))}
-						</View>
+						<Text style={styles.date}>
+							{exp.startDate} - {exp.endDate || "Present"}
+						</Text>
+						{exp.achievements.slice(0, 3).map((achievement) => (
+							<Text key={achievement} style={styles.achievementItem}>
+								• {achievement}
+							</Text>
+						))}
 					</View>
 				))}
 			</View>
 
-			{/* Skills */}
+			{/* Technical Skills */}
 			<View style={styles.section}>
-				<Text style={styles.sectionTitle}>Technical Skills</Text>
+				<Text style={styles.sectionTitle}>TECHNICAL SKILLS</Text>
 				{profile.skillsSet.map((skillSet) => (
-					<View key={skillSet.category}>
+					<View key={skillSet.category} style={{ marginBottom: 12 }}>
 						<Text style={styles.skillCategory}>{skillSet.category}</Text>
-						<View style={styles.skillItems}>
-							{skillSet.skills.map((skill) => (
-								<Text key={skill.name} style={styles.skillItem}>
-									{skill.name}
-								</Text>
-							))}
-						</View>
+						<Text style={styles.skillItems}>
+							{skillSet.skills.map((skill) => skill.name).join(", ")}
+						</Text>
 					</View>
 				))}
 			</View>
 		</Page>
 	</Document>
 );
-
-export const generateResumePDF = () => {
-	return <ResumePDF />;
-};
