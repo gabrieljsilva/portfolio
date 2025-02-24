@@ -3,6 +3,7 @@
 import { ThemeToggle } from "@/components/theme-toggle";
 import { TypewriterText } from "@/components/typewriter";
 import { Button } from "@/components/ui/button";
+import { downloadResume } from "@/lib/download-resume";
 import {
 	NavigationMenu,
 	NavigationMenuItem,
@@ -17,7 +18,7 @@ import {
 } from "@/components/ui/sheet";
 import { iconsMaps } from "@/constants/icons";
 import { profile } from "@/constants/profile";
-import { Menu } from "lucide-react";
+import { Menu, DownloadIcon } from "lucide-react";
 import Link from "next/link";
 import { type MouseEvent, useState } from "react";
 
@@ -53,7 +54,7 @@ export function Navbar() {
 
 				{/* Desktop Navigation */}
 				<NavigationMenu className="hidden lg:flex">
-					<NavigationMenuList className="gap-1 items-center">
+					<NavigationMenuList className="gap-2 items-center">
 						{navigationItems.map((item) => (
 							<NavigationMenuItem asChild key={item.title}>
 								<NavigationMenuLink
@@ -65,6 +66,15 @@ export function Navbar() {
 								</NavigationMenuLink>
 							</NavigationMenuItem>
 						))}
+						<Button
+							variant="outline"
+							size="sm"
+							className="flex items-center gap-2"
+							onClick={downloadResume}
+						>
+							<DownloadIcon className="h-4 w-4" />
+							Resume
+						</Button>
 						<ThemeToggle />
 					</NavigationMenuList>
 				</NavigationMenu>
@@ -88,7 +98,16 @@ export function Navbar() {
 							side="right"
 							className="w-80 backdrop-blur-xl backdrop-saturate-150 bg-background/95 border-l border-border/40"
 						>
-							<nav className="flex flex-col space-y-6 mt-8">
+							<nav className="flex flex-col space-y-4 mt-8">
+								<Button
+									variant="outline"
+									size="sm"
+									className="flex items-center gap-2 w-full"
+									onClick={downloadResume}
+								>
+									<DownloadIcon className="h-4 w-4" />
+									Download Resume
+								</Button>
 								{navigationItems.map((item) => {
 									const Icon = item.icon;
 									return (
