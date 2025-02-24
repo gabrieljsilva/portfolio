@@ -1,16 +1,8 @@
-import {
-	Book,
-	Briefcase,
-	Code,
-	Folder,
-	Home,
-	Info,
-	Mail,
-	Quote,
-} from "lucide-react";
+import { iconsMaps } from "@/constants/icons";
+import { profile } from "@/constants/profile";
 import Link from "next/link";
 import type React from "react";
-import { SiGithub, SiLinkedin } from "react-icons/si";
+const { Quote } = iconsMaps.misc;
 
 interface NavigationItem {
 	title: string;
@@ -18,29 +10,26 @@ interface NavigationItem {
 	icon: React.ElementType;
 }
 
-const navigationItems: NavigationItem[] = [
-	{ title: "Home", href: "#home", icon: Home },
-	{ title: "About", href: "#about", icon: Info },
-	{ title: "Projects", href: "#projects", icon: Folder },
-	{ title: "Experiences", href: "#experiences", icon: Briefcase },
-	{ title: "Skills", href: "#skills", icon: Code },
-	{ title: "Blog", href: "#blog", icon: Book },
-];
+const navigationItems: NavigationItem[] = profile.navigation.map(({ title, href }) => ({
+	title,
+	href,
+	icon: iconsMaps.navigation[title as keyof typeof iconsMaps.navigation],
+}));
 
 const socialLinks = [
 	{
-		href: "https://github.com/gabrieljsilva",
-		icon: SiGithub,
+		href: profile.social.github,
+		icon: iconsMaps.social.GitHub,
 		label: "GitHub Profile",
 	},
 	{
-		href: "https://www.linkedin.com/in/gabrieldjs21/",
-		icon: SiLinkedin,
+		href: profile.social.linkedin,
+		icon: iconsMaps.social.LinkedIn,
 		label: "LinkedIn Profile",
 	},
 	{
-		href: "mailto:contato@gabrieljs.dev",
-		icon: Mail,
+		href: `mailto:${profile.contact.email}`,
+		icon: iconsMaps.social.Mail,
 		label: "Email Contact",
 	},
 ];
@@ -83,10 +72,9 @@ export default function Footer() {
 						<div className="relative space-y-4 rounded-xl border bg-muted/50 p-6">
 							<Quote className="h-5 w-5 text-primary" />
 							<p className="text-sm italic text-muted-foreground">
-								"Any fool can write code that a computer can understand. Good
-								programmers write code that humans can understand."
+								{profile.footer.quote.text}
 							</p>
-							<p className="text-sm font-medium">― Martin Fowler</p>
+							<p className="text-sm font-medium">― {profile.footer.quote.author}</p>
 						</div>
 					</div>
 
@@ -119,7 +107,7 @@ export default function Footer() {
 
 				<div className="mt-16 flex flex-col items-center justify-center gap-4 pt-8">
 					<p className="text-center text-sm text-muted-foreground">
-						© 2025. All rights reserved.
+						{profile.footer.copyright}
 					</p>
 				</div>
 			</div>

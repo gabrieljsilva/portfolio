@@ -6,7 +6,6 @@ import Footer from "@/components/sections/footer.section";
 import { HeroSection } from "@/components/sections/hero";
 import { ProjectsSection } from "@/components/sections/projects.section";
 import SkillsSection from "@/components/sections/skill.section";
-import { projects } from "@/components/types";
 
 export default function Page() {
 	return (
@@ -14,7 +13,7 @@ export default function Page() {
 			<Navbar />
 			<HeroSection />
 			<AboutSection />
-			<ProjectsSection projects={projects} />
+			<ProjectsSection />
 			<ExperienceSection />
 			<SkillsSection />
 			<Footer />

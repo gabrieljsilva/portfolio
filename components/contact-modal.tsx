@@ -20,8 +20,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { profile } from "@/constants/profile";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail } from "lucide-react";
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -58,7 +58,7 @@ export default function ContactModal() {
 		formData.append("name", values.name);
 		formData.append("email", values.email);
 		formData.append("message", values.message);
-		formData.append("access_key", "81309db0-39fb-4bb6-8738-4dae02fcbd40");
+		formData.append("access_key", profile.contact.formAccessKey);
 
 		try {
 			const response = await fetch("https://api.web3forms.com/submit", {

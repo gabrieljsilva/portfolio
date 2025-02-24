@@ -15,7 +15,9 @@ import {
 	SheetContent,
 	SheetTrigger,
 } from "@/components/ui/sheet";
-import { Book, Briefcase, Code, Folder, Home, Info, Menu } from "lucide-react";
+import { iconsMaps } from "@/constants/icons";
+import { profile } from "@/constants/profile";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { type MouseEvent, useState } from "react";
 
@@ -25,14 +27,11 @@ interface NavigationItem {
 	icon: React.ElementType;
 }
 
-const navigationItems: NavigationItem[] = [
-	{ title: "Home", href: "/#home", icon: Home },
-	{ title: "About", href: "/#about", icon: Info },
-	{ title: "Projects", href: "/#projects", icon: Folder },
-	{ title: "Experiences", href: "/#experiences", icon: Briefcase },
-	{ title: "Skills", href: "/#skills", icon: Code },
-	{ title: "Blog", href: "/blog", icon: Book }, // Ensure the Blog link has a leading slash.
-];
+const navigationItems: NavigationItem[] = profile.navigation.map(({ title, href }) => ({
+	title,
+	href,
+	icon: iconsMaps.navigation[title as keyof typeof iconsMaps.navigation],
+}));
 
 export default function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);

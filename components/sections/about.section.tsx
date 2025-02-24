@@ -1,4 +1,7 @@
-import { MapPin } from "lucide-react";
+import { iconsMaps } from "@/constants/icons";
+import { profile } from "@/constants/profile";
+
+const { MapPin } = iconsMaps.misc;
 
 export const AboutSection = () => (
 	<section
@@ -21,37 +24,20 @@ export const AboutSection = () => (
 						<div className="grid gap-8 lg:grid-cols-[2fr,1fr]">
 							<div className="space-y-6">
 								<h3 className="text-2xl font-semibold tracking-tight">
-									Gabriel de Jesus Silva
+									{profile.fullName}
 								</h3>
 
 								<div className="flex items-center text-muted-foreground">
 									<MapPin className="mr-2 h-4 w-4" />
-									Senhor do Bonfim, Bahia, Brazil
+									{`${profile.location.city}, ${profile.location.state}, ${profile.location.country}`}
 								</div>
 
 								<div className="space-y-4 text-base/relaxed text-muted-foreground">
-									<p>
-										I'm a passionate Full Stack Developer with over 5 years of
-										experience, specializing in creating efficient technological
-										solutions. My journey in technology began in 2018 as an
-										intern, where I built the foundation that supports my work
-										to this day.
-									</p>
-
-									<p>
-										Throughout my career, I've had the privilege of working on
-										significant projects for major healthcare institutions,
-										including Hospital Israelita Albert Einstein and Fleury
-										Health Network. This experience has shaped my approach to
-										developing robust and reliable solutions.
-									</p>
-
-									<p>
-										As an open source contributor, I'm committed to enhancing
-										the JavaScript/TypeScript ecosystem by creating libraries
-										and tools that help other developers. I believe in the power
-										of community-driven development and continuous learning.
-									</p>
+									{profile.resume.split('\n\n').map((paragraph) => (
+										<p key={`p-${paragraph.slice(0, 20).replace(/\s+/g, '-')}`}>
+											{paragraph}
+										</p>
+									))}
 								</div>
 							</div>
 
