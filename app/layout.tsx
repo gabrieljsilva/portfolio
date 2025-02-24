@@ -11,6 +11,12 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
 	title: "Gabriel Silva - Full Stack Developer",
 	description: "Full stack developer portfolio",
+	icons: [
+		{
+			rel: "icon",
+			url: "/icon.png",
+		},
+	],
 };
 
 export default function RootLayout({
