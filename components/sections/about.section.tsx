@@ -3,7 +3,8 @@ import { profile } from "@/constants/profile";
 
 const { MapPin } = iconsMaps.misc;
 
-export const AboutSection = () => (
+export function AboutSection() {
+  return (
 	<section
 		id="about"
 		className="flex justify-center dark:bg-grid-small-white/[0.2]"
@@ -56,4 +57,5 @@ export const AboutSection = () => (
 			</div>
 		</div>
 	</section>
-);
+  );
+}

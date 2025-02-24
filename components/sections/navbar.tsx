@@ -21,21 +21,13 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { type MouseEvent, useState } from "react";
 
-interface NavigationItem {
-	title: string;
-	href: string;
-	icon: React.ElementType;
-}
+const navigationItems = profile.navigation.map(({ title, href }) => ({
+	title,
+	href,
+	icon: iconsMaps.navigation[title as keyof typeof iconsMaps.navigation],
+}));
 
-const navigationItems: NavigationItem[] = profile.navigation.map(
-	({ title, href }) => ({
-		title,
-		href,
-		icon: iconsMaps.navigation[title as keyof typeof iconsMaps.navigation],
-	}),
-);
-
-export default function Navbar() {
+export function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleNavigation = (e: MouseEvent<HTMLAnchorElement>, href: string) => {

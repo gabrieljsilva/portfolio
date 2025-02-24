@@ -1,16 +1,9 @@
 import { iconsMaps } from "@/constants/icons";
 import { profile } from "@/constants/profile";
 import Link from "next/link";
-import type React from "react";
 const { Quote } = iconsMaps.misc;
 
-interface NavigationItem {
-	title: string;
-	href: string;
-	icon: React.ElementType;
-}
-
-const navigationItems: NavigationItem[] = profile.navigation.map(({ title, href }) => ({
+const navigationItems = profile.navigation.map(({ title, href }) => ({
 	title,
 	href,
 	icon: iconsMaps.navigation[title as keyof typeof iconsMaps.navigation],
@@ -34,7 +27,7 @@ const socialLinks = [
 	},
 ];
 
-export default function Footer() {
+export function Footer() {
 	return (
 		<footer className="relative w-full bg-background">
 			<div className="container relative mx-auto px-4 pt-16 pb-8">
@@ -74,7 +67,9 @@ export default function Footer() {
 							<p className="text-sm italic text-muted-foreground">
 								{profile.footer.quote.text}
 							</p>
-							<p className="text-sm font-medium">― {profile.footer.quote.author}</p>
+							<p className="text-sm font-medium">
+								― {profile.footer.quote.author}
+							</p>
 						</div>
 					</div>
 

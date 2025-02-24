@@ -13,37 +13,19 @@ import { iconsMaps } from "@/constants/icons";
 import { profile } from "@/constants/profile";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import type React from "react";
 import { useState } from "react";
 
 const { Building: Building2 } = iconsMaps.misc;
 
-interface Technology {
-	name: string;
-	icon: React.ElementType;
-}
-
-interface Experience {
-	id: number;
-	company: string;
-	role: string;
-	startDate: string;
-	endDate?: string;
-	description: string;
-	detailedDescription?: string;
-	achievements?: string[];
-	technologies: Technology[];
-}
-
-const experiences: Experience[] = profile.experiences.map(exp => ({
+const experiences = profile.experiences.map((exp) => ({
 	...exp,
-	technologies: exp.technologies.map(tech => ({
+	technologies: exp.technologies.map((tech) => ({
 		name: tech.name,
 		icon: iconsMaps.tech[tech.name as keyof typeof iconsMaps.tech] || Building2,
 	})),
 }));
 
-export default function ExperienceSection() {
+export function ExperienceSection() {
 	const [expandedCards, setExpandedCards] = useState<number[]>([]);
 
 	const toggleCard = (index: number) => {

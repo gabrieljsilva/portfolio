@@ -3,10 +3,9 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ProjectCard } from "../project-card";
-import type { Project } from "../types";
 import { profile } from "@/constants/profile";
 
-export const ProjectsSection = () => {
+export function ProjectsSection() {
 	const projects = profile.projects;
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [mounted, setMounted] = useState(false);
@@ -120,4 +119,4 @@ export const ProjectsSection = () => {
 			</div>
 		</section>
 	);
-};
+}

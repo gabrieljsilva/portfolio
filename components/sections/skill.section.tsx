@@ -11,20 +11,7 @@ import {
 import { iconsMaps } from "@/constants/icons";
 import { profile } from "@/constants/profile";
 
-interface Skill {
-	name: string;
-	icon: React.ReactNode;
-	description: string;
-}
-
-interface SkillCategory {
-	category: string;
-	icon: React.ReactNode;
-	description: string;
-	skills: Skill[];
-}
-
-const skillsData: SkillCategory[] = profile.skillsSet.map((category) => {
+const skillsData = profile.skillsSet.map((category) => {
 	const CategoryIcon =
 		iconsMaps.categories[
 			category.category as keyof typeof iconsMaps.categories
@@ -45,7 +32,7 @@ const skillsData: SkillCategory[] = profile.skillsSet.map((category) => {
 	};
 });
 
-export default function SkillsSection() {
+export function SkillsSection() {
 	return (
 		<section
 			id="skills"

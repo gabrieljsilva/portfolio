@@ -5,7 +5,8 @@ import Link from "next/link";
 
 import { profile } from "@/constants/profile";
 
-export const HeroSection = () => (
+export function HeroSection() {
+  return (
 	<div id="home" className="w-full">
 		<div className="relative min-h-screen w-full overflow-hidden bg-background">
 			<div className="absolute inset-0 z-0">
@@ -40,4 +41,5 @@ export const HeroSection = () => (
 			</div>
 		</div>
 	</div>
-);
+  );
+}
