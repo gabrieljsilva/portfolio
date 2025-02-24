@@ -1,5 +1,6 @@
-import { Navbar } from "@/components/sections/navbar";
+"use client";
 import { Footer } from "@/components/sections/footer.section";
+import { Navbar } from "@/components/sections/navbar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,10 +9,10 @@ import {
 	CardFooter,
 	CardHeader,
 } from "@/components/ui/card";
+import { profile } from "@/constants";
 import { formatDistanceToNow } from "date-fns";
 import { Calendar, Clock, Eye } from "lucide-react";
 import Link from "next/link";
-import { profile } from "@/constants";
 
 function calculateReadingTime(content: string): number {
 	const wordsPerMinute = 200;
