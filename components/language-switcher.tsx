@@ -11,6 +11,7 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/language-context";
 
 interface Language {
 	code: string;
@@ -32,7 +33,7 @@ const languages: Language[] = [
 ];
 
 export function LanguageSwitcher() {
-	const [currentLang, setCurrentLang] = useState("en");
+	const { currentLang, setCurrentLang } = useLanguage();
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleLanguageChange = (langCode: string) => {

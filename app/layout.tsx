@@ -6,6 +6,7 @@ import "./globals.css";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Toaster } from "@/components/ui/sonner";
 import type { ReactNode } from "react";
+import { LanguageProvider } from "@/contexts/language-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,9 +40,11 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<LanguageSwitcher />
-					<Toaster />
-					{children}
+					<LanguageProvider>
+						<LanguageSwitcher />
+						<Toaster />
+						{children}
+					</LanguageProvider>
 				</ThemeProvider>
 			</body>
 		</html>
