@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { Toaster } from "@/components/ui/sonner";
 import type { ReactNode } from "react";
 
@@ -38,6 +39,7 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
+					<LanguageSwitcher />
 					<Toaster />
 					{children}
 				</ThemeProvider>
