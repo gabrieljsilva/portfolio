@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useTranslations } from "@/constants/profile";
 
 export function HeroSection() {
-	const { profile } = useTranslations();
+	const { profile, ui } = useTranslations();
 
 	return (
 		<div id="home" className="w-full">
@@ -33,7 +33,7 @@ export function HeroSection() {
 						<div className="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
 							<Link href="#projects">
 								<Button size="lg" className="min-w-[160px]">
-									View Projects
+									{ui.viewProjects}
 								</Button>
 							</Link>
 							<ContactModal />

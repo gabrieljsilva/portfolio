@@ -1,5 +1,28 @@
 export const en = {
-	ui: {},
+	ui: {
+		resume: "resume",
+		downloadResume: "Download Resume",
+		viewProjects: "View Projects",
+		getInTouch: "Get in Touch",
+		sendMeAMessage:
+			"Send me a message and I'll get back to you as soon as possible.",
+		aboutMe: "About Me",
+		featuredProjects: "Featured Projects",
+		discoverMyRecentWork: "Discover some of my recent work",
+		experiences: "Experiences",
+		myProfessionalJourney:
+			"My professional journey and the projects I've worked on.",
+		skillsAndExpertise: "Skills and Expertise",
+		exploreMySkillsAndExpertise:
+			"Explore the technologies and tools I excel in to build scalable and efficient systems.",
+		navigation: "Navigation",
+		inspiration: "Inspiration",
+		letsConnect: "Let's Connect",
+		latestPosts: "Latest Posts",
+		viewMore: "View More",
+		minRead: "min read",
+		views: "views",
+	},
 	profile: {
 		name: "Gabriel Silva",
 		fullName: "Gabriel de Jesus Silva",

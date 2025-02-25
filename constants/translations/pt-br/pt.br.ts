@@ -1,9 +1,32 @@
 export const ptBr = {
-	ui: {},
+	ui: {
+		resume: "Currículo",
+		downloadResume: "Baixar Currículo",
+		viewProjects: "Ver Projetos",
+		getInTouch: "Entrar em Contato",
+		sendMeAMessage:
+			"Me envie uma mensagem e eu responderei o mais cedo possível",
+		aboutMe: "Sobre mim",
+		featuredProjects: "Projetos em Destaque",
+		discoverMyRecentWork: "Descubra alguns dos meus trabalhos recentes",
+		myProfessionalJourney:
+			"Minha jornada profissional e os projetos em que eu atuei",
+		experiences: "Experiências",
+		skillsAndExpertise: "Habilidades e especialidades",
+		exploreMySkillsAndExpertise:
+			"Explore as tecnologias e ferramentas nas quais me destaco para construir sistemas escaláveis e eficientes.",
+		navigation: "navegação",
+		inspiration: "Inspiração",
+		letsConnect: "Vamos nos conectar",
+		latestPosts: "Últimos posts",
+		viewMore: "Ver mais",
+		minRead: "tempo de leitura",
+		views: "visualizações",
+	},
 	profile: {
 		name: "Gabriel Silva",
 		fullName: "Gabriel de Jesus Silva",
-		role: "Desenvolvedor Fullstack",
+		role: "Software Developer",
 		currentCompany: "Hospital Israelita Albert Einstein",
 		currentCompanyShortName: "HIAE",
 		birthdayDate: "2000-01-23",

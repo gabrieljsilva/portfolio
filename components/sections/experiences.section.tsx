@@ -18,7 +18,7 @@ import { useState } from "react";
 const { Building: Building2 } = iconsMaps.misc;
 
 export function ExperienceSection() {
-	const { profile } = useTranslations();
+	const { profile, ui } = useTranslations();
 
 	const experiences = profile.experiences.map((exp) => ({
 		...exp,
@@ -50,10 +50,10 @@ export function ExperienceSection() {
 					className="flex flex-col items-start gap-4"
 				>
 					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-						Experience
+						{ui.experiences}
 					</h2>
 					<p className="text-xl text-muted-foreground">
-						My professional journey and the projects I&apos;ve worked on.
+						{ui.myProfessionalJourney}
 					</p>
 				</motion.div>
 				<div className="mt-12 grid gap-8">

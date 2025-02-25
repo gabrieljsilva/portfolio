@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { ProjectCard } from "../project-card";
 
 export function ProjectsSection() {
-	const { profile } = useTranslations();
+	const { profile, ui } = useTranslations();
 	const projects = profile.projects;
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [mounted, setMounted] = useState(false);
@@ -61,11 +61,9 @@ export function ProjectsSection() {
 				<div className="flex items-center justify-between mb-8">
 					<div className="space-y-1">
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-							Featured Projects
+							{ui.featuredProjects}
 						</h2>
-						<p className="text-muted-foreground">
-							Discover some of my recent work
-						</p>
+						<p className="text-muted-foreground">{ui.discoverMyRecentWork}</p>
 					</div>
 
 					<div className="hidden md:flex items-center gap-2">

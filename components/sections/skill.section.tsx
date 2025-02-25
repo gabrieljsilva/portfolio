@@ -12,7 +12,7 @@ import { iconsMaps } from "@/constants/icons";
 import { useTranslations } from "@/constants/profile";
 
 export function SkillsSection() {
-	const { profile } = useTranslations();
+	const { profile, ui } = useTranslations();
 
 	const skillsData = profile.skillsSet.map((category) => {
 		return {
@@ -38,11 +38,10 @@ export function SkillsSection() {
 			<div className="w-full px-4 md:px-6 relative container">
 				<div className="mb-8">
 					<h2 className="text-4xl font-bold text-gray-800 dark:text-gray-100">
-						Skills & Expertise
+						{ui.skillsAndExpertise}
 					</h2>
 					<p className="text-lg text-muted-foreground dark:text-gray-300 mt-2">
-						Explore the technologies and tools I excel in to build scalable,
-						efficient systems.
+						{ui.exploreMySkillsAndExpertise}
 					</p>
 				</div>
 

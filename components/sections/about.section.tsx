@@ -4,7 +4,7 @@ import { useTranslations } from "@/constants/profile";
 const { MapPin } = iconsMaps.misc;
 
 export function AboutSection() {
-	const { profile } = useTranslations();
+	const { profile, ui } = useTranslations();
 
 	return (
 		<section
@@ -21,7 +21,7 @@ export function AboutSection() {
 					<div className="container mx-auto px-4 md:px-6">
 						<div className="flex flex-col items-start gap-8">
 							<h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-								About Me
+								{ui.aboutMe}
 							</h2>
 
 							<div className="grid gap-8 lg:grid-cols-[2fr,1fr]">

@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { profile } from "@/constants/profile";
+import { profile, useTranslations } from "@/constants/profile";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as React from "react";
 import { useForm } from "react-hook-form";
@@ -40,6 +40,7 @@ const formSchema = z.object({
 });
 
 export default function ContactModal() {
+	const { ui } = useTranslations();
 	const [open, setOpen] = React.useState(false);
 	const [isLoading, setIsLoading] = React.useState(false);
 
@@ -88,15 +89,13 @@ export default function ContactModal() {
 					variant="outline"
 					className="min-w-[160px]"
 				>
-					Get in Touch
+					{ui.getInTouch}
 				</LoadingButton>
 			</DialogTrigger>
 			<DialogContent className="sm:max-w-[425px]">
 				<DialogHeader>
-					<DialogTitle>Get in Touch</DialogTitle>
-					<DialogDescription>
-						Send me a message and I&apos;ll get back to you as soon as possible.
-					</DialogDescription>
+					<DialogTitle>{ui.getInTouch}</DialogTitle>
+					<DialogDescription>{ui.sendMeAMessage}</DialogDescription>
 				</DialogHeader>
 				<Form {...form}>
 					<form

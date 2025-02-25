@@ -4,7 +4,7 @@ import Link from "next/link";
 const { Quote } = iconsMaps.misc;
 
 export function Footer() {
-	const { profile } = useTranslations();
+	const { profile, ui } = useTranslations();
 
 	const navigationItems = profile.navigation.map(({ key, title, href }) => ({
 		title,
@@ -38,7 +38,7 @@ export function Footer() {
 					<div className="space-y-6">
 						<h3 className="text-lg font-semibold tracking-tight">
 							<span className="bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
-								Navigation
+								{ui.navigation}
 							</span>
 						</h3>
 						<nav className="grid grid-cols-2 gap-4">
@@ -61,7 +61,7 @@ export function Footer() {
 					<div className="space-y-6">
 						<h3 className="text-lg font-semibold tracking-tight">
 							<span className="bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
-								Inspiration
+								{ui.inspiration}
 							</span>
 						</h3>
 						<div className="relative space-y-4 rounded-xl border bg-muted/50 p-6">
@@ -79,7 +79,7 @@ export function Footer() {
 					<div className="space-y-6">
 						<h3 className="text-lg font-semibold tracking-tight">
 							<span className="bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
-								Let's Connect
+								{ui.letsConnect}
 							</span>
 						</h3>
 						<div className="flex gap-4">

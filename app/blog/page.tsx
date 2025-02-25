@@ -10,6 +10,7 @@ import {
 	CardHeader,
 } from "@/components/ui/card";
 import { useTranslations } from "@/constants/profile";
+import { useLanguage } from "@/contexts/language-context";
 import { formatDistanceToNow } from "date-fns";
 import { Calendar, Clock, Eye } from "lucide-react";
 import Link from "next/link";
@@ -27,7 +28,8 @@ export default function BlogPage() {
 		return `${words.slice(0, wordLimit).join(" ")}...`;
 	}
 
-	const { profile } = useTranslations();
+	const { dateFnsLocale } = useLanguage();
+	const { profile, ui } = useTranslations();
 
 	return (
 		<>
@@ -35,7 +37,7 @@ export default function BlogPage() {
 			<div className="flex justify-center w-full dark:bg-grid-small-white/[0.2] mt-24">
 				<div className="w-full px-4 md:px-6 relative container">
 					<h1 className="mb-8 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:mb-12">
-						Latest Posts
+						{ui.latestPosts}
 					</h1>
 					<div className="grid gap-6">
 						{profile.posts.map((post) => (
@@ -55,7 +57,7 @@ export default function BlogPage() {
 
 									<Link href={`/post/${post.id}`}>
 										<Button className={"mx-0 px-0"} variant="link">
-											View more
+											{ui.viewMore}
 										</Button>
 									</Link>
 								</CardContent>
@@ -64,16 +66,23 @@ export default function BlogPage() {
 										<div className="flex items-center gap-1.5">
 											<Calendar className="h-4 w-4" />
 											<time dateTime={post.date.toISOString()}>
-												{formatDistanceToNow(post.date, { addSuffix: true })}
+												{formatDistanceToNow(post.date, {
+													addSuffix: true,
+													locale: dateFnsLocale,
+												})}
 											</time>
 										</div>
 										<div className="flex items-center gap-1.5">
 											<Clock className="h-4 w-4" />
-											<span>{calculateReadingTime(post.content)} min read</span>
+											<span>
+												{calculateReadingTime(post.content)} {ui.minRead}
+											</span>
 										</div>
 										<div className="flex items-center gap-1.5">
 											<Eye className="h-4 w-4" />
-											<span>{post.views} views</span>
+											<span>
+												{post.views} {ui.views}
+											</span>
 										</div>
 									</div>
 									<div className="flex flex-wrap gap-2 pt-4">

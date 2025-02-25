@@ -24,12 +24,12 @@ import { type MouseEvent, useState } from "react";
 
 export function Navbar() {
 	const translation = useTranslations();
-	const { profile } = translation;
+	const { profile, ui } = translation;
 
-	const navigationItems = profile.navigation.map(({ title, href }) => ({
+	const navigationItems = profile.navigation.map(({ title, key, href }) => ({
 		title,
 		href,
-		icon: iconsMaps.navigation[title as keyof typeof iconsMaps.navigation],
+		icon: iconsMaps.navigation[key as keyof typeof iconsMaps.navigation],
 	}));
 
 	const [isOpen, setIsOpen] = useState(false);
@@ -76,7 +76,7 @@ export function Navbar() {
 							onClick={() => downloadResume(translation)}
 						>
 							<DownloadIcon className="h-4 w-4" />
-							Resume
+							{ui.resume}
 						</Button>
 						<ThemeToggle />
 					</NavigationMenuList>
@@ -127,7 +127,7 @@ export function Navbar() {
 										onClick={() => downloadResume(translation)}
 									>
 										<DownloadIcon className="h-4 w-4" />
-										Download Resume
+										{ui.downloadResume}
 									</Button>
 								</div>
 							</div>
