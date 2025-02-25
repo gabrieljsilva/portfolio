@@ -5,7 +5,7 @@ import { Code2 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-export const TypewriterText = () => {
+export function TypewriterText() {
 	const { profile } = useTranslations();
 	const texts = [profile.name, profile.role];
 	const [displayText, setDisplayText] = useState("");
@@ -67,13 +67,11 @@ export const TypewriterText = () => {
 	return (
 		<Link
 			href="/"
-			className="flex items-center gap-2 text-sm md:text-xl font-bold tracking-tighter transition-colors hover:text-primary"
+			className="flex items-center gap-2 text-lg md:text-xl font-bold tracking-tighter transition-colors hover:text-primary"
 		>
 			<Code2 className="h-8 w-8" />
 			<span>{displayText}</span>
 			<span className="animate-pulse">|</span>
 		</Link>
 	);
-};
-
-export default TypewriterText;
+}
