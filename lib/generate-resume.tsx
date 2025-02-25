@@ -18,12 +18,12 @@ const styles = StyleSheet.create({
 		backgroundColor: "#FFF", // white background
 	},
 	header: {
-		marginBottom: 30,
+		marginBottom: 16,
 	},
 	name: {
 		fontSize: 26,
 		fontWeight: "bold",
-		marginBottom: 14,
+		marginBottom: 18,
 		color: "#000",
 	},
 	role: {
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 	},
 	contactSection: {
 		flexDirection: "column",
-		marginBottom: 20,
+		marginBottom: 1,
 	},
 	contactRow: {
 		flexDirection: "row",
@@ -53,12 +53,8 @@ const styles = StyleSheet.create({
 	locationSection: {
 		marginTop: 10,
 	},
-	locationText: {
-		fontSize: 10,
-		color: "#555",
-	},
 	section: {
-		marginBottom: 30,
+		marginBottom: 16,
 	},
 	sectionTitle: {
 		fontSize: 14,
@@ -71,7 +67,6 @@ const styles = StyleSheet.create({
 		fontSize: 10,
 		color: "#333",
 	},
-	// Experience styles
 	experience: {
 		marginBottom: 16,
 	},
@@ -98,7 +93,6 @@ const styles = StyleSheet.create({
 		marginBottom: 4,
 		paddingLeft: 12,
 	},
-	// Skills styles
 	skillCategory: {
 		fontSize: 11,
 		fontWeight: "bold",
@@ -108,12 +102,12 @@ const styles = StyleSheet.create({
 	skillItems: {
 		fontSize: 9,
 		color: "#555",
-		marginBottom: 12,
+		marginBottom: 6,
 	},
 });
 
 export const ResumePDF = (translation: Translation) => {
-	const { profile } = translation;
+	const { profile, ui } = translation;
 	return (
 		<Document>
 			<Page size="A4" style={styles.page}>
@@ -151,9 +145,9 @@ export const ResumePDF = (translation: Translation) => {
 							</Link>
 						</View>
 						<View style={styles.locationSection}>
-							<Text style={styles.contactLabel}>Location:</Text>
-							<Text style={styles.locationText}>
-								{profile.location.city}, {profile.location.country}
+							<Text style={styles.contactLabel}>
+								{ui.location}: {profile.location.city},{" "}
+								{profile.location.country}
 							</Text>
 						</View>
 					</View>
@@ -161,19 +155,23 @@ export const ResumePDF = (translation: Translation) => {
 
 				{/* Professional Summary */}
 				<View style={styles.section}>
-					<Text style={styles.sectionTitle}>PROFESSIONAL SUMMARY</Text>
+					<Text style={styles.sectionTitle}>
+						{ui.professionalSummary.toUpperCase()}
+					</Text>
 					<Text style={styles.summaryText}>{profile.resumeSummary}</Text>
 				</View>
 
 				{/* Experience */}
 				<View style={styles.section}>
-					<Text style={styles.sectionTitle}>EXPERIENCE</Text>
+					<Text style={styles.sectionTitle}>
+						{ui.professionalExperience.toUpperCase()}
+					</Text>
 					{profile.experiences.map((exp) => (
 						<View key={exp.id} style={styles.experience}>
 							<Text style={styles.company}>{exp.company}</Text>
 							<Text style={styles.roleTitle}>{exp.role}</Text>
 							<Text style={styles.date}>
-								{exp.startDate} - {exp.endDate || "Present"}
+								{exp.startDate} - {exp.endDate || ui.present}
 							</Text>
 							{exp.achievements.slice(0, 3).map((achievement) => (
 								<Text key={achievement} style={styles.achievementItem}>
@@ -186,9 +184,11 @@ export const ResumePDF = (translation: Translation) => {
 
 				{/* Technical Skills */}
 				<View style={styles.section}>
-					<Text style={styles.sectionTitle}>TECHNICAL SKILLS</Text>
+					<Text style={styles.sectionTitle}>
+						{ui.technicalSkills.toUpperCase()}
+					</Text>
 					{profile.skillsSet.map((skillSet) => (
-						<View key={skillSet.category} style={{ marginBottom: 12 }}>
+						<View key={skillSet.category} style={{ marginBottom: 4 }}>
 							<Text style={styles.skillCategory}>{skillSet.category}</Text>
 							<Text style={styles.skillItems}>
 								{skillSet.skills.map((skill) => skill.name).join(", ")}

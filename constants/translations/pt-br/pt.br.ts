@@ -12,6 +12,8 @@ export const ptBr = {
 		myProfessionalJourney:
 			"Minha jornada profissional e os projetos em que eu atuei",
 		experiences: "Experiências",
+		professionalExperience: "Experiência Profissional",
+		technicalSkills: "Habilidades Técnicas",
 		skillsAndExpertise: "Habilidades e especialidades",
 		exploreMySkillsAndExpertise:
 			"Explore as tecnologias e ferramentas nas quais me destaco para construir sistemas escaláveis e eficientes.",
@@ -22,6 +24,9 @@ export const ptBr = {
 		viewMore: "Ver mais",
 		minRead: "tempo de leitura",
 		views: "visualizações",
+		professionalSummary: "Resumo profissional",
+		location: "Endereço",
+		present: "atual",
 	},
 	profile: {
 		name: "Gabriel Silva",

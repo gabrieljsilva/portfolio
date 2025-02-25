@@ -10,6 +10,8 @@ export const en = {
 		featuredProjects: "Featured Projects",
 		discoverMyRecentWork: "Discover some of my recent work",
 		experiences: "Experiences",
+		professionalExperience: "Professional Experience",
+		technicalSkills: "Technical Skills",
 		myProfessionalJourney:
 			"My professional journey and the projects I've worked on.",
 		skillsAndExpertise: "Skills and Expertise",
@@ -22,6 +24,9 @@ export const en = {
 		viewMore: "View More",
 		minRead: "min read",
 		views: "views",
+		professionalSummary: "Professional Summary",
+		location: "Location",
+		present: "present",
 	},
 	profile: {
 		name: "Gabriel Silva",

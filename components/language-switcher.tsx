@@ -10,8 +10,8 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useState } from "react";
 import { useLanguage } from "@/contexts/language-context";
+import { useState } from "react";
 
 interface Language {
 	code: string;
@@ -21,14 +21,14 @@ interface Language {
 
 const languages: Language[] = [
 	{
-		code: "en",
-		name: "English",
-		flag: "https://flagsapi.com/US/shiny/16.png",
-	},
-	{
 		code: "pt-br",
 		name: "Português",
 		flag: "https://flagsapi.com/BR/shiny/16.png",
+	},
+	{
+		code: "en",
+		name: "English",
+		flag: "https://flagsapi.com/US/shiny/16.png",
 	},
 ];
 
