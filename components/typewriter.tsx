@@ -67,7 +67,7 @@ export const TypewriterText = () => {
 	return (
 		<Link
 			href="/"
-			className="flex items-center gap-2 text-xl font-bold tracking-tighter transition-colors hover:text-primary"
+			className="flex items-center gap-2 text-sm md:text-xl font-bold tracking-tighter transition-colors hover:text-primary"
 		>
 			<Code2 className="h-8 w-8" />
 			<span>{displayText}</span>
