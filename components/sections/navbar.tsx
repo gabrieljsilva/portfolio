@@ -16,19 +16,22 @@ import {
 	SheetTrigger,
 } from "@/components/ui/sheet";
 import { iconsMaps } from "@/constants/icons";
-import { profile } from "@/constants/profile";
+import { useTranslations } from "@/constants/profile";
 import { downloadResume } from "@/lib/download-resume";
 import { DownloadIcon, Menu } from "lucide-react";
 import Link from "next/link";
 import { type MouseEvent, useState } from "react";
 
-const navigationItems = profile.navigation.map(({ title, href }) => ({
-	title,
-	href,
-	icon: iconsMaps.navigation[title as keyof typeof iconsMaps.navigation],
-}));
-
 export function Navbar() {
+	const translation = useTranslations();
+	const { profile } = translation;
+
+	const navigationItems = profile.navigation.map(({ title, href }) => ({
+		title,
+		href,
+		icon: iconsMaps.navigation[title as keyof typeof iconsMaps.navigation],
+	}));
+
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleNavigation = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -70,7 +73,7 @@ export function Navbar() {
 							variant="outline"
 							size="sm"
 							className="flex items-center gap-2"
-							onClick={downloadResume}
+							onClick={() => downloadResume(translation)}
 						>
 							<DownloadIcon className="h-4 w-4" />
 							Resume
@@ -121,7 +124,7 @@ export function Navbar() {
 										variant="outline"
 										size="sm"
 										className="flex items-center gap-2 w-full"
-										onClick={downloadResume}
+										onClick={() => downloadResume(translation)}
 									>
 										<DownloadIcon className="h-4 w-4" />
 										Download Resume

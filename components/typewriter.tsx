@@ -1,11 +1,13 @@
 "use client";
 
+import { useTranslations } from "@/constants/profile";
 import { Code2 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 export const TypewriterText = () => {
-	const texts = ["Gabriel Silva", "Software Developer"];
+	const { profile } = useTranslations();
+	const texts = [profile.name, profile.role];
 	const [displayText, setDisplayText] = useState("");
 	const [currentTextIndex, setCurrentTextIndex] = useState(0);
 	const [isDeleting, setIsDeleting] = useState(false);
@@ -26,6 +28,7 @@ export const TypewriterText = () => {
 		currentTextIndexRef.current = currentTextIndex;
 	}, [currentTextIndex]);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		const typingSpeed = 150;
 		const deletingSpeed = 50;
@@ -59,7 +62,7 @@ export const TypewriterText = () => {
 
 		timer = setTimeout(typeWriter, typingSpeed);
 		return () => clearTimeout(timer);
-	}, []);
+	}, [profile]);
 
 	return (
 		<Link

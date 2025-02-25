@@ -1,11 +1,12 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "@/constants/profile";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ProjectCard } from "../project-card";
-import { profile } from "@/constants/profile";
 
 export function ProjectsSection() {
+	const { profile } = useTranslations();
 	const projects = profile.projects;
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [mounted, setMounted] = useState(false);

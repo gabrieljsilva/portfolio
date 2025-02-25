@@ -1,33 +1,35 @@
 import { iconsMaps } from "@/constants/icons";
-import { profile } from "@/constants/profile";
+import { useTranslations } from "@/constants/profile";
 import Link from "next/link";
 const { Quote } = iconsMaps.misc;
 
-const navigationItems = profile.navigation.map(({ title, href }) => ({
-	title,
-	href,
-	icon: iconsMaps.navigation[title as keyof typeof iconsMaps.navigation],
-}));
-
-const socialLinks = [
-	{
-		href: profile.social.github,
-		icon: iconsMaps.social.GitHub,
-		label: "GitHub Profile",
-	},
-	{
-		href: profile.social.linkedin,
-		icon: iconsMaps.social.LinkedIn,
-		label: "LinkedIn Profile",
-	},
-	{
-		href: `mailto:${profile.contact.email}`,
-		icon: iconsMaps.social.Mail,
-		label: "Email Contact",
-	},
-];
-
 export function Footer() {
+	const { profile } = useTranslations();
+
+	const navigationItems = profile.navigation.map(({ key, title, href }) => ({
+		title,
+		href,
+		icon: iconsMaps.navigation[key as keyof typeof iconsMaps.navigation],
+	}));
+
+	const socialLinks = [
+		{
+			href: profile.social.github,
+			icon: iconsMaps.social.GitHub,
+			label: "GitHub Profile",
+		},
+		{
+			href: profile.social.linkedin,
+			icon: iconsMaps.social.LinkedIn,
+			label: "LinkedIn Profile",
+		},
+		{
+			href: `mailto:${profile.contact.email}`,
+			icon: iconsMaps.social.Mail,
+			label: "Email Contact",
+		},
+	];
+
 	return (
 		<footer className="relative w-full bg-background">
 			<div className="container relative mx-auto px-4 pt-16 pb-8">

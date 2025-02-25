@@ -9,24 +9,26 @@ import {
 	CardFooter,
 	CardHeader,
 } from "@/components/ui/card";
-import { profile } from "@/constants";
+import { useTranslations } from "@/constants/profile";
 import { formatDistanceToNow } from "date-fns";
 import { Calendar, Clock, Eye } from "lucide-react";
 import Link from "next/link";
 
-function calculateReadingTime(content: string): number {
-	const wordsPerMinute = 200;
-	const wordCount = content.split(/\s+/).length;
-	return Math.ceil(wordCount / wordsPerMinute);
-}
-
-function truncateContent(content: string, wordLimit: number): string {
-	const words = content.split(/\s+/);
-	if (words.length <= wordLimit) return content;
-	return `${words.slice(0, wordLimit).join(" ")}...`;
-}
-
 export default function BlogPage() {
+	function calculateReadingTime(content: string): number {
+		const wordsPerMinute = 200;
+		const wordCount = content.split(/\s+/).length;
+		return Math.ceil(wordCount / wordsPerMinute);
+	}
+
+	function truncateContent(content: string, wordLimit: number): string {
+		const words = content.split(/\s+/);
+		if (words.length <= wordLimit) return content;
+		return `${words.slice(0, wordLimit).join(" ")}...`;
+	}
+
+	const { profile } = useTranslations();
+
 	return (
 		<>
 			<Navbar />
@@ -71,7 +73,7 @@ export default function BlogPage() {
 										</div>
 										<div className="flex items-center gap-1.5">
 											<Eye className="h-4 w-4" />
-											<span>{post.views.toLocaleString()} views</span>
+											<span>{post.views} views</span>
 										</div>
 									</div>
 									<div className="flex flex-wrap gap-2 pt-4">

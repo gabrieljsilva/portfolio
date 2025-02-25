@@ -1,4 +1,4 @@
-import { profile } from "@/constants/profile";
+import type { Translation } from "@/constants/profile";
 import {
 	Document,
 	Link,
@@ -112,88 +112,91 @@ const styles = StyleSheet.create({
 	},
 });
 
-export const ResumePDF = () => (
-	<Document>
-		<Page size="A4" style={styles.page}>
-			{/* Header Section */}
-			<View style={styles.header}>
-				<Text style={styles.name}>{profile.fullName}</Text>
-				<Text style={styles.role}>{profile.role}</Text>
+export const ResumePDF = (translation: Translation) => {
+	const { profile } = translation;
+	return (
+		<Document>
+			<Page size="A4" style={styles.page}>
+				{/* Header Section */}
+				<View style={styles.header}>
+					<Text style={styles.name}>{profile.fullName}</Text>
+					<Text style={styles.role}>{profile.role}</Text>
 
-				<View style={styles.contactSection}>
-					<View style={styles.contactRow}>
-						<Text style={styles.contactLabel}>Email:</Text>
-						<Link
-							style={styles.contactValue}
-							src={`mailto:${profile.contact.email}`}
-						>
-							{profile.contact.email}
-						</Link>
-					</View>
-					<View style={styles.contactRow}>
-						<Text style={styles.contactLabel}>LinkedIn:</Text>
-						<Link style={styles.contactValue} src={profile.social.linkedin}>
-							linkedin.com/in/gabrieldjs21
-						</Link>
-					</View>
-					<View style={styles.contactRow}>
-						<Text style={styles.contactLabel}>GitHub:</Text>
-						<Link style={styles.contactValue} src={profile.social.github}>
-							github.com/gabrieljsilva
-						</Link>
-					</View>
-					<View style={styles.contactRow}>
-						<Text style={styles.contactLabel}>Website:</Text>
-						<Link style={styles.contactValue} src={profile.social.website}>
-							gabrieljs.dev
-						</Link>
-					</View>
-					<View style={styles.locationSection}>
-						<Text style={styles.contactLabel}>Location:</Text>
-						<Text style={styles.locationText}>
-							{profile.location.city}, {profile.location.country}
-						</Text>
+					<View style={styles.contactSection}>
+						<View style={styles.contactRow}>
+							<Text style={styles.contactLabel}>Email:</Text>
+							<Link
+								style={styles.contactValue}
+								src={`mailto:${profile.contact.email}`}
+							>
+								{profile.contact.email}
+							</Link>
+						</View>
+						<View style={styles.contactRow}>
+							<Text style={styles.contactLabel}>LinkedIn:</Text>
+							<Link style={styles.contactValue} src={profile.social.linkedin}>
+								linkedin.com/in/gabrieldjs21
+							</Link>
+						</View>
+						<View style={styles.contactRow}>
+							<Text style={styles.contactLabel}>GitHub:</Text>
+							<Link style={styles.contactValue} src={profile.social.github}>
+								github.com/gabrieljsilva
+							</Link>
+						</View>
+						<View style={styles.contactRow}>
+							<Text style={styles.contactLabel}>Website:</Text>
+							<Link style={styles.contactValue} src={profile.social.website}>
+								gabrieljs.dev
+							</Link>
+						</View>
+						<View style={styles.locationSection}>
+							<Text style={styles.contactLabel}>Location:</Text>
+							<Text style={styles.locationText}>
+								{profile.location.city}, {profile.location.country}
+							</Text>
+						</View>
 					</View>
 				</View>
-			</View>
 
-			{/* Professional Summary */}
-			<View style={styles.section}>
-				<Text style={styles.sectionTitle}>PROFESSIONAL SUMMARY</Text>
-				<Text style={styles.summaryText}>{profile.resumeSummary}</Text>
-			</View>
+				{/* Professional Summary */}
+				<View style={styles.section}>
+					<Text style={styles.sectionTitle}>PROFESSIONAL SUMMARY</Text>
+					<Text style={styles.summaryText}>{profile.resumeSummary}</Text>
+				</View>
 
-			{/* Experience */}
-			<View style={styles.section}>
-				<Text style={styles.sectionTitle}>EXPERIENCE</Text>
-				{profile.experiences.map((exp) => (
-					<View key={exp.id} style={styles.experience}>
-						<Text style={styles.company}>{exp.company}</Text>
-						<Text style={styles.roleTitle}>{exp.role}</Text>
-						<Text style={styles.date}>
-							{exp.startDate} - {exp.endDate || "Present"}
-						</Text>
-						{exp.achievements.slice(0, 3).map((achievement) => (
-							<Text key={achievement} style={styles.achievementItem}>
-								• {achievement}
+				{/* Experience */}
+				<View style={styles.section}>
+					<Text style={styles.sectionTitle}>EXPERIENCE</Text>
+					{profile.experiences.map((exp) => (
+						<View key={exp.id} style={styles.experience}>
+							<Text style={styles.company}>{exp.company}</Text>
+							<Text style={styles.roleTitle}>{exp.role}</Text>
+							<Text style={styles.date}>
+								{exp.startDate} - {exp.endDate || "Present"}
 							</Text>
-						))}
-					</View>
-				))}
-			</View>
+							{exp.achievements.slice(0, 3).map((achievement) => (
+								<Text key={achievement} style={styles.achievementItem}>
+									• {achievement}
+								</Text>
+							))}
+						</View>
+					))}
+				</View>
 
-			{/* Technical Skills */}
-			<View style={styles.section}>
-				<Text style={styles.sectionTitle}>TECHNICAL SKILLS</Text>
-				{profile.skillsSet.map((skillSet) => (
-					<View key={skillSet.category} style={{ marginBottom: 12 }}>
-						<Text style={styles.skillCategory}>{skillSet.category}</Text>
-						<Text style={styles.skillItems}>
-							{skillSet.skills.map((skill) => skill.name).join(", ")}
-						</Text>
-					</View>
-				))}
-			</View>
-		</Page>
-	</Document>
-);
+				{/* Technical Skills */}
+				<View style={styles.section}>
+					<Text style={styles.sectionTitle}>TECHNICAL SKILLS</Text>
+					{profile.skillsSet.map((skillSet) => (
+						<View key={skillSet.category} style={{ marginBottom: 12 }}>
+							<Text style={styles.skillCategory}>{skillSet.category}</Text>
+							<Text style={styles.skillItems}>
+								{skillSet.skills.map((skill) => skill.name).join(", ")}
+							</Text>
+						</View>
+					))}
+				</View>
+			</Page>
+		</Document>
+	);
+};

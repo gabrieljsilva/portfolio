@@ -1,1 +1,1 @@
-export * from "./pt-br.profile";
+export * from "./pt.br";

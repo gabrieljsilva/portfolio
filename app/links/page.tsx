@@ -1,11 +1,15 @@
+"use client";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Card } from "@/components/ui/card";
+import { useTranslations } from "@/constants/profile";
 import { Globe } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { SiGithub, SiInstagram, SiLinkedin } from "react-icons/si";
 
 export default function LinkTree() {
+	const { profile } = useTranslations();
+
 	return (
 		<div className="h-dvh w-full bg-gradient-to-b from-muted to-background p-4">
 			<div className="fixed right-4 top-4">
@@ -25,10 +29,12 @@ export default function LinkTree() {
 							/>
 						</div>
 						<div className="text-center">
-							<h1 className="text-2xl font-bold">Gabriel de Jesus Silva</h1>
+							<h1 className="text-2xl font-bold">{profile.fullName}</h1>
 							<p className="text-muted-foreground">
-								Full Stack Software Developer at{" "}
-								<span className={"font-bold"}>HIAE</span>
+								{profile.role} at{" "}
+								<span className={"font-bold"}>
+									{profile.currentCompanyShortName}
+								</span>
 							</p>
 						</div>
 					</div>

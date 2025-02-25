@@ -9,30 +9,27 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { iconsMaps } from "@/constants/icons";
-import { profile } from "@/constants/profile";
-
-const skillsData = profile.skillsSet.map((category) => {
-	const CategoryIcon =
-		iconsMaps.categories[
-			category.category as keyof typeof iconsMaps.categories
-		];
-	return {
-		category: category.category,
-		icon: <CategoryIcon className="h-6 w-6" />,
-		description: category.description,
-		skills: category.skills.map((skill) => {
-			const SkillIcon =
-				iconsMaps.tech[skill.name as keyof typeof iconsMaps.tech];
-			return {
-				name: skill.name,
-				icon: SkillIcon ? <SkillIcon className="h-4 w-4" /> : null,
-				description: skill.description,
-			};
-		}),
-	};
-});
+import { useTranslations } from "@/constants/profile";
 
 export function SkillsSection() {
+	const { profile } = useTranslations();
+
+	const skillsData = profile.skillsSet.map((category) => {
+		return {
+			category: category.category,
+			description: category.description,
+			skills: category.skills.map((skill) => {
+				const SkillIcon =
+					iconsMaps.tech[skill.name as keyof typeof iconsMaps.tech];
+				return {
+					name: skill.name,
+					icon: SkillIcon ? <SkillIcon className="h-4 w-4" /> : null,
+					description: skill.description,
+				};
+			}),
+		};
+	});
+
 	return (
 		<section
 			id="skills"
@@ -55,7 +52,6 @@ export function SkillsSection() {
 							{skillsData.map((category) => (
 								<div key={category.category} className="pb-6 last:pb-0">
 									<div className="flex items-center gap-3 mb-3">
-										{category.icon}
 										<h3 className="text-2xl font-semibold text-gray-700 dark:text-gray-200">
 											{category.category}
 										</h3>
