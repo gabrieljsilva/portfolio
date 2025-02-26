@@ -173,26 +173,39 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 		projects: [
 			{
 				id: 1,
-				title: "Decorated Dataloaders",
+				title: "Coordenação do Cuidado",
 				description:
-					"NestJS Decorated Dataloaders é um módulo que simplifica a criação de dataloaders para GraphQL usando decorators. Ele resolve o problema N+1 ao agrupar e armazenar em cache as requisições, otimizando as consultas e facilitando a integração com o NestJS. O módulo oferece uma configuração declarativa para caching, definição de batch size e manipulação de dependências, permitindo a criação de resolvers eficientes e escaláveis.",
+					"O projeto que tem como objetivo vincular Pacientes a Profissionais de Saúde por meio de Times de Cuidado. Desenvolvido utilizando Node.js com o framework Nest.js, GraphQL e React, o sistema integra seu front-end ao Portal Empresas do Hospital Israelita Albert Einstein, uma solução composta por micro front-ends que permite que diversos times atuem de forma independente em cada módulo. O projeto também adota Vitest para testes, MySQL para gerenciamento de dados, e utiliza soluções de mensageria como Kafka, RabbitMQ e SQS, apoiadas pela infraestrutura da Amazon Web Services.",
 				technologies: [
-					"NestJS",
-					"TypeScript",
+					"Node.js",
+					"Nest.js",
 					"GraphQL",
-					"Decorator",
-					"Dataloader",
+					"React",
+					"Vite",
+					"Vitest",
+					"MySQL",
+					"Kafka",
+					"RabbitMQ",
+					"SQS",
+					"AWS",
 				],
 			},
 			{
 				id: 2,
-				title: "Decorated Factory",
+				title: "Decorated Dataloaders",
 				description:
-					"Decorated Factory é uma biblioteca que utiliza decorators para criar instâncias de objetos com dados gerados via Faker, ideal para cenários de testes. Ela permite definir, por meio de decorators, como cada campo de uma classe deve ser populado, suportando relações entre entidades, arrays e sobreposição de valores, inspirada na abordagem do PrismaORM.",
-				technologies: ["TypeScript", "JavaScript", "Faker", "Decorator"],
+					"NestJS Decorated Dataloaders é um módulo que simplifica a criação de dataloaders para GraphQL usando decorators. Ele resolve o problema N+1 ao agrupar e armazenar em cache as requisições, otimizando as consultas e facilitando a integração com o NestJS. O módulo oferece uma configuração declarativa para caching, definição de batch size e manipulação de dependências, permitindo a criação de resolvers eficientes e escaláveis.",
+				technologies: ["NestJS", "TypeScript", "GraphQL"],
 			},
 			{
 				id: 3,
+				title: "Decorated Factory",
+				description:
+					"Decorated Factory é uma biblioteca que utiliza decorators para criar instâncias de objetos com dados gerados via Faker, ideal para cenários de testes. Ela permite definir, por meio de decorators, como cada campo de uma classe deve ser populado, suportando relações entre entidades, arrays e sobreposição de valores, inspirada na abordagem do PrismaORM.",
+				technologies: ["TypeScript", "JavaScript", "Faker", "Rollup"],
+			},
+			{
+				id: 4,
 				title: "Untimeless",
 				description:
 					"Untimeless é um sistema de timesheet e timetracker que facilita o acompanhamento de horas trabalhadas. Com funcionalidades de geração de relatórios, ele oferece uma visão do tempo dedicado às tarefas. Utilizando inteligência artificial, proporciona insights sobre o desempenho dos colaboradores, ajudando a otimizar a produtividade e a tomada de decisões.",
@@ -208,7 +221,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				],
 			},
 			{
-				id: 4,
+				id: 5,
 				title: "Demand To Invoice",
 				description:
 					"A Takaoka Anestesia é uma rede de anestesiologistas que contrata anestesistas sob demanda para hospitais ou cirurgiões. O projeto Demand To Invoice desenvolvido foi um sistema de escalas médicas, que atende o cliente desde o cadastro, passando pelo atendimento ao paciente até o pagamento.",
@@ -224,7 +237,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				],
 			},
 			{
-				id: 5,
+				id: 6,
 				title: "Fleury - Escalas Médicas",
 				description:
 					"Fleury - Escalas Médicas foi um projeto que trabalhei desde o back-end até o front-end web e mobile. Usando Node.js, React e React Native. A ideia do projeto era criar um aplicativo de escala para médicos da rede Fleury. O objetivo era facilitar a negociação de escalas entre os médicos.",
@@ -242,7 +255,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				],
 			},
 			{
-				id: 6,
+				id: 7,
 				title: "GoHealth - NPS",
 				description:
 					"A GoHealth é uma empresa que oferece uma série de produtos para clínicas e hospitais. Um desses produtos é o GoHealth NPS (Net Promoter Score), que tem como objetivo avaliar a satisfação dos pacientes e identificar as chances de promoção dos serviços dos hospitais parceiros.",
@@ -259,7 +272,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				],
 			},
 			{
-				id: 7,
+				id: 8,
 				title: "Pecunias",
 				description:
 					"Este foi um projeto que visava dividir grandes títulos de precatórios em outros títulos menores, tornando-os mais acessíveis para negociação. O projeto, além de gerenciar as transações entre os usuários, também gerava contratos automaticamente.",

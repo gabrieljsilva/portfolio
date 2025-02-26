@@ -5,7 +5,7 @@ interface TechBadgeProps {
 }
 
 export const TechBadge = ({ tech }: TechBadgeProps) => {
-	const Icon = iconsMaps.tech[tech] || iconsMaps.misc.Building;
+	const Icon = iconsMaps.tech[tech] || iconsMaps.misc.settings;
 
 	return (
 		<div className="flex items-center gap-1.5 text-sm bg-muted px-2.5 py-1 rounded-full">

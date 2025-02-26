@@ -16,9 +16,11 @@ import {
 	Menu,
 	Network,
 	Quote,
+	Settings,
 } from "lucide-react";
 
 import {
+	SiAmazonsqs,
 	SiAmazonwebservices,
 	SiApachekafka,
 	SiBootstrap,
@@ -41,10 +43,12 @@ import {
 	SiRabbitmq,
 	SiReact,
 	SiRedis,
+	SiRollupdotjs,
 	SiSqlite,
 	SiTailwindcss,
 	SiTypescript,
 	SiVite,
+	SiVitest,
 	SiVuedotjs,
 } from "react-icons/si";
 
@@ -97,6 +101,9 @@ export const iconsMaps = {
 		"Vue.js": SiVuedotjs,
 		Agile: CheckSquare,
 		Testes: CheckSquare,
+		Vitest: SiVitest,
+		SQS: SiAmazonsqs,
+		Rollup: SiRollupdotjs,
 	},
 	categories: {
 		"Back-end": Code2,
@@ -116,5 +123,6 @@ export const iconsMaps = {
 		Building: Building2,
 		Quote,
 		MapPin,
+		settings: Settings,
 	},
 };
