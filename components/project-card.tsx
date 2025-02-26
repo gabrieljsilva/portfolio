@@ -1,7 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
+import type { iconsMaps } from "@/constants/icons";
 import Image from "next/image";
 import { TechBadge } from "./tech-badge";
-import type { Project, TechIconKey } from "./types";
+import type { Project } from "./types";
 
 const AnimatedBackground = ({ title }: { title: string }) => (
 	<div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-primary/20 to-background">
@@ -45,7 +46,10 @@ export const ProjectCard = ({ project }: { project: Project }) => (
 					</p>
 					<div className="flex flex-wrap gap-2">
 						{project.technologies.map((tech) => (
-							<TechBadge key={tech} tech={tech as TechIconKey} />
+							<TechBadge
+								key={tech}
+								tech={tech as keyof typeof iconsMaps.tech}
+							/>
 						))}
 					</div>
 				</div>

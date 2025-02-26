@@ -59,6 +59,9 @@ export function ExperienceSection() {
 				<div className="mt-12 grid gap-8">
 					{experiences.map((experience, index) => {
 						const isExpanded = expandedCards.includes(index);
+						const hasAchievements =
+							experience.achievements && experience.achievements.length > 0;
+
 						return (
 							<motion.div
 								key={experience.id}
@@ -85,17 +88,24 @@ export function ExperienceSection() {
 										</div>
 									</CardHeader>
 									<CardContent className="grid gap-6">
-										<motion.p
+										<motion.div
 											initial={false}
 											animate={{ height: "auto" }}
 											className="text-muted-foreground"
 										>
-											{isExpanded
-												? experience.detailedDescription
-												: experience.description}
-										</motion.p>
+											{isExpanded ? (
+												<>
+													<p>{experience.description}</p>
+													<p className="mt-4">
+														{experience.detailedDescription}
+													</p>
+												</>
+											) : (
+												<p>{experience.description}</p>
+											)}
+										</motion.div>
 										<AnimatePresence>
-											{isExpanded && (
+											{isExpanded && hasAchievements && (
 												<motion.div
 													initial={{ opacity: 0, height: 0 }}
 													animate={{ opacity: 1, height: "auto" }}
@@ -107,7 +117,7 @@ export function ExperienceSection() {
 														{ui.keyAchievements}:
 													</h4>
 													<ul className="ml-6 list-disc space-y-2 text-muted-foreground">
-														{experience.achievements?.map(
+														{experience.achievements.map(
 															(achievement, index) => (
 																<motion.li
 																	key={achievement}

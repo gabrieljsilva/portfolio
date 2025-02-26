@@ -1,7 +1,12 @@
-import { type TechIconKey, techIcons } from "./types";
+import { iconsMaps } from "@/constants/icons";
 
-export const TechBadge = ({ tech }: { tech: TechIconKey }) => {
-	const Icon = techIcons[tech];
+interface TechBadgeProps {
+	tech: keyof typeof iconsMaps.tech;
+}
+
+export const TechBadge = ({ tech }: TechBadgeProps) => {
+	const Icon = iconsMaps.tech[tech] || iconsMaps.misc.Building;
+
 	return (
 		<div className="flex items-center gap-1.5 text-sm bg-muted px-2.5 py-1 rounded-full">
 			<Icon className="h-4 w-4" />
