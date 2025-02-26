@@ -27,6 +27,7 @@ export const ptBr = {
 		professionalSummary: "Resumo profissional",
 		location: "Endereço",
 		present: "atual",
+		keyAchievements: "Conquistas",
 	},
 	profile: {
 		name: "Gabriel Silva",

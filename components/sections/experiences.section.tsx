@@ -103,7 +103,9 @@ export function ExperienceSection() {
 													transition={{ duration: 0.3, ease: "easeInOut" }}
 													className="space-y-4 overflow-hidden"
 												>
-													<h4 className="font-semibold">Key Achievements:</h4>
+													<h4 className="font-semibold">
+														{ui.keyAchievements}:
+													</h4>
 													<ul className="ml-6 list-disc space-y-2 text-muted-foreground">
 														{experience.achievements?.map(
 															(achievement, index) => (

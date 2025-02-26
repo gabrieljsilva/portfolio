@@ -27,6 +27,7 @@ export const en = {
 		professionalSummary: "Professional Summary",
 		location: "Location",
 		present: "present",
+		keyAchievements: "Key Achievements",
 	},
 	profile: {
 		name: "Gabriel Silva",
