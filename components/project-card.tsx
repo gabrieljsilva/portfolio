@@ -30,7 +30,7 @@ export const ProjectCard = ({ project }: { project: Project }) => (
 							src={project.image}
 							alt={project.title}
 							fill
-							className="object-cover transition-transform duration-500 group-hover:scale-105"
+							className="object-contain transition-transform duration-500 group-hover:scale-105"
 						/>
 						<div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-background/5" />
 					</div>
