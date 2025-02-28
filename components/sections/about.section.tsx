@@ -48,7 +48,7 @@ export function AboutSection() {
 
 								<div className="hidden xl:block relative aspect-square overflow-hidden rounded-full border bg-muted lg:h-[400px]">
 									<img
-										src="/placeholder.svg?height=400&width=400"
+										src="/images/avatar/avatar.jpeg?height=400&width=400"
 										alt="Profile"
 										className="object-cover"
 										width={400}
