@@ -78,7 +78,11 @@ export function LanguageSwitcher() {
 										onClick={() => handleLanguageChange(lang.code)}
 									>
 										<span className="text-lg">
-											<img src={lang.flag} alt={`lang ${lang.name} flag`} />
+											<img
+												src={lang.flag}
+												alt={`lang ${lang.name} flag`}
+												loading={"eager"}
+											/>
 										</span>
 										<span>{lang.name}</span>
 										{currentLang === lang.code && (

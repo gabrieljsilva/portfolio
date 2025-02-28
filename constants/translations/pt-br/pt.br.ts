@@ -67,6 +67,11 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 			{ key: "Skills", title: "Habilidades", href: "/#skills" },
 			{ key: "Blog", title: "Blog", href: "/blog" },
 		],
+
+		/**
+		 * SKILL SECTION
+		 */
+
 		skillsSet: [
 			{
 				category: "Back-end",
@@ -113,12 +118,18 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				description:
 					"Projetei modelos de dados para mais de 8 sistemas em produção. Implementei cache com Redis que reduziu chamadas ao banco em 70% em plataformas de e-commerce de alto tráfego.",
 				skills: [
-					{ name: "MySQL", description: "Expertise em bancos relacionais" },
+					{
+						name: "MySQL",
+						description: "Expertise em bancos relacionais",
+					},
 					{
 						name: "PostgreSQL",
 						description: "Recursos SQL avançados e confiabilidade",
 					},
-					{ name: "MongoDB", description: "Soluções NoSQL flexíveis" },
+					{
+						name: "MongoDB",
+						description: "Soluções NoSQL flexíveis",
+					},
 					{
 						name: "Redis",
 						description: "Armazenamento in-memory de alta performance",
@@ -176,6 +187,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				title: "Coordenação do Cuidado",
 				description:
 					"O projeto que tem como objetivo vincular Pacientes a Profissionais de Saúde por meio de Times de Cuidado. Desenvolvido utilizando Node.js com o framework Nest.js, GraphQL e React, o sistema integra seu front-end ao Portal Empresas do Hospital Israelita Albert Einstein, uma solução composta por micro front-ends que permite que diversos times atuem de forma independente em cada módulo. O projeto também adota Vitest para testes, MySQL para gerenciamento de dados, e utiliza soluções de mensageria como Kafka, RabbitMQ e SQS, apoiadas pela infraestrutura da Amazon Web Services.",
+				image: "/images/logo/hiae.png",
 				technologies: [
 					"Node.js",
 					"Nest.js",
@@ -387,70 +399,6 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 			},
 			copyright: "© 2025. Todos os direitos reservados.",
 		},
-		posts: [
-			{
-				id: 1,
-				title: "Entendendo o Básico do TypeScript",
-				content:
-					"TypeScript é uma linguagem fortemente tipada que adiciona tipos opcionais ao JavaScript, proporcionando melhores ferramentas em qualquer escala. Compila para JavaScript padrão e legível. Neste guia completo, exploraremos os conceitos fundamentais do TypeScript e como ele pode melhorar seu fluxo de trabalho de desenvolvimento.",
-				date: new Date("2024-02-15"),
-				tags: ["TypeScript", "Programação", "Desenvolvimento Web"],
-				views: 1234,
-			},
-			{
-				id: 2,
-				title: "O Futuro do Desenvolvimento Web com Next.js",
-				content:
-					"Next.js revolucionou o desenvolvimento web ao combinar React com server-side rendering. Exploraremos os novos recursos como App Router e server components, e seu impacto no futuro do desenvolvimento web.",
-				date: new Date("2024-02-18"),
-				tags: ["Next.js", "React", "Desenvolvimento Web"],
-				views: 856,
-			},
-			{
-				id: 3,
-				title: "Dominando CSS Grid Layout",
-				content:
-					"CSS Grid Layout é uma ferramenta poderosa para criar layouts complexos com menos markup. Este guia cobre desde conceitos básicos até técnicas avançadas de design responsivo.",
-				date: new Date("2024-02-20"),
-				tags: ["CSS", "Web Design", "Frontend"],
-				views: 2341,
-			},
-			{
-				id: 4,
-				title: "Guia Completo de React Server Components",
-				content:
-					"React Server Components representam uma nova abordagem para renderização server-side mantendo a interatividade. Exploraremos seus benefícios, casos de uso e melhores práticas.",
-				date: new Date("2024-02-21"),
-				tags: ["React", "Server Components", "Performance"],
-				views: 1567,
-			},
-			{
-				id: 5,
-				title: "Otimizando Consultas de Banco de Dados",
-				content:
-					"A otimização de bancos de dados é crucial para performance e escalabilidade. Este artigo explora técnicas como indexação, planejamento de queries e caching.",
-				date: new Date("2024-02-22"),
-				tags: ["Banco de Dados", "Performance", "Backend"],
-				views: 987,
-			},
-			{
-				id: 6,
-				title: "Construindo Aplicações Web Acessíveis",
-				content:
-					"Acessibilidade web é essencial para inclusão digital. Este guia cobre princípios como atributos ARIA, navegação por teclado e HTML semântico.",
-				date: new Date("2024-02-23"),
-				tags: ["Acessibilidade", "Desenvolvimento Web", "UI/UX"],
-				views: 654,
-			},
-			{
-				id: 7,
-				title: "Introdução à Arquitetura de Microsserviços",
-				content:
-					"A arquitetura de microsserviços permite aplicações escaláveis e mantíveis. Exploraremos seus princípios, benefícios e desafios na implementação.",
-				date: new Date("2024-02-24"),
-				tags: ["Microsserviços", "Arquitetura", "Backend"],
-				views: 432,
-			},
-		],
+		posts: [],
 	},
 };
