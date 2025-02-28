@@ -28,6 +28,7 @@ export const ptBr = {
 		location: "Endereço",
 		present: "atual",
 		keyAchievements: "Conquistas",
+		at: "em",
 	},
 	profile: {
 		name: "Gabriel Silva",

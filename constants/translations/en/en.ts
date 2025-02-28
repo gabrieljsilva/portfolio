@@ -27,6 +27,7 @@ export const en = {
 		location: "Address",
 		present: "present",
 		keyAchievements: "Achievements",
+		at: "at",
 	},
 	profile: {
 		name: "Gabriel Silva",

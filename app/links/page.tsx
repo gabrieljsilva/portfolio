@@ -8,7 +8,7 @@ import Link from "next/link";
 import { SiGithub, SiInstagram, SiLinkedin } from "react-icons/si";
 
 export default function LinkTree() {
-	const { profile } = useTranslations();
+	const { profile, ui } = useTranslations();
 
 	return (
 		<div className="h-dvh w-full bg-gradient-to-b from-muted to-background p-4">
@@ -21,7 +21,7 @@ export default function LinkTree() {
 					<div className="flex flex-col items-center space-y-4">
 						<div className="relative size-24 overflow-hidden rounded-full">
 							<Image
-								src="/placeholder.svg?height=96&width=96"
+								src="/images/avatar/avatar.jpeg?height=96&width=96"
 								width={96}
 								height={96}
 								alt="Profile"
@@ -31,7 +31,7 @@ export default function LinkTree() {
 						<div className="text-center">
 							<h1 className="text-2xl font-bold">{profile.fullName}</h1>
 							<p className="text-muted-foreground">
-								{profile.role} at{" "}
+								{profile.role} {ui.at}{" "}
 								<span className={"font-bold"}>
 									{profile.currentCompanyShortName}
 								</span>
