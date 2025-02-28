@@ -60,16 +60,6 @@ export default function LinkTree() {
 							</Card>
 						</Link>
 						<Link
-							href="https://gabrieljs.dev"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<Card className="flex items-center gap-3 p-4 transition-colors hover:bg-muted">
-								<Globe className="size-5" />
-								<span className="font-medium">Website</span>
-							</Card>
-						</Link>
-						<Link
 							href="https://www.instagram.com/gabrieljsillva"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -77,6 +67,17 @@ export default function LinkTree() {
 							<Card className="flex items-center gap-3 p-4 transition-colors hover:bg-muted">
 								<SiInstagram className="size-5" />
 								<span className="font-medium">Instagram</span>
+							</Card>
+						</Link>
+
+						<Link
+							href="https://gabrieljs.dev"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Card className="flex items-center gap-3 p-4 transition-colors hover:bg-muted">
+								<Globe className="size-5" />
+								<span className="font-medium">Website</span>
 							</Card>
 						</Link>
 					</div>
