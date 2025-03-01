@@ -28,6 +28,8 @@ export const en = {
 		present: "present",
 		keyAchievements: "Achievements",
 		at: "at",
+		close: "Close",
+		keyFeatures: "Key Features",
 	},
 	profile: {
 		name: "Gabriel Silva",
@@ -238,6 +240,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 					"SQS",
 					"AWS",
 				],
+				features: [],
 			},
 			{
 				id: 2,
@@ -245,6 +248,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 				description:
 					"NestJS Decorated Dataloaders is a module that simplifies the creation of dataloaders for GraphQL using decorators. It solves the N+1 problem by batching and caching requests, optimizing queries and facilitating integration with NestJS. The module offers a declarative configuration for caching, batch size definition, and dependency handling, allowing the creation of efficient and scalable resolvers.",
 				technologies: ["NestJS", "TypeScript", "GraphQL"],
+				features: [],
 			},
 			{
 				id: 3,
@@ -252,6 +256,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 				description:
 					"Decorated Factory is a library that uses decorators to create object instances with data generated via Faker, ideal for testing scenarios. It allows defining, through decorators, how each field of a class should be populated, supporting relationships between entities, arrays, and value overriding, inspired by the PrismaORM approach.",
 				technologies: ["TypeScript", "JavaScript", "Faker", "Rollup"],
+				features: [],
 			},
 			{
 				id: 4,
@@ -268,6 +273,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 					"Docker",
 					"Vite",
 				],
+				features: [],
 			},
 			{
 				id: 5,
@@ -284,6 +290,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 					"GraphQL",
 					"Docker",
 				],
+				features: [],
 			},
 			{
 				id: 6,
@@ -302,6 +309,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 					"GraphQL",
 					"Docker",
 				],
+				features: [],
 			},
 			{
 				id: 7,
@@ -319,6 +327,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 					"Docker",
 					"Vite",
 				],
+				features: [],
 			},
 			{
 				id: 8,
@@ -326,6 +335,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 				description:
 					"This was a project that aimed to split large precatory titles into smaller ones, making them more accessible for negotiation. The project, in addition to managing transactions between users, also generated contracts automatically.",
 				technologies: ["Node.js", "MySQL", "Express.js", "Bootstrap"],
+				features: [],
 			},
 		],
 

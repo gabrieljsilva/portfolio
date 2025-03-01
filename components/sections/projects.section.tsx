@@ -4,6 +4,7 @@ import { useTranslations } from "@/constants/profile";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ProjectCard } from "../project-card";
+import type { Project } from "@/components/types";
 
 export function ProjectsSection() {
 	const { profile, ui } = useTranslations();
@@ -97,7 +98,7 @@ export function ProjectsSection() {
 						className="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory scroll-smooth hide-scrollbar"
 					>
 						{projects.map((project) => (
-							<ProjectCard key={project.id} project={project} />
+							<ProjectCard key={project.id} project={project as Project} />
 						))}
 					</div>
 				</div>

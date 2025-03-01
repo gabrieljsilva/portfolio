@@ -29,6 +29,8 @@ export const ptBr = {
 		present: "atual",
 		keyAchievements: "Conquistas",
 		at: "em",
+		close: "Fechar",
+		keyFeatures: "Funcionalidades",
 	},
 	profile: {
 		name: "Gabriel Silva",
@@ -202,6 +204,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 					"SQS",
 					"AWS",
 				],
+				features: [],
 			},
 			{
 				id: 2,
@@ -216,7 +219,9 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				description:
 					"Decorated Factory é uma biblioteca que utiliza decorators para criar instâncias de objetos com dados gerados via Faker, ideal para cenários de testes. Ela permite definir, por meio de decorators, como cada campo de uma classe deve ser populado, suportando relações entre entidades, arrays e sobreposição de valores, inspirada na abordagem do PrismaORM.",
 				technologies: ["TypeScript", "JavaScript", "Faker", "Rollup"],
+				features: [],
 			},
+
 			{
 				id: 4,
 				title: "Untimeless",
@@ -232,6 +237,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 					"Docker",
 					"Vite",
 				],
+				features: [],
 			},
 			{
 				id: 5,
@@ -248,6 +254,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 					"GraphQL",
 					"Docker",
 				],
+				features: [],
 			},
 			{
 				id: 6,
@@ -266,6 +273,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 					"GraphQL",
 					"Docker",
 				],
+				features: [],
 			},
 			{
 				id: 7,
@@ -290,6 +298,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				description:
 					"Este foi um projeto que visava dividir grandes títulos de precatórios em outros títulos menores, tornando-os mais acessíveis para negociação. O projeto, além de gerenciar as transações entre os usuários, também gerava contratos automaticamente.",
 				technologies: ["Node.js", "MySQL", "Express.js", "Bootstrap"],
+				features: [],
 			},
 		],
 
