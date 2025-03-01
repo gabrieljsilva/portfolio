@@ -107,9 +107,9 @@ export default function ContactModal() {
 							name="name"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>What&apos;s your name?</FormLabel>
+									<FormLabel>{ui.whatsYourName}</FormLabel>
 									<FormControl>
-										<Input placeholder="Your name" {...field} />
+										<Input placeholder={ui.yourNamePlaceholder} {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -120,10 +120,10 @@ export default function ContactModal() {
 							name="email"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Your email address</FormLabel>
+									<FormLabel>{ui.whatsYouEmailAddress}</FormLabel>
 									<FormControl>
 										<Input
-											placeholder="your.email@example.com"
+											placeholder={ui.yourEmailPlaceholder}
 											type="email"
 											{...field}
 										/>
@@ -137,10 +137,10 @@ export default function ContactModal() {
 							name="message"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Your message</FormLabel>
+									<FormLabel>{ui.yourMessage}</FormLabel>
 									<FormControl>
 										<Textarea
-											placeholder="Type your message here..."
+											placeholder={ui.yourMessagePlaceholder}
 											className="min-h-[120px] resize-none"
 											{...field}
 										/>
@@ -149,16 +149,16 @@ export default function ContactModal() {
 								</FormItem>
 							)}
 						/>
-						<div className="flex justify-end space-x-4 pt-4">
+						<div className="flex justify-between space-x-4 pt-4">
 							<Button
 								variant="outline"
 								onClick={() => setOpen(false)}
 								type="button"
 							>
-								Cancel
+								{ui.close}
 							</Button>
 							<Button type="submit" disabled={isLoading}>
-								{isLoading ? "Sending..." : "Send message"}
+								{isLoading ? ui.sendingMessage : ui.sendMessage}
 							</Button>
 						</div>
 					</form>

@@ -14,46 +14,98 @@ import { useState } from "react";
 import { TechBadge } from "./tech-badge";
 import type { Project } from "./types";
 import { useTranslations } from "@/constants/profile";
+import { useTheme } from "next-themes"; // Import useTheme to detect current theme
 
-const AnimatedBackground = ({ title }: { title: string }) => (
-	<div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-primary/20 to-background">
-		<div className="absolute inset-0">
-			<div className="animate-float-1 absolute top-4 left-4 w-20 h-20 rounded-full bg-primary/20" />
-			<div className="animate-float-2 absolute top-8 right-8 w-16 h-16 rotate-45 bg-primary/30" />
-			<div className="animate-float-3 absolute bottom-4 left-1/4 w-12 h-12 rounded-lg bg-primary/25" />
+const AnimatedBackground = ({ title }: { title: string }) => {
+	const { theme } = useTheme(); // Get current theme
+
+	return (
+		<div
+			className={`relative h-48 w-full overflow-hidden transition-transform duration-500 group-hover:scale-105 ${
+				theme === "light"
+					? "bg-gray-700" // Dark gray background for image area in light theme
+					: "bg-gradient-to-br from-primary/20 to-background" // Original gradient for dark theme
+			}`}
+		>
+			<div className="absolute inset-0">
+				<div
+					className={`animate-float-1 absolute top-4 left-4 w-20 h-20 rounded-full ${
+						theme === "light" ? "bg-gray-600" : "bg-primary/20"
+					}`}
+				/>
+				<div
+					className={`animate-float-2 absolute top-8 right-8 w-16 h-16 rotate-45 ${
+						theme === "light" ? "bg-gray-800" : "bg-primary/30"
+					}`}
+				/>
+				<div
+					className={`animate-float-3 absolute bottom-4 left-1/4 w-12 h-12 rounded-lg ${
+						theme === "light" ? "bg-gray-600" : "bg-primary/25"
+					}`}
+				/>
+			</div>
+			<div className="absolute inset-0 flex items-center justify-center">
+				<h3
+					className={`text-2xl font-bold px-4 text-center ${
+						theme === "light" ? "text-white" : "text-foreground"
+					}`}
+				>
+					{title}
+				</h3>
+			</div>
+			<div
+				className={`absolute inset-0 bg-gradient-to-t ${
+					theme === "light"
+						? "from-gray-700/90 via-gray-700/70 to-gray-700/30" // Dark overlay for light theme
+						: "from-background/90 via-background/50 to-background/5" // Original for dark theme
+				}`}
+			/>
 		</div>
-		<div className="absolute inset-0 flex items-center justify-center">
-			<h3 className="text-2xl font-bold text-foreground px-4 text-center">
-				{title}
-			</h3>
-		</div>
-		<div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-background/5" />
-	</div>
-);
+	);
+};
 
 export const ProjectCard = ({ project }: { project: Project }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const { ui } = useTranslations();
+	const { theme } = useTheme(); // Get current theme
 
 	return (
 		<>
 			<div className="flex-shrink-0 w-[280px] sm:w-[320px] lg:w-[380px] snap-center">
-				<Card className="h-full group hover:shadow-lg transition-all duration-300 overflow-hidden">
+				<Card
+					className={`h-full group hover:shadow-lg transition-all duration-300 overflow-hidden ${
+						theme === "light" ? "bg-gray-200" : "" // Light gray background for card in light mode
+					}`}
+				>
 					<CardContent className="p-0">
 						{project.image ? (
-							<div className="relative h-48 w-full overflow-hidden">
+							<div
+								className={`relative h-48 w-full overflow-hidden ${
+									theme === "light" ? "bg-gray-900" : ""
+								}`}
+							>
 								<Image
 									src={project.image}
 									alt={project.title}
 									fill
-									className="object-contain transition-transform duration-500 group-hover:scale-105"
+									className="object-contain transition-transform duration-500 p-5 group-hover:scale-105"
 								/>
-								<div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-background/5" />
+								<div
+									className={`absolute inset-0 bg-gradient-to-t ${
+										theme === "light"
+											? "from-gray-700/90 via-gray-500/50 to-gray-600/60" // Dark gray gradient overlay for light theme
+											: "from-background/90 via-background/50 to-background/5" // Original for dark theme
+									}`}
+								/>
 							</div>
 						) : (
 							<AnimatedBackground title={project.title} />
 						)}
-						<div className="p-6 space-y-4">
+						<div
+							className={`p-6 space-y-4 ${
+								theme === "light" ? "bg-gray-200" : "" // Light gray for content area in light mode
+							}`}
+						>
 							<h3 className="text-xl font-bold group-hover:text-primary transition-colors">
 								{project.title}
 							</h3>
