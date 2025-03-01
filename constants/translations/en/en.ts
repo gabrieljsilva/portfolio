@@ -46,7 +46,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 		shortDescription:
 			"Creating elegant solutions through code. Specialized in developing modern web applications with cutting-edge technologies and exceptional user experiences.",
 		contact: {
-			email: "contact@gabrieljs.dev",
+			email: "contato@gabrieljs.dev",
 			formAccessKey: "81309db0-39fb-4bb6-8738-4dae02fcbd40",
 		},
 		social: {
