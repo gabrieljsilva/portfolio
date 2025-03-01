@@ -39,6 +39,7 @@ export const ptBr = {
 		yourMessagePlaceholder: "Deixe sua mensagem aqui...",
 		sendMessage: "Enviar Mensagem",
 		sendingMessage: "Enviando...",
+		comingSoon: "Em Breve...",
 	},
 	profile: {
 		name: "Gabriel Silva",

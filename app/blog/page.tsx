@@ -39,6 +39,9 @@ export default function BlogPage() {
 					<h1 className="mb-8 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:mb-12">
 						{ui.latestPosts}
 					</h1>
+
+					<h2 className={"text-2xl font-bold"}>{ui.comingSoon}</h2>
+
 					<div className="grid gap-6">
 						{profile.posts.map((post) => (
 							<Card

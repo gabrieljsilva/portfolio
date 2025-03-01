@@ -38,6 +38,7 @@ export const en = {
 		yourMessagePlaceholder: "Write your message here...",
 		sendMessage: "Send message",
 		sendingMessage: "Sending...",
+		comingSoon: "Coming Soon...",
 	},
 	profile: {
 		name: "Gabriel Silva",
