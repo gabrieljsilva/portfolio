@@ -40,6 +40,7 @@ export const en = {
 		sendingMessage: "Sending...",
 		comingSoon: "Coming Soon...",
 		viewProject: "View Project",
+		technologies: "Technologies",
 	},
 	profile: {
 		name: "Gabriel Silva",

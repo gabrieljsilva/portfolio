@@ -41,6 +41,7 @@ export const ptBr = {
 		sendingMessage: "Enviando...",
 		comingSoon: "Em Breve...",
 		viewProject: "Ver Projeto",
+		technologies: "Tecnologias",
 	},
 	profile: {
 		name: "Gabriel Silva",

@@ -89,19 +89,38 @@ export function ExperienceSection() {
 									<CardContent className="grid gap-6">
 										<motion.div
 											initial={false}
-											animate={{ height: "auto" }}
+											animate={{
+												height: "auto",
+												opacity: 1,
+											}}
 											className="text-muted-foreground"
 										>
-											{isExpanded ? (
-												<>
-													<p>{experience.description}</p>
-													<p className="mt-4">
-														{experience.detailedDescription}
-													</p>
-												</>
-											) : (
-												<p>{experience.description}</p>
-											)}
+											<AnimatePresence mode="wait">
+												{isExpanded ? (
+													<motion.div
+														key="expanded"
+														initial={{ opacity: 0 }}
+														animate={{ opacity: 1 }}
+														exit={{ opacity: 0 }}
+														transition={{ duration: 0.3 }}
+													>
+														<p>{experience.description}</p>
+														<p className="mt-4">
+															{experience.detailedDescription}
+														</p>
+													</motion.div>
+												) : (
+													<motion.p
+														key="collapsed"
+														initial={{ opacity: 0 }}
+														animate={{ opacity: 1 }}
+														exit={{ opacity: 0 }}
+														transition={{ duration: 0.3 }}
+													>
+														{experience.description}
+													</motion.p>
+												)}
+											</AnimatePresence>
 										</motion.div>
 										<AnimatePresence>
 											{isExpanded && hasAchievements && (
@@ -135,26 +154,42 @@ export function ExperienceSection() {
 												</motion.div>
 											)}
 										</AnimatePresence>
-										<div className="flex flex-wrap gap-3">
-											{experience.technologies.map(
-												({ name, icon: Icon }, i) => (
-													<motion.div
-														key={name}
-														initial={{ opacity: 0, scale: 0.8 }}
-														animate={{ opacity: 1, scale: 1 }}
-														transition={{ duration: 0.2, delay: i * 0.05 }}
-													>
-														<Badge
-															variant="secondary"
-															className="flex items-center gap-1 px-3 py-1"
-														>
-															<Icon className="h-4 w-4" />
-															{name}
-														</Badge>
-													</motion.div>
-												),
+										<AnimatePresence>
+											{isExpanded && (
+												<motion.div
+													initial={{ opacity: 0, height: 0 }}
+													animate={{ opacity: 1, height: "auto" }}
+													exit={{ opacity: 0, height: 0 }}
+													transition={{ duration: 0.3, ease: "easeInOut" }}
+													className="space-y-4 overflow-hidden"
+												>
+													<h4 className="font-semibold">{ui.technologies}:</h4>
+													<div className="flex flex-wrap gap-3">
+														{experience.technologies.map(
+															({ name, icon: Icon }, i) => (
+																<motion.div
+																	key={name}
+																	initial={{ opacity: 0, scale: 0.8 }}
+																	animate={{ opacity: 1, scale: 1 }}
+																	transition={{
+																		duration: 0.2,
+																		delay: i * 0.05,
+																	}}
+																>
+																	<Badge
+																		variant="secondary"
+																		className="flex items-center gap-1 px-3 py-1"
+																	>
+																		<Icon className="h-4 w-4" />
+																		{name}
+																	</Badge>
+																</motion.div>
+															),
+														)}
+													</div>
+												</motion.div>
 											)}
-										</div>
+										</AnimatePresence>
 										<Button
 											variant="ghost"
 											className="w-full transition-colors"
@@ -162,8 +197,16 @@ export function ExperienceSection() {
 										>
 											<motion.div
 												initial={false}
-												animate={{ rotate: isExpanded ? 180 : 0 }}
-												transition={{ duration: 0.3 }}
+												animate={{
+													rotate: isExpanded ? 180 : 0,
+													scale: isExpanded ? 1.1 : 1,
+												}}
+												transition={{
+													duration: 0.3,
+													type: "spring",
+													stiffness: 300,
+													damping: 20,
+												}}
 												className="flex items-center gap-2"
 											>
 												<ChevronDown className="h-4 w-4" />
