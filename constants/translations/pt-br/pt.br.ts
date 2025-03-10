@@ -552,7 +552,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 			},
 			{
 				id: 6,
-				shouldShowInResume: true,
+				shouldShowInResume: false,
 				company: "Newtic",
 				role: "Desenvolvedor web",
 				startDate: "Dez 2018",

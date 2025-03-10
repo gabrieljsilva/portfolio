@@ -548,7 +548,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 			},
 			{
 				id: 6,
-				shouldShowInResume: true,
+				shouldShowInResume: false,
 				company: "Newtic",
 				role: "Web Developer",
 				startDate: "Dec 2018",
