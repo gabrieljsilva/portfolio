@@ -396,6 +396,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 		experiences: [
 			{
 				id: 1,
+				shouldShowInResume: true,
 				company: "Hospital Israelita Albert Einstein",
 				role: "Fullstack Software Developer",
 				startDate: "Mar 2024",
@@ -427,6 +428,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 			},
 			{
 				id: 2,
+				shouldShowInResume: false,
 				company: "Grupo GBI",
 				role: "Fullstack Software Developer",
 				startDate: "Mar 2024",
@@ -459,6 +461,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 			},
 			{
 				id: 3,
+				shouldShowInResume: true,
 				company: "Freelance",
 				role: "Fullstack Developer",
 				startDate: "Oct 2022",
@@ -495,6 +498,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 			},
 			{
 				id: 4,
+				shouldShowInResume: true,
 				company: "RedFox Digital Solutions",
 				role: "Fullstack Software Developer",
 				startDate: "Apr 2021",
@@ -525,6 +529,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 			},
 			{
 				id: 5,
+				shouldShowInResume: false,
 				company: "CAMEJA",
 				role: "Information Systems Programmer",
 				startDate: "Sep 2019",
@@ -542,6 +547,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 			},
 			{
 				id: 6,
+				shouldShowInResume: true,
 				company: "Newtic",
 				role: "Web Developer",
 				startDate: "Dec 2018",

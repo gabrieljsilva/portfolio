@@ -400,6 +400,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 		experiences: [
 			{
 				id: 1,
+				shouldShowInResume: true,
 				company: "Hospital Israelita Albert Einstein",
 				role: "Fullstack Software Developer",
 				startDate: "Mar 2024",
@@ -431,6 +432,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 			},
 			{
 				id: 2,
+				shouldShowInResume: false,
 				company: "Grupo GBI",
 				role: "Fullstack Software Developer",
 				startDate: "Mar 2024",
@@ -463,6 +465,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 			},
 			{
 				id: 3,
+				shouldShowInResume: true,
 				company: "Freelance",
 				role: "Desenvolvedor fullstack",
 				startDate: "Out 2022",
@@ -499,6 +502,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 			},
 			{
 				id: 4,
+				shouldShowInResume: true,
 				company: "RedFox Digital Solutions",
 				role: "Fullstack Software Developer",
 				startDate: "Abr 2021",
@@ -529,6 +533,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 			},
 			{
 				id: 5,
+				shouldShowInResume: false,
 				company: "CAMEJA",
 				role: "Programador de sistemas de informação",
 				startDate: "Set 2019",
@@ -546,6 +551,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 			},
 			{
 				id: 6,
+				shouldShowInResume: true,
 				company: "Newtic",
 				role: "Desenvolvedor web",
 				startDate: "Dez 2018",

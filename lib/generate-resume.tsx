@@ -21,15 +21,15 @@ const styles = StyleSheet.create({
 		marginBottom: 16,
 	},
 	name: {
-		fontSize: 26,
-		fontWeight: "bold",
-		marginBottom: 18,
+		fontSize: 18,
+		fontWeight: "ultralight",
+		marginBottom: 8,
 		color: "#000",
 	},
 	role: {
-		fontSize: 16,
+		fontSize: 12,
 		color: "#5b5b5b",
-		marginBottom: 16,
+		fontWeight: "extralight",
 	},
 	contactSection: {
 		flexDirection: "column",
@@ -57,10 +57,9 @@ const styles = StyleSheet.create({
 		marginBottom: 16,
 	},
 	sectionTitle: {
-		fontSize: 14,
-		fontWeight: "900",
+		fontSize: 12,
+		fontWeight: "extrabold",
 		marginBottom: 6,
-		letterSpacing: 0.8,
 		color: "#000",
 	},
 	summaryText: {
@@ -85,7 +84,7 @@ const styles = StyleSheet.create({
 	date: {
 		fontSize: 9,
 		color: "#777",
-		marginBottom: 6,
+		marginBottom: 2,
 	},
 	achievementItem: {
 		fontSize: 9,
@@ -104,6 +103,15 @@ const styles = StyleSheet.create({
 		color: "#555",
 		marginBottom: 6,
 	},
+	contactColumns: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+		marginBottom: 16,
+		fontSize: 10,
+	},
+	contactColumn: {
+		width: "48%",
+	},
 });
 
 export const ResumePDF = (translation: Translation) => {
@@ -115,41 +123,19 @@ export const ResumePDF = (translation: Translation) => {
 				<View style={styles.header}>
 					<Text style={styles.name}>{profile.fullName}</Text>
 					<Text style={styles.role}>{profile.role}</Text>
+				</View>
 
-					<View style={styles.contactSection}>
-						<View style={styles.contactRow}>
-							<Text style={styles.contactLabel}>Email:</Text>
-							<Link
-								style={styles.contactValue}
-								src={`mailto:${profile.contact.email}`}
-							>
-								{profile.contact.email}
-							</Link>
-						</View>
-						<View style={styles.contactRow}>
-							<Text style={styles.contactLabel}>LinkedIn:</Text>
-							<Link style={styles.contactValue} src={profile.social.linkedin}>
-								linkedin.com/in/gabrieldjs21
-							</Link>
-						</View>
-						<View style={styles.contactRow}>
-							<Text style={styles.contactLabel}>GitHub:</Text>
-							<Link style={styles.contactValue} src={profile.social.github}>
-								github.com/gabrieljsilva
-							</Link>
-						</View>
-						<View style={styles.contactRow}>
-							<Text style={styles.contactLabel}>Website:</Text>
-							<Link style={styles.contactValue} src={profile.social.website}>
-								gabrieljs.dev
-							</Link>
-						</View>
-						<View style={styles.locationSection}>
-							<Text style={styles.contactLabel}>
-								{ui.location}: {profile.location.city},{" "}
-								{profile.location.country}
-							</Text>
-						</View>
+				{/* Contact Information Columns */}
+				<View style={styles.contactColumns}>
+					<View style={styles.contactColumn}>
+						<Text>LinkedIn: gabrieldjs21</Text>
+						<Text>Github: gabrieljsilva</Text>
+						<Text>Portifólio: https://gabrieljs.dev</Text>
+					</View>
+					<View style={styles.contactColumn}>
+						<Text>Telefone: (74) 99909-1508</Text>
+						<Text>E-mail: gabrieldjs21@gmail.com</Text>
+						<Text>Localização: Senhor do Bonfim, Bahia</Text>
 					</View>
 				</View>
 
@@ -166,20 +152,23 @@ export const ResumePDF = (translation: Translation) => {
 					<Text style={styles.sectionTitle}>
 						{ui.professionalExperience.toUpperCase()}
 					</Text>
-					{profile.experiences.map((exp) => (
-						<View key={exp.id} style={styles.experience}>
-							<Text style={styles.company}>{exp.company}</Text>
-							<Text style={styles.roleTitle}>{exp.role}</Text>
-							<Text style={styles.date}>
-								{exp.startDate} - {exp.endDate || ui.present}
-							</Text>
-							{exp.achievements.slice(0, 3).map((achievement) => (
-								<Text key={achievement} style={styles.achievementItem}>
-									• {achievement}
+					{profile.experiences
+						.filter((exp) => exp.shouldShowInResume)
+						.map((exp) => (
+							<View key={exp.id} style={styles.experience}>
+								<Text style={styles.company}>{exp.company}</Text>
+								<Text style={styles.roleTitle}>{exp.role}</Text>
+								<Text style={styles.date}>
+									{exp.startDate} - {exp.endDate || ui.present}
 								</Text>
-							))}
-						</View>
-					))}
+								<Text style={styles.summaryText}>{exp.description}</Text>
+								{exp.achievements.slice(0, 3).map((achievement) => (
+									<Text key={achievement} style={styles.achievementItem}>
+										• {achievement}
+									</Text>
+								))}
+							</View>
+						))}
 				</View>
 
 				{/* Technical Skills */}
