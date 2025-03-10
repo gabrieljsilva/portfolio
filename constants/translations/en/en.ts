@@ -563,7 +563,25 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 				],
 			},
 		],
-
+		academicBackground: [
+			{
+				location: "Instituto Federal de Educação, Ciência e Tecnologia Baiano",
+				level: "Higher Education",
+				course: "Computer Science",
+				startDate: "Apr 2018",
+				status: "On Hold",
+				workload: "4000 hours",
+			},
+			{
+				location: "Instituto Federal de Educação, Ciência e Tecnologia Baiano",
+				level: "Technical Education",
+				course: "Information Technology",
+				startDate: "Feb 2018",
+				endDate: "Aug 2018",
+				status: "Completed",
+				workload: "1200 hours",
+			},
+		],
 		footer: {
 			quote: {
 				text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",

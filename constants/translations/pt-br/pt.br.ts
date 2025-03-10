@@ -567,7 +567,25 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				],
 			},
 		],
-
+		academicBackground: [
+			{
+				location: "Instituto Federal de Educação, Ciência e Tecnologia Baiano",
+				level: "Ensino Superior",
+				course: "Ciências da Computação",
+				startDate: "Abr 2018",
+				status: "Trancado",
+				workload: "4000 horas",
+			},
+			{
+				location: "Instituto Federal de Educação, Ciência e Tecnologia Baiano",
+				level: "Ensino Técnico",
+				course: "Informática",
+				startDate: "Fev 2018",
+				endDate: "Ago 2018",
+				status: "Concluído",
+				workload: "1200 horas",
+			},
+		],
 		footer: {
 			quote: {
 				text: "Qualquer um pode escrever código que um computador entenda. Bons programadores escrevem código que humanos entendem.",
