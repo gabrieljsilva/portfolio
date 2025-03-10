@@ -74,7 +74,6 @@ export function ExperienceSection() {
 										<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 											<div className="space-y-1">
 												<div className="flex items-center gap-2">
-													<Building2 className="h-5 w-5 text-muted-foreground" />
 													<CardTitle>{experience.company}</CardTitle>
 												</div>
 												<CardDescription className="text-lg font-medium text-primary">
@@ -83,7 +82,7 @@ export function ExperienceSection() {
 											</div>
 											<div className="text-sm text-muted-foreground">
 												{experience.startDate} -{" "}
-												{experience.endDate || "Present"}
+												{experience.endDate || ui.present}
 											</div>
 										</div>
 									</CardHeader>

@@ -14,7 +14,8 @@ import { useState } from "react";
 import { TechBadge } from "./tech-badge";
 import type { Project } from "./types";
 import { useTranslations } from "@/constants/profile";
-import { useTheme } from "next-themes"; // Import useTheme to detect current theme
+import { useTheme } from "next-themes";
+import Link from "next/link"; // Import useTheme to detect current theme
 
 const AnimatedBackground = ({ title }: { title: string }) => {
 	const { theme } = useTheme(); // Get current theme
@@ -141,6 +142,24 @@ export const ProjectCard = ({ project }: { project: Project }) => {
 						<DialogTitle className="text-xl md:text-2xl font-bold">
 							{project.title}
 						</DialogTitle>
+
+						<div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2 text-start">
+							<p className="text-sm md:text-base text-foreground">
+								{project.description}
+							</p>
+
+							{project.features && (
+								<div className="space-y-2">
+									<h4 className="font-semibold">{ui.keyFeatures}:</h4>
+									<ul className="list-disc pl-5 text-sm space-y-1">
+										{project.features.map((feature) => (
+											<li key={feature}>{feature}</li>
+										))}
+									</ul>
+								</div>
+							)}
+						</div>
+
 						<DialogDescription className="flex flex-wrap gap-2 pt-2">
 							{project.technologies.map((tech) => (
 								<TechBadge
@@ -150,25 +169,22 @@ export const ProjectCard = ({ project }: { project: Project }) => {
 							))}
 						</DialogDescription>
 					</DialogHeader>
-					<div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
-						<p className="text-sm md:text-base text-foreground">
-							{project.description}
-						</p>
 
-						{project.features && (
-							<div className="space-y-2">
-								<h4 className="font-semibold">{ui.keyFeatures}:</h4>
-								<ul className="list-disc pl-5 text-sm space-y-1">
-									{project.features.map((feature) => (
-										<li key={feature}>{feature}</li>
-									))}
-								</ul>
-							</div>
-						)}
-					</div>
 					<DialogFooter className="w-full">
-						<div className={"flex items-center justify-end"}>
-							<Button onClick={() => setIsModalOpen(false)}>{ui.close}</Button>
+						<div className={"flex w-full items-center justify-between"}>
+							<Button variant={"outline"} onClick={() => setIsModalOpen(false)}>
+								{ui.close}
+							</Button>
+
+							{project.link && (
+								<Link
+									href={project.link}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<Button>{ui.viewProject}</Button>
+								</Link>
+							)}
 						</div>
 					</DialogFooter>
 				</DialogContent>

@@ -32,6 +32,7 @@ import {
 	SiGraphql,
 	SiHtml5,
 	SiJavascript,
+	SiKubernetes,
 	SiLinkedin,
 	SiMongodb,
 	SiMui,
@@ -104,6 +105,7 @@ export const iconsMaps = {
 		Vitest: SiVitest,
 		SQS: SiAmazonsqs,
 		Rollup: SiRollupdotjs,
+		Kubernetes: SiKubernetes,
 	},
 	categories: {
 		"Back-end": Code2,

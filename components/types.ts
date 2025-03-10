@@ -5,4 +5,5 @@ export interface Project {
 	image?: string;
 	technologies: string[];
 	features: string[];
+	link?: string;
 }
