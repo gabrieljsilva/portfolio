@@ -124,12 +124,17 @@ export const ProjectCard = ({ project }: { project: Project }) => {
 								</Button>
 							</div>
 							<div className="flex flex-wrap gap-2">
-								{project.technologies.map((tech) => (
+								{project.technologies.slice(0, 5).map((tech) => (
 									<TechBadge
 										key={tech}
 										tech={tech as keyof typeof iconsMaps.tech}
 									/>
 								))}
+								{project.technologies.length > 5 && (
+									<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
+										+{project.technologies.length - 5}
+									</span>
+								)}
 							</div>
 						</div>
 					</CardContent>
