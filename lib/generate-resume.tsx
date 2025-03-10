@@ -1,194 +1,212 @@
 import type { Translation } from "@/constants/profile";
-import {
-	Document,
-	Link,
-	Page,
-	StyleSheet,
-	Text,
-	View,
-} from "@react-pdf/renderer";
-
-const styles = StyleSheet.create({
-	page: {
-		padding: 40,
-		fontFamily: "Helvetica",
-		fontSize: 10,
-		lineHeight: 1.5,
-		color: "#000", // primary text: black
-		backgroundColor: "#FFF", // white background
-	},
-	header: {
-		marginBottom: 16,
-	},
-	name: {
-		fontSize: 18,
-		fontWeight: "ultralight",
-		marginBottom: 8,
-		color: "#000",
-	},
-	role: {
-		fontSize: 12,
-		color: "#5b5b5b",
-		fontWeight: "extralight",
-	},
-	contactSection: {
-		flexDirection: "column",
-		marginBottom: 1,
-	},
-	contactRow: {
-		flexDirection: "row",
-		alignItems: "center",
-		marginBottom: 1,
-	},
-	contactLabel: {
-		fontWeight: "bold",
-		color: "#555",
-		marginRight: 6,
-		fontSize: 10,
-	},
-	contactValue: {
-		color: "#333",
-		fontSize: 10,
-	},
-	locationSection: {
-		marginTop: 10,
-	},
-	section: {
-		marginBottom: 16,
-	},
-	sectionTitle: {
-		fontSize: 12,
-		fontWeight: "extrabold",
-		marginBottom: 6,
-		color: "#000",
-	},
-	summaryText: {
-		fontSize: 10,
-		color: "#333",
-	},
-	experience: {
-		marginBottom: 16,
-	},
-	company: {
-		fontSize: 12,
-		fontWeight: "bold",
-		color: "#000",
-		marginBottom: 2,
-	},
-	roleTitle: {
-		fontSize: 11,
-		fontWeight: "bold",
-		color: "#333",
-		marginBottom: 2,
-	},
-	date: {
-		fontSize: 9,
-		color: "#777",
-		marginBottom: 2,
-	},
-	achievementItem: {
-		fontSize: 9,
-		color: "#555",
-		marginBottom: 4,
-		paddingLeft: 12,
-	},
-	skillCategory: {
-		fontSize: 11,
-		fontWeight: "bold",
-		color: "#000",
-		marginBottom: 4,
-	},
-	skillItems: {
-		fontSize: 9,
-		color: "#555",
-		marginBottom: 6,
-	},
-	contactColumns: {
-		flexDirection: "row",
-		justifyContent: "space-between",
-		marginBottom: 16,
-		fontSize: 10,
-	},
-	contactColumn: {
-		width: "48%",
-	},
-	academicBackground: {
-		marginBottom: 8,
-	},
-	institution: {
-		fontSize: 11,
-		fontWeight: "bold",
-		color: "#000",
-		marginBottom: 2,
-	},
-	course: {
-		fontSize: 10,
-		fontWeight: "bold",
-		color: "#333",
-		marginBottom: 2,
-	},
-	academicDate: {
-		fontSize: 9,
-		color: "#777",
-		marginBottom: 2,
-	},
-	academicStatus: {
-		fontSize: 9,
-		color: "#555",
-		marginBottom: 2,
-	},
-});
+import { Document, Page, Text, View } from "@react-pdf/renderer";
 
 export const ResumePDF = (translation: Translation) => {
 	const { profile, ui } = translation;
+
+	// Tailwind/Shadcn inspired color palette
+	const colors = {
+		black: "#09090B", // slate-950
+		darkGray: "#18181B", // zinc-900
+		mediumGray: "#3F3F46", // zinc-700
+		lightGray: "#71717A", // zinc-500
+		lighterGray: "#A1A1AA", // zinc-400
+		subtleGray: "#E4E4E7", // zinc-200
+		white: "#FFFFFF",
+		accent: "#0F172A", // slate-900
+	};
+
 	return (
 		<Document>
-			<Page size="A4" style={styles.page}>
-				{/* Header Section */}
-				<View style={styles.header}>
-					<Text style={styles.name}>{profile.fullName}</Text>
-					<Text style={styles.role}>{profile.role}</Text>
-				</View>
-
-				{/* Contact Information Columns */}
-				<View style={styles.contactColumns}>
-					<View style={styles.contactColumn}>
-						<Text>LinkedIn: gabrieldjs21</Text>
-						<Text>Github: gabrieljsilva</Text>
-						<Text>Portifólio: https://gabrieljs.dev</Text>
-					</View>
-					<View style={styles.contactColumn}>
-						<Text>Telefone: (74) 99909-1508</Text>
-						<Text>E-mail: gabrieldjs21@gmail.com</Text>
-						<Text>Localização: Senhor do Bonfim, Bahia</Text>
-					</View>
-				</View>
-
-				{/* Professional Summary */}
-				<View style={styles.section}>
-					<Text style={styles.sectionTitle}>
-						{ui.professionalSummary.toUpperCase()}
+			<Page
+				size="A4"
+				style={{
+					padding: 40,
+					fontFamily: "Helvetica",
+					fontSize: 10,
+					lineHeight: 1.5,
+					color: colors.mediumGray,
+					backgroundColor: colors.white,
+				}}
+			>
+				{/* ===== HEADER SECTION ===== */}
+				<View style={{ marginBottom: 24 }}>
+					<Text
+						style={{
+							fontSize: 24,
+							fontWeight: "bold",
+							marginBottom: 12,
+							color: colors.black,
+						}}
+					>
+						{profile.fullName}
 					</Text>
-					<Text style={styles.summaryText}>{profile.resumeSummary}</Text>
+					<Text
+						style={{
+							fontSize: 14,
+							color: colors.lighterGray,
+							fontWeight: "100",
+						}}
+					>
+						{profile.role}
+					</Text>
 				</View>
 
-				{/* Experience */}
-				<View style={styles.section}>
-					<Text style={styles.sectionTitle}>
-						{ui.professionalExperience.toUpperCase()}
+				{/* ===== CONTACT INFORMATION ===== */}
+				<View
+					style={{
+						flexDirection: "row",
+						justifyContent: "space-between",
+						marginBottom: 24,
+						fontSize: 10,
+						backgroundColor: colors.subtleGray,
+						padding: 8,
+						borderRadius: 4,
+					}}
+				>
+					<View style={{ width: "48%" }}>
+						<Text style={{ color: colors.mediumGray, marginBottom: 4 }}>
+							LinkedIn: gabrieldjs21
+						</Text>
+						<Text style={{ color: colors.mediumGray, marginBottom: 4 }}>
+							Github: gabrieljsilva
+						</Text>
+						<Text style={{ color: colors.mediumGray }}>
+							Portifólio: https://gabrieljs.dev
+						</Text>
+					</View>
+					<View style={{ width: "48%" }}>
+						<Text style={{ color: colors.mediumGray, marginBottom: 4 }}>
+							Telefone: (74) 99909-1508
+						</Text>
+						<Text style={{ color: colors.mediumGray, marginBottom: 4 }}>
+							E-mail: gabrieldjs21@gmail.com
+						</Text>
+						<Text style={{ color: colors.mediumGray }}>
+							Localização: Senhor do Bonfim, Bahia
+						</Text>
+					</View>
+				</View>
+
+				{/* ===== PROFESSIONAL SUMMARY ===== */}
+				<View style={{ marginBottom: 28 }}>
+					<View
+						style={{
+							borderBottom: 1,
+							borderBottomColor: colors.subtleGray,
+							paddingBottom: 4,
+							marginBottom: 12,
+						}}
+					>
+						<Text
+							style={{
+								fontSize: 14,
+								fontWeight: "bold",
+								color: colors.black,
+								textTransform: "uppercase",
+								letterSpacing: 1,
+							}}
+						>
+							{ui.professionalSummary}
+						</Text>
+					</View>
+					<Text
+						style={{
+							fontSize: 10,
+							color: colors.mediumGray,
+							lineHeight: 1.6,
+						}}
+					>
+						{profile.resumeSummary}
 					</Text>
+				</View>
+
+				{/* ===== PROFESSIONAL EXPERIENCE ===== */}
+				<View style={{ marginBottom: 28 }}>
+					<View
+						style={{
+							borderBottom: 1,
+							borderBottomColor: colors.subtleGray,
+							paddingBottom: 4,
+							marginBottom: 12,
+						}}
+					>
+						<Text
+							style={{
+								fontSize: 14,
+								fontWeight: "bold",
+								color: colors.black,
+								textTransform: "uppercase",
+								letterSpacing: 1,
+							}}
+						>
+							{ui.professionalExperience}
+						</Text>
+					</View>
+
 					{profile.experiences
 						.filter((exp) => exp.shouldShowInResume)
-						.map((exp) => (
-							<View key={exp.id} style={styles.experience}>
-								<Text style={styles.company}>{exp.company}</Text>
-								<Text style={styles.roleTitle}>{exp.role}</Text>
-								<Text style={styles.date}>
+						.map((exp, index, array) => (
+							<View
+								key={exp.id}
+								style={{
+									marginBottom: index === array.length - 1 ? 0 : 16,
+									paddingBottom: index === array.length - 1 ? 0 : 16,
+									borderBottom: index === array.length - 1 ? 0 : 1,
+									borderBottomColor: colors.subtleGray,
+								}}
+							>
+								<Text
+									style={{
+										fontSize: 12,
+										fontWeight: "bold",
+										color: colors.black,
+										marginBottom: 2,
+									}}
+								>
+									{exp.company}
+								</Text>
+								<Text
+									style={{
+										fontSize: 11,
+										fontWeight: "semibold",
+										color: colors.darkGray,
+										marginBottom: 2,
+									}}
+								>
+									{exp.role}
+								</Text>
+								<Text
+									style={{
+										fontSize: 9,
+										color: colors.lightGray,
+										marginBottom: 6,
+									}}
+								>
 									{exp.startDate} - {exp.endDate || ui.present}
 								</Text>
-								<Text style={styles.summaryText}>{exp.description}</Text>
+								<Text
+									style={{
+										fontSize: 10,
+										color: colors.mediumGray,
+										marginBottom: 8,
+										lineHeight: 1.6,
+									}}
+								>
+									{exp.description}
+								</Text>
+
 								{exp.achievements.slice(0, 3).map((achievement) => (
-									<Text key={achievement} style={styles.achievementItem}>
+									<Text
+										key={achievement}
+										style={{
+											fontSize: 9,
+											color: colors.mediumGray,
+											marginBottom: 4,
+											paddingLeft: 12,
+											lineHeight: 1.5,
+										}}
+									>
 										• {achievement}
 									</Text>
 								))}
@@ -196,35 +214,119 @@ export const ResumePDF = (translation: Translation) => {
 						))}
 				</View>
 
-				{/* Academic Background - Added before Skills section */}
-				<View style={styles.section}>
-					<Text style={styles.sectionTitle}>
-						{ui.academicBackground.toUpperCase()}
-					</Text>
-					{profile.academicBackground.map((education) => (
-						<View key={education.course} style={styles.academicBackground}>
-							<Text style={styles.institution}>{education.location}</Text>
-							<Text style={styles.course}>
+				{/* ===== ACADEMIC BACKGROUND ===== */}
+				<View style={{ marginBottom: 28 }}>
+					<View
+						style={{
+							borderBottom: 1,
+							borderBottomColor: colors.subtleGray,
+							paddingBottom: 4,
+							marginBottom: 12,
+						}}
+					>
+						<Text
+							style={{
+								fontSize: 14,
+								fontWeight: "bold",
+								color: colors.black,
+								textTransform: "uppercase",
+								letterSpacing: 1,
+							}}
+						>
+							{ui.academicBackground}
+						</Text>
+					</View>
+
+					{profile.academicBackground.map((education, index, array) => (
+						<View
+							key={education.course}
+							style={{
+								marginBottom: index === array.length - 1 ? 0 : 12,
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 11,
+									fontWeight: "bold",
+									color: colors.black,
+									marginBottom: 2,
+								}}
+							>
+								{education.location}
+							</Text>
+							<Text
+								style={{
+									fontSize: 10,
+									fontWeight: "medium",
+									color: colors.darkGray,
+									marginBottom: 2,
+								}}
+							>
 								{education.level} - {education.course} - {education.workload} -{" "}
 								{education.status}
 							</Text>
-							<Text style={styles.academicDate}>
-								{education.startDate}{" "}
+							<Text
+								style={{
+									fontSize: 9,
+									color: colors.lightGray,
+									marginBottom: 2,
+								}}
+							>
+								{education.startDate}
 								{education.endDate ? ` - ${education.endDate}` : ""}
 							</Text>
 						</View>
 					))}
 				</View>
 
-				{/* Technical Skills */}
-				<View style={styles.section}>
-					<Text style={styles.sectionTitle}>
-						{ui.technicalSkills.toUpperCase()}
-					</Text>
-					{profile.skillsSet.map((skillSet) => (
-						<View key={skillSet.category} style={{ marginBottom: 4 }}>
-							<Text style={styles.skillCategory}>{skillSet.category}</Text>
-							<Text style={styles.skillItems}>
+				{/* ===== TECHNICAL SKILLS ===== */}
+				<View style={{ marginBottom: 16 }}>
+					<View
+						style={{
+							borderBottom: 1,
+							borderBottomColor: colors.subtleGray,
+							paddingBottom: 4,
+							marginBottom: 12,
+						}}
+					>
+						<Text
+							style={{
+								fontSize: 14,
+								fontWeight: "bold",
+								color: colors.black,
+								textTransform: "uppercase",
+								letterSpacing: 1,
+							}}
+						>
+							{ui.technicalSkills}
+						</Text>
+					</View>
+
+					{profile.skillsSet.map((skillSet, index, array) => (
+						<View
+							key={skillSet.category}
+							style={{
+								marginBottom: index === array.length - 1 ? 0 : 8,
+							}}
+						>
+							<Text
+								style={{
+									fontSize: 11,
+									fontWeight: "bold",
+									color: colors.black,
+									marginBottom: 4,
+								}}
+							>
+								{skillSet.category}
+							</Text>
+							<Text
+								style={{
+									fontSize: 9,
+									color: colors.mediumGray,
+									marginBottom: 4,
+									lineHeight: 1.5,
+								}}
+							>
 								{skillSet.skills.map((skill) => skill.name).join(", ")}
 							</Text>
 						</View>
