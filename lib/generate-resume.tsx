@@ -213,7 +213,6 @@ export const ResumePDF = (translation: Translation) => {
 							</View>
 						))}
 				</View>
-
 				{/* ===== ACADEMIC BACKGROUND ===== */}
 				<View style={{ marginBottom: 28 }}>
 					<View
@@ -237,46 +236,58 @@ export const ResumePDF = (translation: Translation) => {
 						</Text>
 					</View>
 
-					{profile.academicBackground.map((education, index, array) => (
-						<View
-							key={education.course}
-							style={{
-								marginBottom: index === array.length - 1 ? 0 : 12,
-							}}
-						>
-							<Text
+					<View style={{ flexDirection: "row", flexWrap: "wrap", gap: 16 }}>
+						{profile.academicBackground.map((education) => (
+							<View
+								key={education.course}
 								style={{
-									fontSize: 11,
-									fontWeight: "bold",
-									color: colors.black,
-									marginBottom: 2,
+									width: "48%",
+									backgroundColor: colors.subtleGray,
+									padding: 12,
+									borderRadius: 4,
 								}}
 							>
-								{education.location}
-							</Text>
-							<Text
-								style={{
-									fontSize: 10,
-									fontWeight: "medium",
-									color: colors.darkGray,
-									marginBottom: 2,
-								}}
-							>
-								{education.level} - {education.course} - {education.workload} -{" "}
-								{education.status}
-							</Text>
-							<Text
-								style={{
-									fontSize: 9,
-									color: colors.lightGray,
-									marginBottom: 2,
-								}}
-							>
-								{education.startDate}
-								{education.endDate ? ` - ${education.endDate}` : ""}
-							</Text>
-						</View>
-					))}
+								<Text
+									style={{
+										fontSize: 11,
+										fontWeight: "bold",
+										color: colors.black,
+										marginBottom: 4,
+									}}
+								>
+									{education.location}
+								</Text>
+								<Text
+									style={{
+										fontSize: 10,
+										fontWeight: "medium",
+										color: colors.darkGray,
+										marginBottom: 4,
+									}}
+								>
+									{education.level} - {education.course}
+								</Text>
+								<Text
+									style={{
+										fontSize: 9,
+										color: colors.mediumGray,
+										marginBottom: 2,
+									}}
+								>
+									{education.workload} - {education.status}
+								</Text>
+								<Text
+									style={{
+										fontSize: 9,
+										color: colors.lightGray,
+									}}
+								>
+									{education.startDate}
+									{education.endDate ? ` - ${education.endDate}` : ""}
+								</Text>
+							</View>
+						))}
+					</View>
 				</View>
 
 				{/* ===== TECHNICAL SKILLS ===== */}
@@ -302,35 +313,39 @@ export const ResumePDF = (translation: Translation) => {
 						</Text>
 					</View>
 
-					{profile.skillsSet.map((skillSet, index, array) => (
-						<View
-							key={skillSet.category}
-							style={{
-								marginBottom: index === array.length - 1 ? 0 : 8,
-							}}
-						>
-							<Text
+					<View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12 }}>
+						{profile.skillsSet.map((skillSet) => (
+							<View
+								key={skillSet.category}
 								style={{
-									fontSize: 11,
-									fontWeight: "bold",
-									color: colors.black,
-									marginBottom: 4,
+									width: "31%",
+									backgroundColor: colors.subtleGray,
+									padding: 12,
+									borderRadius: 4,
 								}}
 							>
-								{skillSet.category}
-							</Text>
-							<Text
-								style={{
-									fontSize: 9,
-									color: colors.mediumGray,
-									marginBottom: 4,
-									lineHeight: 1.5,
-								}}
-							>
-								{skillSet.skills.map((skill) => skill.name).join(", ")}
-							</Text>
-						</View>
-					))}
+								<Text
+									style={{
+										fontSize: 11,
+										fontWeight: "bold",
+										color: colors.black,
+										marginBottom: 8,
+									}}
+								>
+									{skillSet.category}
+								</Text>
+								<Text
+									style={{
+										fontSize: 9,
+										color: colors.mediumGray,
+										lineHeight: 1.5,
+									}}
+								>
+									{skillSet.skills.map((skill) => skill.name).join(", ")}
+								</Text>
+							</View>
+						))}
+					</View>
 				</View>
 			</Page>
 		</Document>
