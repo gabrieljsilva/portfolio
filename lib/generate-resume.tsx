@@ -112,6 +112,31 @@ const styles = StyleSheet.create({
 	contactColumn: {
 		width: "48%",
 	},
+	academicBackground: {
+		marginBottom: 8,
+	},
+	institution: {
+		fontSize: 11,
+		fontWeight: "bold",
+		color: "#000",
+		marginBottom: 2,
+	},
+	course: {
+		fontSize: 10,
+		fontWeight: "bold",
+		color: "#333",
+		marginBottom: 2,
+	},
+	academicDate: {
+		fontSize: 9,
+		color: "#777",
+		marginBottom: 2,
+	},
+	academicStatus: {
+		fontSize: 9,
+		color: "#555",
+		marginBottom: 2,
+	},
 });
 
 export const ResumePDF = (translation: Translation) => {
@@ -169,6 +194,26 @@ export const ResumePDF = (translation: Translation) => {
 								))}
 							</View>
 						))}
+				</View>
+
+				{/* Academic Background - Added before Skills section */}
+				<View style={styles.section}>
+					<Text style={styles.sectionTitle}>
+						{ui.academicBackground.toUpperCase()}
+					</Text>
+					{profile.academicBackground.map((education) => (
+						<View key={education.course} style={styles.academicBackground}>
+							<Text style={styles.institution}>{education.location}</Text>
+							<Text style={styles.course}>
+								{education.level} - {education.course} - {education.workload} -{" "}
+								{education.status}
+							</Text>
+							<Text style={styles.academicDate}>
+								{education.startDate}{" "}
+								{education.endDate ? ` - ${education.endDate}` : ""}
+							</Text>
+						</View>
+					))}
 				</View>
 
 				{/* Technical Skills */}
