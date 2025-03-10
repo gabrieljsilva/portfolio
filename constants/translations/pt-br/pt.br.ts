@@ -213,7 +213,11 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 					"SQS",
 					"AWS",
 				],
-				features: [],
+				features: [
+					"Gerenciar times de cuidados",
+					"Gerenciar planos de cuidado",
+					"Cuidado personalizado",
+				],
 			},
 			{
 				id: 2,
@@ -221,6 +225,13 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				description:
 					"NestJS Decorated Dataloaders é um módulo que simplifica a criação de dataloaders para GraphQL usando decorators. Ele resolve o problema N+1 ao agrupar e armazenar em cache as requisições, otimizando as consultas e facilitando a integração com o NestJS. O módulo oferece uma configuração declarativa para caching, definição de batch size e manipulação de dependências, permitindo a criação de resolvers eficientes e escaláveis.",
 				technologies: ["NestJS", "TypeScript", "GraphQL"],
+				features: [
+					"Declaração de dataloaders com decorators",
+					"Batching e caching eficientes",
+					"Configurações personalizadas",
+					"Aliases para classes abstratas",
+					"Resolução de dependências circulares",
+				],
 			},
 			{
 				id: 3,
@@ -228,7 +239,12 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				description:
 					"Decorated Factory é uma biblioteca que utiliza decorators para criar instâncias de objetos com dados gerados via Faker, ideal para cenários de testes. Ela permite definir, por meio de decorators, como cada campo de uma classe deve ser populado, suportando relações entre entidades, arrays e sobreposição de valores, inspirada na abordagem do PrismaORM.",
 				technologies: ["TypeScript", "JavaScript", "Faker", "Rollup"],
-				features: [],
+				features: [
+					"Declaração de campos com valores padrão ou falsos usando faker",
+					"Declaração de relacionamentos via decorators",
+					"Criação de instâncias sob demanda com faker",
+					"Substituição dinâmica de valores",
+				],
 			},
 
 			{
@@ -246,7 +262,14 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 					"Docker",
 					"Vite",
 				],
-				features: [],
+				features: [
+					"Gestão de projetos",
+					"Gestão de ponto",
+					"Gestão de escala",
+					"Gestão de eventos",
+					"Exportação massiva de dados ponto",
+					"Importação massiva de dados de ponto",
+				],
 			},
 			{
 				id: 5,
@@ -263,7 +286,17 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 					"GraphQL",
 					"Docker",
 				],
-				features: [],
+				features: [
+					"Escalas médicas",
+					"Negociação de plantões",
+					"Gestão de solicitações",
+					"Gestão de cirurgiões",
+					"Gestão de anestesistas",
+					"Gestão de procedimentos e cirurgias",
+					"Geração de relatórios de faturamento",
+					"Gestão de dados secretárias",
+					"Sistema robusto de notificações",
+				],
 			},
 			{
 				id: 6,
@@ -282,7 +315,13 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 					"GraphQL",
 					"Docker",
 				],
-				features: [],
+				features: [
+					"Escalas médicas",
+					"Negociação de plantões",
+					"Gestão de solicitações",
+					"Geração de formulários dinâmicos para anamnese",
+					"Sistema robusto de notificações",
+				],
 			},
 			{
 				id: 7,
@@ -300,6 +339,11 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 					"Docker",
 					"Vite",
 				],
+				features: [
+					"Gestão de unidades hospitalares",
+					"Gestão de pontos de atendimento",
+					"Sistema robusto de notificações pós-atendimento",
+				],
 			},
 			{
 				id: 8,
@@ -307,7 +351,12 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				description:
 					"Este foi um projeto que visava dividir grandes títulos de precatórios em outros títulos menores, tornando-os mais acessíveis para negociação. O projeto, além de gerenciar as transações entre os usuários, também gerava contratos automaticamente.",
 				technologies: ["Node.js", "MySQL", "Express.js", "Bootstrap"],
-				features: [],
+				features: [
+					"Gestão de precatórios",
+					"Divisão de títulos de precatórios por lote",
+					"Negociação de títulos",
+					"Criação de documentos",
+				],
 			},
 		],
 
