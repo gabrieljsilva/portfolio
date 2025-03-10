@@ -41,6 +41,7 @@ export const en = {
 		comingSoon: "Coming Soon...",
 		viewProject: "View Project",
 		technologies: "Technologies",
+		academicBackground: "Academic Background",
 	},
 	profile: {
 		name: "Gabriel Silva",

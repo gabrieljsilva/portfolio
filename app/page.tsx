@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/sections/hero";
 import { Navbar } from "@/components/sections/navbar";
 import { ProjectsSection } from "@/components/sections/projects.section";
 import { SkillsSection } from "@/components/sections/skill.section";
+import { AcademicSection } from "@/components/sections/academic-background.section";
 
 export default function Page() {
 	return (
@@ -15,6 +16,7 @@ export default function Page() {
 			<AboutSection />
 			<ProjectsSection />
 			<ExperienceSection />
+			<AcademicSection />
 			<SkillsSection />
 			<Footer />
 		</>
