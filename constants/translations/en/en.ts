@@ -463,7 +463,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 			{
 				id: 3,
 				shouldShowInResume: true,
-				company: "Freelance",
+				company: "Freelancer",
 				role: "Fullstack Developer",
 				startDate: "Oct 2022",
 				endDate: "Mar 2024",
@@ -566,7 +566,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 		],
 		academicBackground: [
 			{
-				location: "Instituto Federal de Educação, Ciência e Tecnologia Baiano",
+				location: "Instituto Federal de Educação, Ciência e Tecnologia",
 				level: "Higher Education",
 				course: "Computer Science",
 				startDate: "Apr 2018",
@@ -574,7 +574,7 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 				workload: "4000 hours",
 			},
 			{
-				location: "Instituto Federal de Educação, Ciência e Tecnologia Baiano",
+				location: "Instituto Federal de Educação, Ciência e Tecnologia",
 				level: "Technical Education",
 				course: "Information Technology",
 				startDate: "Feb 2018",

@@ -20,10 +20,9 @@ export const ResumePDF = (translation: Translation) => {
 			<Page
 				size="A4"
 				style={{
-					padding: 32,
+					padding: 24,
 					fontFamily: "Helvetica",
-					fontSize: 9,
-					lineHeight: 1.4,
+					fontSize: 11,
 					color: colors.mediumGray,
 					backgroundColor: colors.white,
 				}}
@@ -32,8 +31,8 @@ export const ResumePDF = (translation: Translation) => {
 				<View style={{ marginBottom: 16 }}>
 					<Text
 						style={{
-							fontSize: 20,
-							fontWeight: "bold",
+							fontSize: 16,
+							fontWeight: "900",
 							marginBottom: 8,
 							color: colors.black,
 						}}
@@ -54,6 +53,7 @@ export const ResumePDF = (translation: Translation) => {
 						backgroundColor: colors.subtleGray,
 						padding: 6,
 						borderRadius: 4,
+						fontSize: 10,
 					}}
 				>
 					<View style={{ width: "48%" }}>
@@ -82,8 +82,8 @@ export const ResumePDF = (translation: Translation) => {
 					>
 						<Text
 							style={{
-								fontSize: 12,
-								fontWeight: "bold",
+								fontSize: 14,
+								fontWeight: "900",
 								color: colors.black,
 								textTransform: "uppercase",
 								letterSpacing: 1,
@@ -92,7 +92,7 @@ export const ResumePDF = (translation: Translation) => {
 							{ui.professionalSummary}
 						</Text>
 					</View>
-					<Text style={{ lineHeight: 1 }}>{profile.resumeSummary}</Text>
+					<Text>{profile.resumeSummary}</Text>
 				</View>
 
 				{/* Professional Experience */}
@@ -107,8 +107,8 @@ export const ResumePDF = (translation: Translation) => {
 					>
 						<Text
 							style={{
-								fontSize: 11,
-								fontWeight: "bold",
+								fontSize: 14,
+								fontWeight: "900",
 								color: colors.black,
 								textTransform: "uppercase",
 								letterSpacing: 1,
@@ -161,9 +161,7 @@ export const ResumePDF = (translation: Translation) => {
 								</Text>
 								<Text
 									style={{
-										fontSize: 9,
 										marginBottom: 4,
-										lineHeight: 1.4,
 									}}
 								>
 									{exp.description}
@@ -176,7 +174,6 @@ export const ResumePDF = (translation: Translation) => {
 											fontSize: 8,
 											marginBottom: 2,
 											paddingLeft: 8,
-											lineHeight: 1.4,
 										}}
 									>
 										• {achievement}
@@ -198,8 +195,8 @@ export const ResumePDF = (translation: Translation) => {
 					>
 						<Text
 							style={{
-								fontSize: 12,
-								fontWeight: "bold",
+								fontSize: 14,
+								fontWeight: "900",
 								color: colors.black,
 								textTransform: "uppercase",
 								letterSpacing: 1,
@@ -264,8 +261,8 @@ export const ResumePDF = (translation: Translation) => {
 					>
 						<Text
 							style={{
-								fontSize: 12,
-								fontWeight: "bold",
+								fontSize: 14,
+								fontWeight: "900",
 								color: colors.black,
 								textTransform: "uppercase",
 								letterSpacing: 1,
@@ -296,7 +293,7 @@ export const ResumePDF = (translation: Translation) => {
 								>
 									{skillSet.category}
 								</Text>
-								<Text style={{ fontSize: 8, lineHeight: 1.4 }}>
+								<Text style={{ fontSize: 8 }}>
 									{skillSet.skills.map((skill) => skill.name).join(", ")}
 								</Text>
 							</View>

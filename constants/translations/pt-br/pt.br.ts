@@ -467,7 +467,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 			{
 				id: 3,
 				shouldShowInResume: true,
-				company: "Freelance",
+				company: "Freelancer",
 				role: "Desenvolvedor fullstack",
 				startDate: "Out 2022",
 				endDate: "Mar 2024",
@@ -570,7 +570,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 		],
 		academicBackground: [
 			{
-				location: "Instituto Federal de Educação, Ciência e Tecnologia Baiano",
+				location: "Instituto Federal de Educação, Ciência e Tecnologia",
 				level: "Ensino Superior",
 				course: "Ciências da Computação",
 				startDate: "Abr 2018",
@@ -578,7 +578,7 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 				workload: "4000 horas",
 			},
 			{
-				location: "Instituto Federal de Educação, Ciência e Tecnologia Baiano",
+				location: "Instituto Federal de Educação, Ciência e Tecnologia",
 				level: "Ensino Técnico",
 				course: "Informática",
 				startDate: "Fev 2018",
