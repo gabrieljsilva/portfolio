@@ -43,6 +43,8 @@ export const ptBr = {
 		viewProject: "Ver Projeto",
 		technologies: "Tecnologias",
 		academicBackground: "Formação Acadêmica",
+		portfolio: "Portifólio",
+		phone: "Telefone",
 	},
 	profile: {
 		name: "Gabriel Silva",

@@ -59,14 +59,14 @@ export const ResumePDF = (translation: Translation) => {
 					<View style={{ width: "48%" }}>
 						<Text style={{ marginBottom: 2 }}>LinkedIn: gabrieldjs21</Text>
 						<Text style={{ marginBottom: 2 }}>Github: gabrieljsilva</Text>
-						<Text>Portifólio: https://gabrieljs.dev</Text>
+						<Text>{ui.portfolio}: https://gabrieljs.dev</Text>
 					</View>
 					<View style={{ width: "48%" }}>
-						<Text style={{ marginBottom: 2 }}>Telefone: (74) 99909-1508</Text>
+						<Text style={{ marginBottom: 2 }}>{ui.phone}: (74) 99909-1508</Text>
 						<Text style={{ marginBottom: 2 }}>
 							E-mail: gabrieldjs21@gmail.com
 						</Text>
-						<Text>Localização: Senhor do Bonfim, Bahia</Text>
+						<Text>{ui.location}: Senhor do Bonfim, Bahia</Text>
 					</View>
 				</View>
 
