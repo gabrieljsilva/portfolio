@@ -11,12 +11,20 @@ export default function LinkTree() {
 	const { profile, ui } = useTranslations();
 
 	return (
-		<div className="h-dvh w-full bg-gradient-to-b from-muted to-background p-4">
-			<div className="fixed right-4 top-4">
+		<div className="relative h-dvh w-full bg-gradient-to-b from-muted to-background p-4 overflow-hidden">
+			<div className="absolute inset-0 z-0">
+				<div className="relative h-full w-full bg-grid-small-black/[0.2] dark:bg-grid-small-white/[0.2]">
+					<div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+					<div className="absolute left-[-20%] top-[-20%] h-[800px] w-[800px] animate-pulse rounded-full bg-primary/20 blur-3xl filter dark:bg-primary/10" />
+					<div className="absolute right-[-20%] bottom-[-20%] h-[600px] w-[600px] animate-pulse rounded-full bg-primary/20 blur-3xl filter dark:bg-primary/10" />
+				</div>
+			</div>
+
+			<div className="fixed right-4 top-4 z-20">
 				<ThemeToggle />
 			</div>
 
-			<div className="flex min-h-dvh items-center justify-center">
+			<div className="relative z-10 flex min-h-dvh items-center justify-center">
 				<div className="mx-auto max-w-md space-y-8">
 					<div className="flex flex-col items-center space-y-4">
 						<div className="relative size-24 overflow-hidden rounded-full">
@@ -32,7 +40,7 @@ export default function LinkTree() {
 							<h1 className="text-2xl font-bold">{profile.fullName}</h1>
 							<p className="text-muted-foreground">
 								{profile.role} {ui.at}{" "}
-								<span className={"font-bold"}>
+								<span className="font-bold">
 									{profile.currentCompanyShortName}
 								</span>
 							</p>
@@ -69,7 +77,6 @@ export default function LinkTree() {
 								<span className="font-medium">Instagram</span>
 							</Card>
 						</Link>
-
 						<Link
 							href="https://gabrieljs.dev"
 							target="_blank"
