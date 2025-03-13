@@ -53,12 +53,12 @@ export const en = {
 		currentCompanyShortName: "HIAE",
 		birthdayDate: "2000-01-23",
 		resumeSummary:
-			"Full Stack Developer with over 5 years of experience creating corporate solutions for healthcare and technology sectors. Proven ability to build high-performance systems handling over 10k requests per minute. Open source contributor focused on developer tools.",
-		resume: `Passionate Full Stack Developer with over 5 years of experience, specializing in efficient technological solutions. My journey began in 2018 as an intern, building the foundation that supports my work to this day.
+			"Full Stack Developer with over 5 years of experience creating robust and scalable solutions for healthcare and technology sectors. Specialized in modular architectures with Nest.js and implementing microservices using Kafka, RabbitMQ, and CI/CD practices, I possess advanced skills in JavaScript, TypeScript, React, and GraphQL. Open source contributor committed to the evolution of the technological ecosystem, always seeking to apply best practices to enhance system performance and quality.",
+		resume: `Passionate Full Stack Developer with over 5 years of experience in developing high-performance digital solutions. My journey began in 2018 as an intern, where I built a solid foundation in programming. Throughout my career, I've worked on highly relevant projects for the healthcare sector, collaborating with prominent institutions such as Hospital Israelita Albert Einstein, where I contributed to creating modular and scalable systems using modern technologies like Nest.js for robust architectures and optimized microservices with Kafka and RabbitMQ.
 
-Throughout my career, I've had the privilege to work on important projects for major healthcare institutions including Hospital Israelita Albert Einstein and Rede Fleury. This experience shaped my approach to developing robust and reliable solutions.
+I extensively use JavaScript, TypeScript, and Node.js to develop efficient integrations between front-end and back-end, employing frameworks like React, Next.js, and Material UI to build intuitive and responsive interfaces. My practice is guided by the best agile methodologies and supported by automation and quality tools such as Docker, Kubernetes, CI/CD, Vite, and Vitest, ensuring consistent and secure deliveries.
 
-As an open source contributor, I dedicate myself to improving the JavaScript/TypeScript ecosystem by creating libraries and tools that help other developers. I believe in collaborative development and continuous learning.`,
+Additionally, as an open source contributor, I dedicate myself to developing libraries and tools that drive innovation and strengthen the developer community. This dedication to continuous learning and applying advanced technological solutions reflects my commitment to excellence and digital business transformation.`,
 		shortDescription:
 			"Creating elegant solutions through code. Specialized in developing modern web applications with cutting-edge technologies and exceptional user experiences.",
 		contact: {
@@ -405,9 +405,9 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 				role: "Fullstack Software Developer",
 				startDate: "Mar 2024",
 				description:
-					"As Fullstack Developer at Hospital Israelita Albert Einstein, worked on various initiatives focusing on Primary Healthcare tools development.",
+					"I work on developing solutions at Hospital Israelita Albert Einstein, focused on digitally transforming Primary Healthcare tools. I use a modern stack including Nest.js, enabling the creation of modular and scalable applications, as well as microservices with Kafka and RabbitMQ to ensure high availability and performance.",
 				detailedDescription:
-					"Contributed to improving service efficiency and quality for patients and healthcare professionals, while developing libraries enhancing code quality and developer experience.",
+					"Daily, I participate in implementing robust systems using JavaScript, Node.js, TypeScript, and GraphQL to create efficient integrations between front-end and back-end. The use of React and Material UI provides intuitive interfaces, while tools like Vite and Vitest accelerate development and quality testing. \n\nAdditionally, I work with Docker, Kubernetes, and CI/CD practices to ensure consistent environments and continuous integrations with AWS and Microsoft Azure, reinforcing the stability and scalability of projects. On some occasions, I mentor junior developers, supporting technical evolution without assuming formal leadership roles.",
 				achievements: [],
 				technologies: [
 					{ name: "JavaScript" },
@@ -438,9 +438,9 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 				startDate: "Mar 2024",
 				endDate: "present",
 				description:
-					"IT consultant at Grupo GBI, providing fullstack development services for major clients including Hospital Israelita Albert Einstein, Latin America's largest hospital.",
+					"I work as a fullstack developer at Grupo GBI, offering technological consulting that drives digital transformation for major clients. I employ modern technologies such as Nest.js to build modular solutions, as well as microservices with Kafka and RabbitMQ that ensure high availability and performance.",
 				detailedDescription:
-					"Developed customized tech solutions to improve healthcare processes and patient care excellence. As consultant, identified technical needs, proposed innovative solutions, and ensured high-quality project delivery tailored to client demands.",
+					"In my daily work, I integrate with multidisciplinary teams to develop customized systems, using JavaScript, TypeScript, Node.js, and GraphQL to ensure efficient communication between application layers. The use of React and Material UI contributes to modern and intuitive interfaces, while utilizing Vite and Vitest speeds up development and validation cycles. \n\nAdditionally, the adoption of Docker, Kubernetes, and CI/CD practices allows for the creation of robust and scalable environments, with support on AWS and Microsoft Azure platforms, ensuring continuous delivery of high-quality solutions without compromising data security.",
 				achievements: [],
 				technologies: [
 					{ name: "JavaScript" },
@@ -471,9 +471,9 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 				startDate: "Oct 2022",
 				endDate: "Mar 2024",
 				description:
-					"As freelance fullstack developer collaborated with diverse companies across HR, Recruitment, and LawTech sectors.",
+					"I worked as a freelance fullstack developer, collaborating with projects in sectors such as Human Resources, Recruitment and Selection, and LawTechs. I used modern technologies like Next.js and Nest.js to create customized, scalable, and efficient solutions that met the specific demands of each client.",
 				detailedDescription:
-					"Skills include JavaScript, Next.js, Node.js, TypeScript and GraphQL. Diverse projects provided multidisciplinary perspective to address daily challenges and deliver effective solutions.",
+					"During this experience, I implemented integrated applications using JavaScript, Node.js, and TypeScript, combining the flexibility of Next.js with the robustness of Nest.js, which provides a modular architecture. I employed microservices with Kafka and RabbitMQ to optimize communication between systems and ensure high availability. \n\nAdditionally, the use of tools such as React, Tailwind, and Material UI contributed to responsive and intuitive interfaces, while CI/CD, Docker, and Kubernetes practices ensured consistent environments and continuous delivery processes. The support of Vite and Vitest allowed me to accelerate development and strengthen test quality, ensuring technical excellence in the projects.",
 				achievements: [],
 				technologies: [
 					{ name: "JavaScript" },
@@ -508,9 +508,9 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 				startDate: "Apr 2021",
 				endDate: "Sep 2022",
 				description:
-					"As Fullstack Developer at RedFox, worked on various healthcare-oriented projects.",
+					"I worked as a fullstack developer at RedFox Digital Solutions, contributing to the creation and enhancement of systems for the healthcare area. I applied technologies such as Nest.js to develop modular and scalable applications, integrating critical components with high performance.",
 				detailedDescription:
-					"Enhanced skills in web development technologies including Typescript, React.js, and GraphQL while contributing to critical healthcare systems.",
+					"During my time there, I implemented solutions using JavaScript, Node.js, and TypeScript, combining the flexibility of React and Next.js with the robustness of Nest.js to build integrated applications. The use of GraphQL facilitated communication between front-end and back-end layers, while Docker and CI/CD ensured continuous and high-quality delivery. \n\nAdditionally, I used tools such as Vite and Vitest to optimize development and testing cycles, and integrated databases like PostgreSQL and Redis to ensure the integrity and agility of systems, always aligned with market best practices.",
 				achievements: [],
 				technologies: [
 					{ name: "JavaScript" },
@@ -539,9 +539,9 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 				startDate: "Sep 2019",
 				endDate: "Feb 2020",
 				description:
-					"Developed systems for legal and financial sectors at Cameja.",
+					"I worked as an information systems programmer at CAMEJA, developing integrated solutions for the legal and financial areas. I used essential technologies such as JavaScript, Node.js, and MySQL to create robust and efficient systems, contributing to the automation of critical processes.",
 				detailedDescription:
-					"Used Javascript, Node.js and MySQL for API development, user interfaces and process automation.",
+					"During this period, I implemented APIs and user interfaces that facilitated communication between different modules, ensuring data integrity and security. The application of agile practices and the use of modern libraries allowed for the delivery of consistent solutions adaptable to client needs. This experience reinforced my commitment to technical quality and continuous improvement of operational processes.",
 				achievements: [],
 				technologies: [
 					{ name: "Javascript" },
@@ -557,8 +557,9 @@ As an open source contributor, I dedicate myself to improving the JavaScript/Typ
 				startDate: "Dec 2018",
 				endDate: "Jan 2019",
 				description:
-					"Internship at Newtic learning Javascript, Node.js and Vue.js.",
-				detailedDescription: "",
+					"I worked as a web development intern at Newtic, where I gained practical experience in technologies such as JavaScript, Node.js, and Vue.js. This experience was fundamental to consolidate my technical foundation and provide support in innovative projects.",
+				detailedDescription:
+					"During my internship, I participated in the creation and maintenance of functionalities in web applications, using Vue.js to develop dynamic and responsive interfaces. With the support of Node.js and JavaScript, I contributed to the implementation of solutions that met the company's operational requirements. This experience allowed me to improve the integration of new technologies and strengthen my knowledge in web development.",
 				achievements: [],
 				technologies: [
 					{ name: "Javascript" },
