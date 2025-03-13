@@ -63,11 +63,12 @@ Como contribuidor open source, me dedico a melhorar o ecossistema JavaScript/Typ
 		shortDescription:
 			"Criando soluções elegantes através de código. Especializado em desenvolver aplicações web modernas com tecnologias de ponta e experiências de usuário excepcionais.",
 		contact: {
-			email: "contact@gabrieljs.dev",
+			email: "contato@gabrieljs.dev",
 			formAccessKey: "81309db0-39fb-4bb6-8738-4dae02fcbd40",
+			phone: "(74) 99909-1508",
 		},
 		social: {
-			linkedin: "https://www.linkedin.com/in/gabrieldjs21/",
+			linkedin: "https://www.linkedin.com/in/gabrieldjs21",
 			github: "https://github.com/gabrieljsilva",
 			website: "https://gabrieljs.dev",
 		},

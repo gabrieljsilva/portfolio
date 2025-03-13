@@ -1,5 +1,5 @@
 import type { Translation } from "@/constants/profile";
-import { Document, Page, Text, View } from "@react-pdf/renderer";
+import { Document, Page, Text, View, Link } from "@react-pdf/renderer";
 
 export const ResumePDF = (translation: Translation) => {
 	const { profile, ui } = translation;
@@ -57,16 +57,29 @@ export const ResumePDF = (translation: Translation) => {
 					}}
 				>
 					<View style={{ width: "48%" }}>
-						<Text style={{ marginBottom: 2 }}>LinkedIn: gabrieldjs21</Text>
-						<Text style={{ marginBottom: 2 }}>Github: gabrieljsilva</Text>
-						<Text>{ui.portfolio}: https://gabrieljs.dev</Text>
-					</View>
-					<View style={{ width: "48%" }}>
-						<Text style={{ marginBottom: 2 }}>{ui.phone}: (74) 99909-1508</Text>
 						<Text style={{ marginBottom: 2 }}>
-							E-mail: gabrieldjs21@gmail.com
+							E-mail: {profile.contact.email}
 						</Text>
-						<Text>{ui.location}: Senhor do Bonfim, Bahia</Text>
+
+						<Text style={{ marginBottom: 2 }}>
+							{ui.phone}: {profile.contact.phone}
+						</Text>
+
+						<Text>
+							{ui.location}: {profile.location.city}, {profile.location.state}
+						</Text>
+					</View>
+
+					<View style={{ width: "48%" }}>
+						<Text style={{ marginBottom: 2 }}>
+							LinkedIn: {profile.social.linkedin}
+						</Text>
+						<Text style={{ marginBottom: 2 }}>
+							Github: {profile.social.github}
+						</Text>
+						<Text>
+							{ui.portfolio}: {profile.social.website}
+						</Text>
 					</View>
 				</View>
 
