@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Globe } from "lucide-react";
+import { Globe, Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -11,7 +11,7 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useLanguage } from "@/contexts/language-context";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Language {
 	code: string;
@@ -35,6 +35,21 @@ const languages: Language[] = [
 export function LanguageSwitcher() {
 	const { currentLang, setCurrentLang } = useLanguage();
 	const [isOpen, setIsOpen] = useState(false);
+	const [loadedFlags, setLoadedFlags] = useState<Record<string, boolean>>({});
+
+	useEffect(() => {
+		const preloadImages = () => {
+			for (const lang of languages) {
+				const img = new Image();
+				img.src = lang.flag;
+				img.onload = () => {
+					setLoadedFlags((prev) => ({ ...prev, [lang.code]: true }));
+				};
+			}
+		};
+
+		preloadImages();
+	}, []);
 
 	const handleLanguageChange = (langCode: string) => {
 		setCurrentLang(langCode);
@@ -77,12 +92,16 @@ export function LanguageSwitcher() {
 										} cursor-pointer transition-colors`}
 										onClick={() => handleLanguageChange(lang.code)}
 									>
-										<span className="text-lg">
-											<img
-												src={lang.flag}
-												alt={`lang ${lang.name} flag`}
-												loading={"eager"}
-											/>
+										<span className="text-lg flex items-center justify-center w-4 h-4">
+											{loadedFlags[lang.code] ? (
+												<img
+													src={lang.flag}
+													alt={`lang ${lang.name} flag`}
+													loading={"eager"}
+												/>
+											) : (
+												<Loader2 className="h-3 w-3 animate-spin" />
+											)}
 										</span>
 										<span>{lang.name}</span>
 										{currentLang === lang.code && (
