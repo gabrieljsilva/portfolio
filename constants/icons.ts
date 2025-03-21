@@ -16,6 +16,7 @@ import {
 	Menu,
 	Network,
 	Quote,
+	RefreshCcw,
 	Settings,
 } from "lucide-react";
 
@@ -100,7 +101,7 @@ export const iconsMaps = {
 		Vite: SiVite,
 		Bootstrap: SiBootstrap,
 		"Vue.js": SiVuedotjs,
-		Agile: CheckSquare,
+		Agile: RefreshCcw,
 		Testes: CheckSquare,
 		Vitest: SiVitest,
 		SQS: SiAmazonsqs,

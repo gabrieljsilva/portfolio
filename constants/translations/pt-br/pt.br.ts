@@ -92,7 +92,7 @@ export const ptBr = {
 			{
 				category: "Back-end",
 				description:
-					"Desenvolvimento de microsserviços escaláveis que lidam com mais de 10k RPM. Expertise em Node.js e TypeScript permitiu otimizar tempos de resposta de APIs mantendo padrões de arquitetura limpa.",
+					"Desenvolvedor back-end com ampla experiência com Node.js e Typescript. Especializado em arquiteturas modulares e micro-serviços, com foco em performance e escalabilidade.",
 				skills: [
 					{
 						name: "JavaScript",
@@ -114,7 +114,7 @@ export const ptBr = {
 			{
 				category: "Front-end",
 				description:
-					"Entreguei mais de 15 interfaces responsivas usando React. Foco em otimização de performance, reduzindo tempo de carregamento inicial em 40% através de code splitting e lazy loading.",
+					"Desenvolvedor front-end com experiência em React e UI/UX design. Especializado em interfaces modernas e responsivas.",
 				skills: [
 					{ name: "HTML", description: "Estrutura semântica e acessibilidade" },
 					{ name: "CSS", description: "Estilização criativa e animações" },
@@ -132,7 +132,7 @@ export const ptBr = {
 			{
 				category: "Banco de Dados",
 				description:
-					"Projetei modelos de dados para mais de 8 sistemas em produção. Implementei cache com Redis que reduziu chamadas ao banco em 70% em plataformas de e-commerce de alto tráfego.",
+					"Projetei e implementei soluções de banco de dados para sistemas críticos. Especializado em bancos relacionais e NoSQL.",
 				skills: [
 					{
 						name: "MySQL",
@@ -156,7 +156,7 @@ export const ptBr = {
 			{
 				category: "Infraestrutura & DevOps",
 				description:
-					"Automatizei pipelines de deploy reduzindo ciclos de release de dias para horas. Containerizei mais de 12 serviços melhorando consistência de ambientes de desenvolvimento.",
+					"Automatizei processos de desenvolvimento e implantação para garantir eficiência e qualidade. Especializado em Docker e CI/CD.",
 				skills: [
 					{ name: "Docker", description: "Containerização para consistência" },
 					{
@@ -169,7 +169,7 @@ export const ptBr = {
 			{
 				category: "Arquitetura",
 				description:
-					"Projetei sistemas orientados a eventos processando mais de 1M de eventos diários. Implementações com Kafka reduziram acoplamento do sistema enquanto melhoravam tolerância a falhas.",
+					"Projetei e implementei arquiteturas escaláveis e eficientes para sistemas críticos. Especializado em micro-serviços e mensageria em diversos cenários",
 				skills: [
 					{ name: "Kafka", description: "Event streaming escalável" },
 					{ name: "RabbitMQ", description: "Message brokering confiável" },
@@ -179,7 +179,7 @@ export const ptBr = {
 			{
 				category: "Metodologias & Qualidade",
 				description:
-					"Liderei times ágeis entregando mais de 30 sprints com taxa de conclusão de 95%. Implementei testes com Jest alcançando 85% de cobertura em serviços críticos.",
+					"utilizei metodologias ágeis como Scrum e Kanban para garantir entregas consistentes e de alta qualidade. Especializado em testes automatizados com Jest e Vitest para entregas com qualidade.",
 				skills: [
 					{
 						name: "Agile",
