@@ -92,7 +92,7 @@ Additionally, as an open source contributor, I dedicate myself to developing lib
 			{
 				category: "Back-end",
 				description:
-					"Development of scalable microservices handling over 10k RPM. Node.js and TypeScript expertise optimized API response times while maintaining clean architecture standards.",
+					"Back-end developer with extensive experience in Node.js and TypeScript. Specialized in modular architectures and microservices, with a focus on performance and scalability.",
 				skills: [
 					{
 						name: "JavaScript",
@@ -114,7 +114,7 @@ Additionally, as an open source contributor, I dedicate myself to developing lib
 			{
 				category: "Front-end",
 				description:
-					"Delivered 15+ responsive interfaces using React. Focused on performance optimization, reducing initial load time by 40% through code splitting and lazy loading.",
+					"Front-end developer with experience in React and UI/UX design. Specialized in modern and responsive interfaces.",
 				skills: [
 					{ name: "HTML", description: "Semantic structure and accessibility" },
 					{ name: "CSS", description: "Creative styling and animations" },
@@ -132,7 +132,7 @@ Additionally, as an open source contributor, I dedicate myself to developing lib
 			{
 				category: "Database",
 				description:
-					"Designed data models for 8+ production systems. Implemented Redis caching that reduced database calls by 70% in high-traffic e-commerce platforms.",
+					"Designed and implemented database solutions for critical systems. Specialized in relational and NoSQL databases.",
 				skills: [
 					{
 						name: "MySQL",
@@ -156,7 +156,7 @@ Additionally, as an open source contributor, I dedicate myself to developing lib
 			{
 				category: "Infrastructure & DevOps",
 				description:
-					"Automated deployment pipelines reducing release cycles from days to hours. Containerized 12+ services improving development environment consistency.",
+					"Automated development and deployment processes to ensure efficiency and quality. Specialized in Docker and CI/CD.",
 				skills: [
 					{ name: "Docker", description: "Containerization for consistency" },
 					{
@@ -169,7 +169,7 @@ Additionally, as an open source contributor, I dedicate myself to developing lib
 			{
 				category: "Architecture",
 				description:
-					"Designed event-driven systems processing over 1M daily events. Kafka implementations reduced system coupling while improving fault tolerance.",
+					"Designed and implemented scalable and efficient architectures for critical systems. Specialized in microservices and messaging in various scenarios.",
 				skills: [
 					{ name: "Kafka", description: "Scalable event streaming" },
 					{ name: "RabbitMQ", description: "Reliable message brokering" },
@@ -179,7 +179,7 @@ Additionally, as an open source contributor, I dedicate myself to developing lib
 			{
 				category: "Methodologies & Quality",
 				description:
-					"Led agile teams delivering 30+ sprints with 95% completion rate. Implemented Jest tests achieving 85% coverage in critical services.",
+					"Used agile methodologies such as Scrum and Kanban to ensure consistent and high-quality deliveries. Specialized in automated testing with Jest and Vitest for quality deliveries.",
 				skills: [
 					{
 						name: "Agile",
