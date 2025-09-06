@@ -243,7 +243,7 @@ export const ptBr = {
 					"Aliases para classes abstratas",
 					"Resolução de dependências circulares",
 				],
-				link: "https://github.com/gabrieljsilva/nestjs-decorated-dataloaders",
+				link: "https://decorated-dataloaders.gabrieljs.dev/",
 			},
 			{
 				id: 3,
@@ -410,39 +410,6 @@ export const ptBr = {
 					"Atuo no desenvolvimento de soluções no Hospital Israelita Albert Einstein, focado em transformar digitalmente as ferramentas de Atendimento Primário à Saúde. Utilizo uma stack moderna que inclui Nest.js, permitindo a criação de aplicações modulares e escaláveis, além de micro-serviços com Kafka e RabbitMQ para garantir alta disponibilidade e performance.",
 				detailedDescription:
 					"Diariamente, participo da implementação de sistemas robustos utilizando JavaScript, Node.js, TypeScript e GraphQL para criar integrações eficientes entre front-end e back-end. O uso de React e Material UI proporciona interfaces intuitivas, enquanto ferramentas como Vite e Vitest aceleram o desenvolvimento e os testes de qualidade. \n\nAdicionalmente, trabalho com Docker, Kubernetes e práticas de CI/CD para assegurar ambientes consistentes e integrações contínuas com AWS e Microsoft Azure, reforçando a estabilidade e a escalabilidade dos projetos. Em algumas ocasiões, acompanho desenvolvedores juniores, apoiando a evolução técnica sem assumir papéis de liderança formal.",
-				achievements: [],
-				technologies: [
-					{ name: "JavaScript" },
-					{ name: "Node.js" },
-					{ name: "TypeScript" },
-					{ name: "GraphQL" },
-					{ name: "Nest.js" },
-					{ name: "React" },
-					{ name: "Material UI" },
-					{ name: "Vite" },
-					{ name: "Vitest" },
-					{ name: "Kafka" },
-					{ name: "RabbitMQ" },
-					{ name: "MySQL" },
-					{ name: "Redis" },
-					{ name: "Docker" },
-					{ name: "Kubernetes" },
-					{ name: "CI/CD" },
-					{ name: "AWS" },
-					{ name: "Microsoft Azure" },
-				],
-			},
-			{
-				id: 2,
-				shouldShowInResume: false,
-				company: "Grupo GBI",
-				role: "Fullstack Software Developer",
-				startDate: "Mar 2024",
-				endDate: "atual",
-				description:
-					"Atuo como desenvolvedor fullstack no Grupo GBI, oferecendo consultoria tecnológica que impulsiona a transformação digital de grandes clientes. Emprego tecnologias modernas como Nest.js para construir soluções modulares, bem como micro-serviços com Kafka e RabbitMQ que garantem alta disponibilidade e performance.",
-				detailedDescription:
-					"No meu dia a dia, integro times multidisciplinares para desenvolver sistemas personalizados, utilizando JavaScript, TypeScript, Node.js e GraphQL para assegurar uma comunicação eficiente entre as camadas de aplicação. O emprego de React e Material UI contribui para interfaces modernas e intuitivas, enquanto a utilização de Vite e Vitest agiliza os ciclos de desenvolvimento e validação. \n\nAlém disso, a adoção de Docker, Kubernetes e práticas de CI/CD permite a criação de ambientes robustos e escaláveis, com suporte nas plataformas AWS e Microsoft Azure, garantindo a entrega contínua de soluções de alta qualidade sem comprometer a segurança dos dados.",
 				achievements: [],
 				technologies: [
 					{ name: "JavaScript" },

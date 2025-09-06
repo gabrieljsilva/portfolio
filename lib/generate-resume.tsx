@@ -1,5 +1,14 @@
 import type { Translation } from "@/constants/profile";
-import { Document, Page, Text, View, Link } from "@react-pdf/renderer";
+import { Document, Page, Text, View, Link, Font } from "@react-pdf/renderer";
+
+// Register Roboto fonts from public folder
+Font.register({
+	family: "Roboto",
+	fonts: [
+		{ src: "/fonts/roboto/static/Roboto-Regular.ttf", fontWeight: 400 },
+		{ src: "/fonts/roboto/static/Roboto-Bold.ttf", fontWeight: 700 },
+	],
+});
 
 export const ResumePDF = (translation: Translation) => {
 	const { profile, ui } = translation;
@@ -20,8 +29,12 @@ export const ResumePDF = (translation: Translation) => {
 			<Page
 				size="A4"
 				style={{
-					padding: 24,
-					fontFamily: "Helvetica",
+					// Page margins (in points). 1 cm ≈ 28.3465 pt
+					paddingTop: 70.87, // 2.5 cm
+					paddingBottom: 63.78, // 2.25 cm
+					paddingLeft: 85.04, // 3 cm
+					paddingRight: 85.04, // 3 cm
+					fontFamily: "Roboto",
 					fontSize: 11,
 					color: colors.mediumGray,
 					backgroundColor: colors.white,
@@ -32,14 +45,20 @@ export const ResumePDF = (translation: Translation) => {
 					<Text
 						style={{
 							fontSize: 16,
-							fontWeight: "900",
-							marginBottom: 8,
+							fontWeight: "bold",
+							marginBottom: 4,
 							color: colors.black,
 						}}
 					>
 						{profile.fullName}
 					</Text>
-					<Text style={{ fontSize: 12, color: colors.lighterGray }}>
+					<Text
+						style={{
+							fontSize: 12,
+							color: colors.lighterGray,
+							fontWeight: "bold",
+						}}
+					>
 						{profile.role}
 					</Text>
 				</View>
@@ -53,7 +72,7 @@ export const ResumePDF = (translation: Translation) => {
 						backgroundColor: colors.subtleGray,
 						padding: 6,
 						borderRadius: 4,
-						fontSize: 10,
+						fontSize: 11,
 					}}
 				>
 					<View style={{ width: "48%" }}>
@@ -95,8 +114,8 @@ export const ResumePDF = (translation: Translation) => {
 					>
 						<Text
 							style={{
-								fontSize: 14,
-								fontWeight: "900",
+								fontSize: 11,
+								fontWeight: "bold",
 								color: colors.black,
 								textTransform: "uppercase",
 								letterSpacing: 1,
@@ -120,8 +139,8 @@ export const ResumePDF = (translation: Translation) => {
 					>
 						<Text
 							style={{
-								fontSize: 14,
-								fontWeight: "900",
+								fontSize: 11,
+								fontWeight: "bold",
 								color: colors.black,
 								textTransform: "uppercase",
 								letterSpacing: 1,
@@ -155,8 +174,7 @@ export const ResumePDF = (translation: Translation) => {
 								</Text>
 								<Text
 									style={{
-										fontSize: 10,
-										fontWeight: "semibold",
+										fontSize: 11,
 										color: colors.darkGray,
 										marginBottom: 1,
 									}}
@@ -165,7 +183,7 @@ export const ResumePDF = (translation: Translation) => {
 								</Text>
 								<Text
 									style={{
-										fontSize: 8,
+										fontSize: 11,
 										color: colors.lightGray,
 										marginBottom: 4,
 									}}
@@ -184,7 +202,7 @@ export const ResumePDF = (translation: Translation) => {
 									<Text
 										key={achievement}
 										style={{
-											fontSize: 8,
+											fontSize: 11,
 											marginBottom: 2,
 											paddingLeft: 8,
 										}}
@@ -208,8 +226,8 @@ export const ResumePDF = (translation: Translation) => {
 					>
 						<Text
 							style={{
-								fontSize: 14,
-								fontWeight: "900",
+								fontSize: 11,
+								fontWeight: "bold",
 								color: colors.black,
 								textTransform: "uppercase",
 								letterSpacing: 1,
@@ -232,7 +250,7 @@ export const ResumePDF = (translation: Translation) => {
 							>
 								<Text
 									style={{
-										fontSize: 10,
+										fontSize: 11,
 										fontWeight: "bold",
 										color: colors.black,
 										marginBottom: 2,
@@ -242,18 +260,17 @@ export const ResumePDF = (translation: Translation) => {
 								</Text>
 								<Text
 									style={{
-										fontSize: 9,
-										fontWeight: "medium",
+										fontSize: 11,
 										color: colors.darkGray,
 										marginBottom: 2,
 									}}
 								>
 									{education.level} - {education.course}
 								</Text>
-								<Text style={{ fontSize: 8, marginBottom: 1 }}>
+								<Text style={{ fontSize: 11, marginBottom: 1 }}>
 									{education.workload} - {education.status}
 								</Text>
-								<Text style={{ fontSize: 8 }}>
+								<Text style={{ fontSize: 11 }}>
 									{education.startDate}
 									{education.endDate ? ` - ${education.endDate}` : ""}
 								</Text>
@@ -274,8 +291,8 @@ export const ResumePDF = (translation: Translation) => {
 					>
 						<Text
 							style={{
-								fontSize: 14,
-								fontWeight: "900",
+								fontSize: 11,
+								fontWeight: "bold",
 								color: colors.black,
 								textTransform: "uppercase",
 								letterSpacing: 1,
@@ -298,7 +315,7 @@ export const ResumePDF = (translation: Translation) => {
 							>
 								<Text
 									style={{
-										fontSize: 10,
+										fontSize: 11,
 										fontWeight: "bold",
 										color: colors.black,
 										marginBottom: 4,
@@ -306,7 +323,7 @@ export const ResumePDF = (translation: Translation) => {
 								>
 									{skillSet.category}
 								</Text>
-								<Text style={{ fontSize: 8 }}>
+								<Text style={{ fontSize: 11 }}>
 									{skillSet.skills.map((skill) => skill.name).join(", ")}
 								</Text>
 							</View>
