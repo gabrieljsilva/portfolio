@@ -36,8 +36,8 @@ export const ResumePDF = (translation: Translation) => {
 					paddingRight: 85.04, // 3 cm
 					fontFamily: "Roboto",
 					fontSize: 11,
-					color: colors.mediumGray,
-					backgroundColor: colors.white,
+					color: "#000000",
+					backgroundColor: "#FFFFFF",
 				}}
 			>
 				{/* Header */}
@@ -52,283 +52,92 @@ export const ResumePDF = (translation: Translation) => {
 					>
 						{profile.fullName}
 					</Text>
-					<Text
-						style={{
-							fontSize: 12,
-							color: colors.lighterGray,
-							fontWeight: "bold",
-						}}
-					>
-						{profile.role}
-					</Text>
+					<Text style={{ fontSize: 12 }}>{profile.role}</Text>
 				</View>
 
 				{/* Contact Info */}
-				<View
-					style={{
-						flexDirection: "row",
-						justifyContent: "space-between",
-						marginBottom: 16,
-						backgroundColor: colors.subtleGray,
-						padding: 6,
-						borderRadius: 4,
-						fontSize: 11,
-					}}
-				>
-					<View style={{ width: "48%" }}>
-						<Text style={{ marginBottom: 2 }}>
-							E-mail: {profile.contact.email}
-						</Text>
-
-						<Text style={{ marginBottom: 2 }}>
-							{ui.phone}: {profile.contact.phone}
-						</Text>
-
-						<Text>
-							{ui.location}: {profile.location.city}, {profile.location.state}
-						</Text>
-					</View>
-
-					<View style={{ width: "48%" }}>
-						<Text style={{ marginBottom: 2 }}>
-							LinkedIn: {profile.social.linkedin}
-						</Text>
-						<Text style={{ marginBottom: 2 }}>
-							Github: {profile.social.github}
-						</Text>
-						<Text>
-							{ui.portfolio}: {profile.social.website}
-						</Text>
-					</View>
+				<View style={{ marginBottom: 12 }}>
+					<Text style={{ marginBottom: 2 }}>
+						E-mail: <Link src={`mailto:${profile.contact.email}`}>{profile.contact.email}</Link>
+					</Text>
+					<Text style={{ marginBottom: 2 }}>
+						{ui.phone}: <Link src={`tel:${profile.contact.phone}`}>{profile.contact.phone}</Link>
+					</Text>
+					<Text style={{ marginBottom: 2 }}>
+						{ui.location}: {profile.location.city}, {profile.location.state}
+					</Text>
+					<Text style={{ marginBottom: 2 }}>
+						LinkedIn: <Link src={profile.social.linkedin}>{profile.social.linkedin}</Link>
+					</Text>
+					<Text style={{ marginBottom: 2 }}>
+						Github: <Link src={profile.social.github}>{profile.social.github}</Link>
+					</Text>
+					<Text>
+						{ui.portfolio}: <Link src={profile.social.website}>{profile.social.website}</Link>
+					</Text>
 				</View>
 
 				{/* Professional Summary */}
-				<View style={{ marginBottom: 16 }}>
-					<View
-						style={{
-							borderBottom: 1,
-							borderBottomColor: colors.subtleGray,
-							paddingBottom: 2,
-							marginBottom: 8,
-						}}
-					>
-						<Text
-							style={{
-								fontSize: 11,
-								fontWeight: "bold",
-								color: colors.black,
-								textTransform: "uppercase",
-								letterSpacing: 1,
-							}}
-						>
-							{ui.professionalSummary}
-						</Text>
-					</View>
+				<View style={{ marginBottom: 12 }}>
+					<Text style={{ fontWeight: "bold", marginBottom: 4 }}>{ui.professionalSummary}</Text>
 					<Text>{profile.resumeSummary}</Text>
 				</View>
 
 				{/* Professional Experience */}
-				<View style={{ marginBottom: 16 }}>
-					<View
-						style={{
-							borderBottom: 1,
-							borderBottomColor: colors.subtleGray,
-							paddingBottom: 2,
-							marginBottom: 6,
-						}}
-					>
-						<Text
-							style={{
-								fontSize: 11,
-								fontWeight: "bold",
-								color: colors.black,
-								textTransform: "uppercase",
-								letterSpacing: 1,
-							}}
-						>
-							{ui.professionalExperience}
-						</Text>
-					</View>
+				<View style={{ marginBottom: 12 }}>
+					<Text style={{ fontWeight: "bold", marginBottom: 6 }}>{ui.professionalExperience}</Text>
 
 					{profile.experiences
 						.filter((exp) => exp.shouldShowInResume)
-						.map((exp, index, array) => (
-							<View
-								key={exp.id}
-								style={{
-									marginBottom: index === array.length - 1 ? 0 : 12,
-									paddingBottom: index === array.length - 1 ? 0 : 12,
-									borderBottom: index === array.length - 1 ? 0 : 1,
-									borderBottomColor: colors.subtleGray,
-								}}
-							>
-								<Text
-									style={{
-										fontSize: 11,
-										fontWeight: "bold",
-										color: colors.black,
-										marginBottom: 1,
-									}}
-								>
-									{exp.company}
-								</Text>
-								<Text
-									style={{
-										fontSize: 11,
-										color: colors.darkGray,
-										marginBottom: 1,
-									}}
-								>
-									{exp.role}
-								</Text>
-								<Text
-									style={{
-										fontSize: 11,
-										color: colors.lightGray,
-										marginBottom: 4,
-									}}
-								>
+						.map((exp) => (
+							<View key={exp.id} style={{ marginBottom: 10 }}>
+								<Text style={{ fontWeight: "bold" }}>{exp.company}</Text>
+								<Text style={{ marginBottom: 2 }}>{exp.role}</Text>
+								<Text style={{ marginBottom: 4 }}>
 									{exp.startDate} - {exp.endDate || ui.present}
 								</Text>
-								<Text
-									style={{
-										marginBottom: 4,
-									}}
-								>
-									{exp.description}
-								</Text>
-
-								{exp.achievements.slice(0, 3).map((achievement) => (
-									<Text
-										key={achievement}
-										style={{
-											fontSize: 11,
-											marginBottom: 2,
-											paddingLeft: 8,
-										}}
-									>
-										• {achievement}
-									</Text>
-								))}
+								{exp.description ? (
+									<Text style={{ marginBottom: 4 }}>{exp.description}</Text>
+								) : null}
+								{Array.isArray(exp.achievements) && exp.achievements.length > 0
+									? exp.achievements.map((achievement) => (
+											<Text key={achievement} style={{ marginBottom: 2 }}>
+												• {achievement}
+											</Text>
+										))
+									: null}
 							</View>
 						))}
 				</View>
 
 				{/* Academic Background */}
-				<View style={{ marginBottom: 16 }}>
-					<View
-						style={{
-							borderBottom: 1,
-							borderBottomColor: colors.subtleGray,
-							paddingBottom: 2,
-							marginBottom: 8,
-						}}
-					>
-						<Text
-							style={{
-								fontSize: 11,
-								fontWeight: "bold",
-								color: colors.black,
-								textTransform: "uppercase",
-								letterSpacing: 1,
-							}}
-						>
-							{ui.academicBackground}
-						</Text>
-					</View>
-
-					<View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12 }}>
-						{profile.academicBackground.map((education) => (
-							<View
-								key={education.course}
-								style={{
-									width: "48%",
-									backgroundColor: colors.subtleGray,
-									padding: 8,
-									borderRadius: 4,
-								}}
-							>
-								<Text
-									style={{
-										fontSize: 11,
-										fontWeight: "bold",
-										color: colors.black,
-										marginBottom: 2,
-									}}
-								>
-									{education.location}
-								</Text>
-								<Text
-									style={{
-										fontSize: 11,
-										color: colors.darkGray,
-										marginBottom: 2,
-									}}
-								>
-									{education.level} - {education.course}
-								</Text>
-								<Text style={{ fontSize: 11, marginBottom: 1 }}>
-									{education.workload} - {education.status}
-								</Text>
-								<Text style={{ fontSize: 11 }}>
-									{education.startDate}
-									{education.endDate ? ` - ${education.endDate}` : ""}
-								</Text>
-							</View>
-						))}
-					</View>
+				<View style={{ marginBottom: 12 }}>
+					<Text style={{ fontWeight: "bold", marginBottom: 6 }}>{ui.academicBackground}</Text>
+					{profile.academicBackground.map((education) => (
+						<View key={education.course} style={{ marginBottom: 6 }}>
+							<Text style={{ fontWeight: "bold" }}>{education.location}</Text>
+							<Text>
+								{education.level} - {education.course}
+							</Text>
+							<Text>
+								{education.workload} - {education.status}
+							</Text>
+							<Text>
+								{education.startDate}
+								{education.endDate ? ` - ${education.endDate}` : ""}
+							</Text>
+						</View>
+					))}
 				</View>
 
 				{/* Technical Skills */}
 				<View>
-					<View
-						style={{
-							borderBottom: 1,
-							borderBottomColor: colors.subtleGray,
-							paddingBottom: 2,
-							marginBottom: 8,
-						}}
-					>
-						<Text
-							style={{
-								fontSize: 11,
-								fontWeight: "bold",
-								color: colors.black,
-								textTransform: "uppercase",
-								letterSpacing: 1,
-							}}
-						>
-							{ui.technicalSkills}
+					<Text style={{ fontWeight: "bold", marginBottom: 6 }}>{ui.technicalSkills}</Text>
+					{profile.skillsSet.map((skillSet) => (
+						<Text key={skillSet.category} style={{ marginBottom: 2 }}>
+							• {skillSet.category}: {skillSet.skills.map((skill) => skill.name).join(", ")}
 						</Text>
-					</View>
-
-					<View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
-						{profile.skillsSet.map((skillSet) => (
-							<View
-								key={skillSet.category}
-								style={{
-									width: "31%",
-									backgroundColor: colors.subtleGray,
-									padding: 8,
-									borderRadius: 4,
-								}}
-							>
-								<Text
-									style={{
-										fontSize: 11,
-										fontWeight: "bold",
-										color: colors.black,
-										marginBottom: 4,
-									}}
-								>
-									{skillSet.category}
-								</Text>
-								<Text style={{ fontSize: 11 }}>
-									{skillSet.skills.map((skill) => skill.name).join(", ")}
-								</Text>
-							</View>
-						))}
-					</View>
+					))}
 				</View>
 			</Page>
 		</Document>
