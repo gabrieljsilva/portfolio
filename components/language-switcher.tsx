@@ -37,19 +37,17 @@ export function LanguageSwitcher() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [loadedFlags, setLoadedFlags] = useState<Record<string, boolean>>({});
 
+	// Preload flag images only when the menu is opened to reduce unused JS/network
 	useEffect(() => {
-		const preloadImages = () => {
-			for (const lang of languages) {
-				const img = new Image();
-				img.src = lang.flag;
-				img.onload = () => {
-					setLoadedFlags((prev) => ({ ...prev, [lang.code]: true }));
-				};
-			}
-		};
-
-		preloadImages();
-	}, []);
+		if (!isOpen) return;
+		for (const lang of languages) {
+			const img = new Image();
+			img.src = lang.flag;
+			img.onload = () => {
+				setLoadedFlags((prev) => ({ ...prev, [lang.code]: true }));
+			};
+		}
+	}, [isOpen]);
 
 	const handleLanguageChange = (langCode: string) => {
 		setCurrentLang(langCode);
@@ -97,7 +95,10 @@ export function LanguageSwitcher() {
 												<img
 													src={lang.flag}
 													alt={`lang ${lang.name} flag`}
-													loading={"eager"}
+													loading="lazy"
+													decoding="async"
+													width={16}
+													height={16}
 												/>
 											) : (
 												<Loader2 className="h-3 w-3 animate-spin" />

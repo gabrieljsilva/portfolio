@@ -53,6 +53,9 @@ export function AboutSection() {
 										className="object-cover"
 										width={400}
 										height={400}
+										loading="lazy"
+										decoding="async"
+										fetchPriority="low"
 									/>
 								</div>
 							</div>

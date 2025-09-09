@@ -34,11 +34,14 @@ export function Thumbnail({
 		>
 			{src ? (
 				<div className="relative h-full w-full">
-					<img
-						src={src || "/placeholder.svg"}
-						alt={alt || title}
-						className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
-					/>
+									<img
+										src={src || "/placeholder.svg"}
+										alt={alt || title}
+										className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+										loading="lazy"
+										decoding="async"
+										fetchPriority="low"
+									/>
 					<div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
 					<div className="absolute bottom-0 left-0 right-0 p-4">
 						<h3 className="text-lg font-semibold text-card-foreground">
