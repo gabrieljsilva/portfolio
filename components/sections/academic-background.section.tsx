@@ -12,7 +12,7 @@ export function AcademicSection() {
 		>
 			<div className="container px-4 mt-8 md:px-6">
 				<div className="flex justify-between items-center mb-6">
-					<h1 className="text-3xl font-bold">{ui.academicBackground}</h1>
+					<h2 className="text-3xl font-bold">{ui.academicBackground}</h2>
 				</div>
 
 				<div className="grid gap-6">

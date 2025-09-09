@@ -44,6 +44,8 @@ export const en = {
 		academicBackground: "Academic Background",
 		portfolio: "Portfolio",
 		phone: "Phone",
+		collapse: "collapse",
+		expand: "expand",
 	},
 	profile: {
 		name: "Gabriel Silva",

@@ -45,6 +45,8 @@ export const ptBr = {
 		academicBackground: "Formação Acadêmica",
 		portfolio: "Portifólio",
 		phone: "Telefone",
+		collapse: "ocultar",
+		expand: "expandir",
 	},
 	profile: {
 		name: "Gabriel Silva",

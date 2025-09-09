@@ -190,10 +190,12 @@ export function ExperienceSection() {
 												</motion.div>
 											)}
 										</AnimatePresence>
+
 										<Button
 											variant="ghost"
 											className="w-full transition-colors"
 											onClick={() => toggleCard(index)}
+											aria-label={isExpanded ? ui.collapse : ui.expand}
 										>
 											<motion.div
 												initial={false}
