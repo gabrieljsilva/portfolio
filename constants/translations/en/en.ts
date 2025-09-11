@@ -52,7 +52,7 @@ export const en = {
 		fullName: "Gabriel de Jesus Silva",
 		role: "Software Developer",
 		currentCompany: "Hospital Israelita Albert Einstein",
-		currentCompanyShortName: "HIAE",
+		currentCompanyShortName: "Sami",
 		birthdayDate: "2000-01-23",
 		resumeSummary:
 			"Full Stack Developer with over 5 years of experience creating robust and scalable solutions for healthcare and technology sectors. Specialized in modular architectures with Nest.js and implementing microservices using Kafka, RabbitMQ, and CI/CD practices, I possess advanced skills in JavaScript, TypeScript, React, and GraphQL. Open source contributor committed to the evolution of the technological ecosystem, always seeking to apply best practices to enhance system performance and quality.",
