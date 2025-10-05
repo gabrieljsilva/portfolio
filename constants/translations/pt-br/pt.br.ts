@@ -403,11 +403,49 @@ export const ptBr = {
 		 */
 		experiences: [
 			{
+				id: 2,
+				shouldShowInResume: true,
+				company: "Sami Saúde",
+				role: "Fullstack Software Developer",
+				startDate: "Jul 2025",
+				description:
+					"Atuação no desenvolvimento de sistemas voltados para a área de planos de saúde, implementando aplicações robustas utilizando JavaScript, Node.js e TypeScript. Utilizo banco de dados relacionais como MySQL e Postgres, além de criar aplicações modulares e escaláveis com Fastify e Nest.js.",
+				detailedDescription:
+					"Durante minha atuação na Sami Saúde, desenvolvo sistemas orientados a eventos e microsserviços com RabbitMQ, criando testes unitários e de integração para garantir a qualidade do código. Desenvolvo bibliotecas para aprimorar a qualidade do código e a experiência de desenvolvimento de testes de integração. \n\nAlém disso, configuro e implemento práticas de observabilidade, utilizando OpenTelemetry e Grafana para geração de logs, tracing e alertas. Também atuo na implementação de sistemas médicos que utilizam inteligência artificial generativa, sempre buscando inovação e excelência técnica.",
+				achievements: [],
+ 			technologies: [
+ 				{ name: "JavaScript" },
+ 				{ name: "Node.js" },
+ 				{ name: "TypeScript" },
+ 				{ name: "React" },
+ 				{ name: "Vite" },
+ 				{ name: "Vitest" },
+ 				{ name: "Express" },
+ 				{ name: "Fastify" },
+ 				{ name: "Nest.js" },
+ 				{ name: "Microsservices" },
+ 				{ name: "RabbitMQ" },
+ 				{ name: "MySQL" },
+ 				{ name: "Postgresql" },
+ 				{ name: "MongoDB" },
+ 				{ name: "Redis" },
+ 				{ name: "OpenTelemetry" },
+ 				{ name: "Grafana" },
+ 				{ name: "Docker" },
+ 				{ name: "CI/CD" },
+ 				{ name: "Github" },
+ 				{ name: "Github Actions" },
+ 				{ name: "CircleCI" },
+ 				{ name: "GCP" },
+ 			],
+			},
+			{
 				id: 1,
 				shouldShowInResume: true,
 				company: "Hospital Israelita Albert Einstein",
 				role: "Fullstack Software Developer",
 				startDate: "Mar 2024",
+				endDate: "Jun 2025",
 				description:
 					"Atuo no desenvolvimento de soluções no Hospital Israelita Albert Einstein, focado em transformar digitalmente as ferramentas de Atendimento Primário à Saúde. Utilizo uma stack moderna que inclui Nest.js, permitindo a criação de aplicações modulares e escaláveis, além de micro-serviços com Kafka e RabbitMQ para garantir alta disponibilidade e performance.",
 				detailedDescription:
