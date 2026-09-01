@@ -1,66 +1,52 @@
-import { iconsMaps } from "@/constants/icons";
-import { useTranslations } from "@/constants/profile";
+import { Tag } from "@/components/ui/tag";
+import { profile } from "@/constants/profile";
+import type { Translation } from "@/lib/i18n";
+import Image from "next/image";
 
-const { MapPin } = iconsMaps.misc;
-
-export function AboutSection() {
-	const { profile, ui } = useTranslations();
-
+export function AboutSection({ t }: { t: Translation["site"]["about"] }) {
 	return (
 		<section
 			id="about"
-			className="flex justify-center dark:bg-grid-small-white/[0.2]"
+			className="mx-auto max-w-[1240px] px-[22px] pt-[clamp(72px,9vw,140px)] nav:px-12"
 		>
-			<div className="container dark:bg-grid-small-white/[0.2]">
-				<div className="w-full relative overflow-hidden dark:bg-grid-small-white/[0.2] py-24">
-					<div className="absolute inset-0 -z-10 opacity-5">
-						<div className="absolute right-20 top-20 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
-						<div className="absolute left-20 bottom-20 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
+			<div className="mb-3.5 text-xs uppercase tracking-[0.06em] text-muted">
+				{t.kicker}
+			</div>
+
+			<div className="grid grid-cols-1 gap-[clamp(32px,5vw,72px)] nav:grid-cols-[1.5fr_1fr]">
+				<div>
+					<h2 className="mb-8 max-w-[20ch] text-[clamp(26px,2.8vw,38px)] font-semibold leading-[1.15] tracking-[-0.025em]">
+						{t.title}
+					</h2>
+
+					<div className="flex flex-col gap-[22px] text-base leading-[1.75] text-muted">
+						{t.paragraphs.map((paragraph) => (
+							<p key={paragraph} className="max-w-[60ch]">
+								{paragraph}
+							</p>
+						))}
 					</div>
 
-					<div className="container mx-auto px-4 md:px-6">
-						<div className="flex flex-col items-start gap-8">
-							<h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-								{ui.aboutMe}
-							</h2>
-
-							<div className="grid gap-8 lg:grid-cols-[2fr,1fr]">
-								<div className="space-y-6">
-									<h3 className="text-2xl font-semibold tracking-tight">
-										{profile.fullName}
-									</h3>
-
-									<div className="flex items-center text-muted-foreground">
-										<MapPin className="mr-2 h-4 w-4" />
-										{`${profile.location.city}, ${profile.location.state}, ${profile.location.country}`}
-									</div>
-
-									<div className="space-y-4 text-base/relaxed text-muted-foreground">
-										{profile.resume.split("\n\n").map((paragraph) => (
-											<p
-												key={`p-${paragraph.slice(0, 20).replace(/\s+/g, "-")}`}
-											>
-												{paragraph}
-											</p>
-										))}
-									</div>
-								</div>
-
-								<div className="hidden xl:block relative aspect-square overflow-hidden rounded-full border bg-muted lg:h-[400px]">
-									<img
-										src="/images/avatar/avatar.jpeg?height=400&width=400"
-										alt="Profile"
-										className="object-cover"
-										width={400}
-										height={400}
-										loading="lazy"
-										decoding="async"
-										fetchPriority="low"
-									/>
-								</div>
-							</div>
-						</div>
+					<div className="mt-8 flex flex-wrap gap-2">
+						{t.facts.map((fact) => (
+							<Tag key={fact} size="md">
+								{fact}
+							</Tag>
+						))}
 					</div>
+				</div>
+
+				<div>
+					<div className="relative aspect-[4/5] w-full overflow-hidden rounded-soft bg-surface">
+						<Image
+							src={profile.avatar}
+							alt={profile.name}
+							fill
+							sizes="(max-width: 980px) 100vw, 400px"
+							className="object-cover"
+						/>
+					</div>
+					<div className="mt-3 text-[13px] text-muted">{t.caption}</div>
 				</div>
 			</div>
 		</section>

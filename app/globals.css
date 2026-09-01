@@ -4,81 +4,96 @@
 
 @layer base {
 	:root {
-		--background: 0 0% 100%;
-		--foreground: 0 0% 3.9%;
-		--card: 0 0% 100%;
-		--card-foreground: 0 0% 3.9%;
-		--popover: 0 0% 100%;
-		--popover-foreground: 0 0% 3.9%;
-		--primary: 0 0% 9%;
-		--primary-foreground: 0 0% 98%;
-		--secondary: 0 0% 96.1%;
-		--secondary-foreground: 0 0% 9%;
-		--muted: 0 0% 96.1%;
-		--muted-foreground: 0 0% 40%;
-		--accent: 0 0% 96.1%;
-		--accent-foreground: 0 0% 9%;
-		--destructive: 0 84.2% 60.2%;
-		--destructive-foreground: 0 0% 98%;
-		--border: 0 0% 89.8%;
-		--input: 0 0% 89.8%;
-		--ring: 0 0% 3.9%;
-		--chart-1: 12 76% 61%;
-		--chart-2: 173 58% 39%;
-		--chart-3: 197 37% 24%;
-		--chart-4: 43 74% 66%;
-		--chart-5: 27 87% 67%;
-		--radius: 0.5rem;
-		--sidebar-background: 0 0% 98%;
-		--sidebar-foreground: 240 5.3% 26.1%;
-		--sidebar-primary: 240 5.9% 10%;
-		--sidebar-primary-foreground: 0 0% 98%;
-		--sidebar-accent: 240 4.8% 95.9%;
-		--sidebar-accent-foreground: 240 5.9% 10%;
-		--sidebar-border: 220 13% 91%;
-		--sidebar-ring: 217.2 91.2% 59.8%;
+		--color-bg: #f3f2f2;
+		--color-surface: #eae9e9;
+		--color-text: #201e1d;
+
+		--line: color-mix(in srgb, var(--color-text) 16%, transparent);
+		--line-strong: color-mix(in srgb, var(--color-text) 30%, transparent);
+		--muted: color-mix(in srgb, var(--color-text) 58%, transparent);
+		--hover: color-mix(in srgb, var(--color-text) 5%, transparent);
+
+		--soft: 4px;
+		--ease: cubic-bezier(0.22, 1, 0.36, 1);
 	}
+
 	.dark {
-		--background: 0 0% 3.9%;
-		--foreground: 0 0% 98%;
-		--card: 0 0% 3.9%;
-		--card-foreground: 0 0% 98%;
-		--popover: 0 0% 3.9%;
-		--popover-foreground: 0 0% 98%;
-		--primary: 0 0% 98%;
-		--primary-foreground: 0 0% 9%;
-		--secondary: 0 0% 14.9%;
-		--secondary-foreground: 0 0% 98%;
-		--muted: 0 0% 14.9%;
-		--muted-foreground: 0 0% 63.9%;
-		--accent: 0 0% 14.9%;
-		--accent-foreground: 0 0% 98%;
-		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 0 0% 98%;
-		--border: 0 0% 14.9%;
-		--input: 0 0% 14.9%;
-		--ring: 0 0% 83.1%;
-		--chart-1: 220 70% 50%;
-		--chart-2: 160 60% 45%;
-		--chart-3: 30 80% 55%;
-		--chart-4: 280 65% 60%;
-		--chart-5: 340 75% 55%;
-		--sidebar-background: 240 5.9% 10%;
-		--sidebar-foreground: 240 4.8% 95.9%;
-		--sidebar-primary: 224.3 76.3% 48%;
-		--sidebar-primary-foreground: 0 0% 100%;
-		--sidebar-accent: 240 3.7% 15.9%;
-		--sidebar-accent-foreground: 240 4.8% 95.9%;
-		--sidebar-border: 240 3.7% 15.9%;
-		--sidebar-ring: 217.2 91.2% 59.8%;
+		--color-bg: #1b1a19;
+		--color-surface: #232221;
+		--color-text: #f0eeec;
+
+		--line: color-mix(in srgb, var(--color-text) 15%, transparent);
+		--line-strong: color-mix(in srgb, var(--color-text) 26%, transparent);
+		--muted: color-mix(in srgb, var(--color-text) 55%, transparent);
+		--hover: color-mix(in srgb, var(--color-text) 7%, transparent);
 	}
 }
 
 @layer base {
-	* {
-		@apply border-border;
+	html {
+		scroll-behavior: smooth;
+		scrollbar-width: thin;
+		scrollbar-color: var(--line-strong) transparent;
 	}
+
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-bg text-ink antialiased;
+		transition: background 0.4s var(--ease), color 0.4s var(--ease);
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+	}
+	::-webkit-scrollbar-track {
+		background: var(--color-bg);
+	}
+	::-webkit-scrollbar-thumb {
+		background: var(--line-strong);
+		border-radius: 999px;
+		/* padding-box keeps the 3px border transparent, so the thumb reads as inset */
+		border: 3px solid var(--color-bg);
+		background-clip: padding-box;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: color-mix(in srgb, var(--color-text) 45%, transparent);
+		background-clip: padding-box;
+	}
+	::-webkit-scrollbar-corner {
+		background: var(--color-bg);
+	}
+
+	:focus {
+		outline: none;
+	}
+	:focus-visible {
+		outline: 2px solid var(--color-text);
+		outline-offset: 3px;
+	}
+	::selection {
+		background: color-mix(in srgb, var(--color-text) 15%, transparent);
+	}
+}
+
+@layer utilities {
+	/* The dotted field behind the hero, the Untimeless card and the contact block.
+	   The mask is set per-instance, so only the grain lives here. */
+	.dot-field {
+		background-image: radial-gradient(currentColor 1px, transparent 1px);
+		background-size: 22px 22px;
+		color: var(--line-strong);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
 	}
 }

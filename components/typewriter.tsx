@@ -1,77 +1,79 @@
 "use client";
 
-import { useTranslations } from "@/constants/profile";
-import { Code2 } from "lucide-react";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-export function TypewriterText() {
-	const { profile } = useTranslations();
-	const texts = [profile.name, profile.role];
-	const [displayText, setDisplayText] = useState("");
-	const [currentTextIndex, setCurrentTextIndex] = useState(0);
-	const [isDeleting, setIsDeleting] = useState(false);
+const TYPE_MS = 45;
+const DELETE_MS = 22;
+const HOLD_MS = 5200;
+const NEXT_PHRASE_MS = 420;
+const START_MS = 350;
 
-	const displayTextRef = useRef(displayText);
-	const isDeletingRef = useRef(isDeleting);
-	const currentTextIndexRef = useRef(currentTextIndex);
+export function Typewriter({ phrases }: { phrases: string[] }) {
+	const [typed, setTyped] = useState(phrases[0]);
+	const [current, setCurrent] = useState(phrases[0]);
 
+	// Timer é sistema externo — o caso em que um efeito se justifica.
 	useEffect(() => {
-		displayTextRef.current = displayText;
-	}, [displayText]);
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-	useEffect(() => {
-		isDeletingRef.current = isDeleting;
-	}, [isDeleting]);
+		let phraseIndex = 0;
+		let charIndex = 0;
+		let deleting = false;
+		let timer: ReturnType<typeof setTimeout>;
 
-	useEffect(() => {
-		currentTextIndexRef.current = currentTextIndex;
-	}, [currentTextIndex]);
+		const step = () => {
+			const full = phrases[phraseIndex];
+			setCurrent(full);
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-	useEffect(() => {
-		const typingSpeed = 150;
-		const deletingSpeed = 50;
-		const pauseBeforeDelete = 2000;
-		let timer: NodeJS.Timeout;
-
-		const typeWriter = () => {
-			const fullText = texts[currentTextIndexRef.current];
-
-			if (!isDeletingRef.current) {
-				if (displayTextRef.current.length < fullText.length) {
-					setDisplayText(fullText.slice(0, displayTextRef.current.length + 1));
-					timer = setTimeout(typeWriter, typingSpeed);
-				} else {
-					timer = setTimeout(() => {
-						setIsDeleting(true);
-						timer = setTimeout(typeWriter, deletingSpeed);
-					}, pauseBeforeDelete);
+			if (deleting) {
+				charIndex -= 1;
+				setTyped(full.slice(0, charIndex));
+				if (charIndex > 0) {
+					timer = setTimeout(step, DELETE_MS);
+					return;
 				}
-			} else {
-				if (displayTextRef.current.length > 0) {
-					setDisplayText(fullText.slice(0, displayTextRef.current.length - 1));
-					timer = setTimeout(typeWriter, deletingSpeed);
-				} else {
-					setIsDeleting(false);
-					setCurrentTextIndex((prev) => (prev + 1) % texts.length);
-					timer = setTimeout(typeWriter, typingSpeed);
-				}
+				deleting = false;
+				phraseIndex = (phraseIndex + 1) % phrases.length;
+				timer = setTimeout(step, NEXT_PHRASE_MS);
+				return;
 			}
+
+			charIndex += 1;
+			setTyped(full.slice(0, charIndex));
+			if (charIndex < full.length) {
+				timer = setTimeout(step, TYPE_MS);
+				return;
+			}
+			deleting = true;
+			timer = setTimeout(step, HOLD_MS);
 		};
 
-		timer = setTimeout(typeWriter, typingSpeed);
+		setTyped("");
+		timer = setTimeout(step, START_MS);
 		return () => clearTimeout(timer);
-	}, [profile]);
+	}, [phrases]);
+
+	// Reserva a largura do resto da palavra em curso, para o título não pular de linha.
+	const ghost =
+		typed.length >= current.length
+			? ""
+			: current.slice(
+					typed.length,
+					current.indexOf(" ", typed.length) === -1
+						? current.length
+						: current.indexOf(" ", typed.length),
+				);
 
 	return (
-		<Link
-			href="/"
-			className="flex items-center gap-2 text-lg md:text-xl font-bold tracking-tighter transition-colors hover:text-primary"
-		>
-			<Code2 className="h-8 w-8" />
-			<span>{displayText}</span>
-			<span className="animate-pulse">|</span>
-		</Link>
+		<>
+			{typed}
+			<span
+				aria-hidden="true"
+				className="ml-[0.08em] inline-block h-[0.82em] w-[0.06em] animate-caret bg-ink align-baseline"
+			/>
+			<span aria-hidden="true" className="invisible">
+				{ghost}
+			</span>
+		</>
 	);
 }

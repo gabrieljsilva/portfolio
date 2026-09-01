@@ -1,47 +1,44 @@
-import ContactModal from "@/components/contact-modal";
-import { SocialLinks } from "@/components/social-link";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Typewriter } from "@/components/typewriter";
+import { DottedBackdrop } from "@/components/ui/dotted-backdrop";
+import type { Translation } from "@/lib/i18n";
 
-import { useTranslations } from "@/constants/profile";
+const HERO_MASK =
+	"radial-gradient(70% 75% at 100% 30%, #000 0%, transparent 68%)";
 
-export function HeroSection() {
-	const { profile, ui } = useTranslations();
-
+export function HeroSection({ t }: { t: Translation["site"]["hero"] }) {
 	return (
-		<div id="home" className="w-full">
-			<div className="relative min-h-screen w-full overflow-hidden bg-background">
-				<div className="absolute inset-0 z-0">
-					<div className="relative h-full w-full bg-grid-small-black/[0.2] dark:bg-grid-small-white/[0.2]">
-						<div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
-						<div className="absolute left-[-20%] top-[-20%] h-[800px] w-[800px] animate-pulse rounded-full bg-primary/20 blur-3xl filter dark:bg-primary/10" />
-						<div className="absolute right-[-20%] top-[50%] translate-y-[-50%] h-[600px] w-[600px] animate-pulse rounded-full bg-primary/20 blur-3xl filter dark:bg-primary/10" />
-					</div>
-				</div>
+		<section
+			id="home"
+			className="relative mx-auto max-w-[1240px] overflow-hidden px-[22px] pb-[clamp(56px,8vw,120px)] pt-[clamp(72px,11vw,168px)] nav:px-12"
+		>
+			<DottedBackdrop mask={HERO_MASK} />
 
-				<div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 py-20">
-					<div className="text-center">
-						<h2 className="mb-2 inline-block rounded-full bg-muted px-4 py-1.5 text-sm font-semibold">
-							{profile.role}
-						</h2>
-						<h1 className="mb-4 mt-4 bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl lg:text-7xl">
-							{profile.name}
-						</h1>
-						<p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground sm:text-xl">
-							{profile.shortDescription}
-						</p>
-						<div className="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-							<Link href="#projects">
-								<Button size="lg" className="min-w-[160px]">
-									{ui.viewProjects}
-								</Button>
-							</Link>
-							<ContactModal />
-						</div>
-						<SocialLinks />
-					</div>
-				</div>
+			<div className="relative mb-[clamp(28px,4vw,44px)] text-[13px] tracking-[0.02em] text-muted">
+				{t.kicker}
 			</div>
-		</div>
+
+			<h1 className="relative min-h-[2.2em] max-w-[22ch] text-balance text-[clamp(27px,4vw,56px)] font-semibold leading-[1.1] tracking-[-0.03em]">
+				<Typewriter phrases={t.rotating} />
+			</h1>
+
+			<p className="relative mt-[clamp(28px,4vw,44px)] max-w-[62ch] text-[clamp(16px,1.4vw,19px)] leading-[1.7] text-muted">
+				{t.support}
+			</p>
+
+			<div className="relative mt-[clamp(32px,4vw,48px)] flex flex-wrap gap-3">
+				<a
+					href="#work"
+					className="inline-flex items-center rounded-soft bg-ink px-[22px] py-3.5 text-sm font-semibold text-bg transition-opacity duration-200 hover:opacity-80"
+				>
+					{t.ctaWork}
+				</a>
+				<a
+					href="#contact"
+					className="inline-flex items-center rounded-soft border border-line-strong px-[22px] py-3.5 text-sm font-semibold transition-colors duration-200 hover:bg-hover"
+				>
+					{t.ctaContact}
+				</a>
+			</div>
+		</section>
 	);
 }
