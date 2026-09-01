@@ -3,20 +3,19 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
-import { Button } from "@/components/ui/button";
-
-export function ThemeToggle() {
-	const { setTheme, theme } = useTheme();
+export function ThemeToggle({ label }: { label: string }) {
+	const { resolvedTheme, setTheme } = useTheme();
 
 	return (
-		<Button
-			variant="outline"
-			size="icon"
-			onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+		<button
+			type="button"
+			aria-label={label}
+			onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+			className="inline-flex size-[34px] items-center justify-center rounded-soft border border-line text-ink transition-colors duration-200 hover:bg-hover"
 		>
-			<Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-			<Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-			<span className="sr-only">Toggle theme</span>
-		</Button>
+			{/* Trocado por CSS, não por estado: evita descasamento na hidratação. */}
+			<Sun className="size-[15px] dark:hidden" />
+			<Moon className="hidden size-[15px] dark:block" />
+		</button>
 	);
 }
